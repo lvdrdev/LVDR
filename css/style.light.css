@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+html {
+    height: 100%;
+}
+
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+    background-color: #e05cbf;
+    background-image: linear-gradient(to bottom right, #eeaf61, #fb9062, #ee5d6c, #ce4993, #6a0d83);
+    height: 100%;
+    margin: 0;
+    background-repeat: 0;
+    background-attachment: fixed;
+}
+
+#MainTitle {
+    background-color: rgba(250, 254, 149, 0.4);
+    border: 2px solid;
+    border-color: darkslateblue;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 40px;
+    width: 1200px;
+    margin: 0 auto;
+    color: #4a5c6d;
+}
+
+#MainBlock {
+    text-align: center;
+    font-size: 20px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.726);
+    border-radius: 20px;
+    box-shadow: 10px 10px 20px #00000091;
+    width: 1200px;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+h1 {
+    color: #FB928E;
+}
+
+h2 {
+    color: #6684a0;
+}
+img {
+
+    border-radius: 60px;
+
+    border: 3px solid;
+    border-color: black;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+big {
+    color: #3A5874;
+}
+
+select {
+    margin-top: 5px;
+}
+
+button {
+    margin-top: 5px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+table, th, td, tr {
+    border: black solid 1px;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 3px;
+    font-size: 12px;
+}
+
+tfoot {
+    border: white solid 1px;
+    border-collapse: collapse;
+    text-align: center;
+    padding: 3px;
+    font-size: 12px;
+}
+
+input.castSize {
+
+    width: 500px;
+    height: 20px;
+}
+
+input, button, select {
+
+    border: 2px solid;
+    border-color: darkslateblue;
+    border-radius: 15px;
+    font-size: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+}
+label {
+
+    margin-right: 20px;
+
+}
+
+input.boxcheck {
+
+    width: 20px;
+    height: 20px;
+}
+
+button {
+    margin-bottom: 5px;
+}
+
+#inblock {
+    color: #4d759e;
+}
