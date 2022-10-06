@@ -3441,7 +3441,7 @@ function saveandBottomTwo() {
             bottomQueens[i].QueenC.ppe += 2;
             bottomQueens[i].QueenC.unfavoritism += 1.5;
             }
-            
+
         }
         screen.createBold("", "lows");
         let lows = document.getElementById("lows");
@@ -3624,7 +3624,7 @@ function saveandBottomTwo() {
     for (let i = 0; i < weekWinner.length; i++)
     screen.createImage(weekWinner[i].image, "royalblue");
     screen.createBold("The queen that was chosen to be saved is...");
-    if (randomNumber(0, 100) > 30) 
+    if (randomNumber(0, 100) > 30)
     topQueens[0].lipstick = bottomQueens[0];
     else
     topQueens[0].lipstick = bottomQueens[randomNumber(0, 2)];
@@ -6945,7 +6945,7 @@ function top2Lipsync() {
     screen.createBold(`${top2[0].getName()}, you're a winner baby!`);
     screen.createImage(top2[1].image, "cyan");
     screen.createBold(`${top2[1].getName()}, keep the fire burning!`);
-    if (!extraPremiere || extraPremiere && episodeCount > 1) {
+    if (extraPremiere && episodeCount == 1) {
     top2[0].addToTrackRecord("WIN");
     top2[0].favoritism += 5;
     top2[0].ppe += 2;
@@ -6954,7 +6954,7 @@ function top2Lipsync() {
     top2[1].favoritism += 4;
     top2[1].ppe += 1;
     }
-    else if (extraPremiere && episodeCount == 1) {
+    else if (!extraPremiere || extraPremiere && episodeCount > 1) {
     top2[0].addToTrackRecord("WIN");
     top2[0].favoritism += 5;
     top2[0].ppe += 6;
