@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link id="style" rel="stylesheet" href="css/style.light.css">
+    <link rel="icon" href="image/favicon.ico">
+    <title>Liam & Vince Drag Race</title>
+</head>
+<body>
+    <h1 id="MainTitle">WELCOME!</h1>
+    <div id="MainBlock">
+        <h1 id="MainTitle">Liam & Vince Drag Race</h1>
+        <p><big>Racers, start your engines and may the best artist win!</big></p>
+        <p>
+            How many queens do you want on your cast?
+            <br>
+            <br>
+            <input type="number" min="3" max="22" id="castSize">
+            <button onclick="generateSpace()">Select</button>
+        <p id="castSelection"></p>
+
+        <p>Select your premiere type: </p>
+        <select id="premiere-format">
+            <option>Normal premiere</option>
+            <option value="s6-premiere">Double Premiere</option>
+            <option value="pageantPremiere">Pageant Premiere</option>
+            <option value="s9-premiere">Pageant Premiere (Surprise Queen)</option>
+            <option value="extraPremiere">Pageant Premiere (Extravaganza)</option>
+            <option value="s12-premiere">Double Premiere (No Elimination)</option>
+            <option value="porkelim">Porkchop Premiere</option>
+            <option value="porkchop">Porkchop Premiere (No Elimination)</option>
+            <option value="s14-premiere">Double Premiere (Fake Elimination)</option>
+            <option value="triple-premiere">Triple Premiere</option>
+            <option value="splitCast-premiere">Splitted Cast Premiere</option>
+        </select>
+
+        <p>Select your returning twist: </p>
+        <select id="returning">
+            <option>None</option>
+            <option value="random">Mystery Queen</option>
+            <option value="ownpick">Pick-A-Queen</option>
+            <option value="votes">The Queens' Choice</option>
+            <option value="smackdown">Lip-Sync Smackdown</option>
+            <option value="lalaparuza">LaLaPaRUZa</option>
+            <option value="twinstwist">Twins Of Fate</option>
+            <option value="comedyRuvenge">The Last Laugh</option>
+            <option value="groupsRuvenge">Girl Groups Showdown</option>
+            <option value="lscombats">Lipsync Combats</option>
+            <option value="lsbattles">Lipsync Battle Royale</option>
+            <option value="secretPageant">Extra Secret Pageant</option>
+            <option value="secretDanceOffs">Extra Secret Showdowns</option>
+            <option value="secretSitcoms">Extra Secret Sitcoms</option>
+            
+        </select>
+        <p>Select your format: </p>
+        <select id="format">
+            <option value="top3">Top 3 Format</option>
+            <option value="top4">Lip-Sync For The Crown</option>
+            <option value="savequeen">Save A Queen</option>
+            <option value="team">Teams Format</option>
+            <option value="all-stars">Lip-Sync For Your Legacy</option>
+            <option value="lipsync-assassin">Lip-Sync Assassin Format</option>
+            <option value="throwqueen">Throw A Queen</option>
+            <option value="vstheworld">Lipsync For Your Fate</option>
+            <option value="superstars">Lipsync For The Stars</option>
+        </select>
+
+        <p><button onclick="startSimulation()">Simulate now!</button></p>
+        
+        <input type="checkbox" id="selectChallenge" class="boxcheck"> Make challenges selectable
+        <br>
+        <input type="checkbox" id="selectOutcome" class="boxcheck"> Make outcomes selectable
+        <br>
+        <input type="checkbox" id="disableDouble" class="boxcheck"> Disable double shantays and sashays
+        <br>
+        <input type="checkbox" id="showgirlShowdown" class="boxcheck"> Enable Showgirl Showdown Finale
+        <br>
+        <input type="checkbox" id="elimLipsync" class="boxcheck"> Enable Split Premiere Porkchops Lipsync
+        <br>
+        <input type="checkbox" id="forFinaleLS" class="boxcheck"> Enable Lipsync for the Finale (for Regular Seasons Only)
+        <br>
+        <input type="checkbox" id="juryTwist" class="boxcheck"> Enable Jury Twist for the Finale (for All Stars Only)
+        <br>
+        <input type="checkbox" id="GagEpisodes" class="boxcheck"> Make gag-worthy episodes more probable to happen
+        <br>
+        <input type="checkbox" id="goldBar" class="boxcheck"> Choose The Golden Bar Recipient
+        <br>
+        <input type="checkbox" id="randomChoc" class="boxcheck"> Random Golden Bar Recipient
+        <br>
+        <input type="checkbox" id="dragParty" class="boxcheck"> Enable Drag Party Twist
+        <br>
+        <input type="checkbox" id="onlyCustomQueens" class="boxcheck"> Show only custom queens
+        <hr>
+
+        <big>More options!</big>
+
+        <div>
+            <p>
+            <big><a href="predef.html" id="inblock">Predefined casts</a></big>
+            </p>
+            <p>
+            <big><a href="custom.html" id="inblock">Custom</a></big>
+            </p>
+            <p>
+            <button onclick="lockedIn()">Select Cast by Season</button></big>
+            </p>
+        </div>
+    </div> 
+</body>
+
+<script src="javascript/index.js"></script>
+
+</html>
