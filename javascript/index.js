@@ -3382,6 +3382,99 @@ function groupsJudging() {
     else if (savequeen)
     screen.createButton("Proceed", "saveandBottomTwo()");
 }
+function getBottomTwo() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Bring Back My Girls");
+    screen.createBold("Ladies, I have made some decisions!");
+    if (pairings == true) {
+    shuffle(bottomQueens);
+    let botHolder = [];
+    for (let i = 0; i < bottomQueens.length; i++) {
+        botHolder.push(bottomQueens[i].QueenA);
+        botHolder.push(bottomQueens[i].QueenB);
+        if (bottomQueens[i] == threeSome[0])
+        botHolder.push(bottomQueens[i].QueenC);
+    }
+    bottomQueens = [];
+    for (let i = 0; i < botHolder.length; i++)
+    bottomQueens.push(botHolder[i]);
+    bottomQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+    for (let i = 0; i < bottomQueens.length - 2; i++) {
+        screen.createImage(bottomQueens[i].image, "pink");
+        bottomQueens[i].addToTrackRecord("LOW");
+        bottomQueens[i].ppe += 2;
+        bottomQueens[i].unfavoritism += 1.5;
+        lowQueens.push(bottomQueens[i]);
+    }
+    screen.createBold("", "lows");
+    let lows = document.getElementById("lows");
+    for (let i = 0; i < lowQueens.length; i++) {
+    lows.innerHTML += `${lowQueens[i].getName()}, `;
+    bottomQueens.splice(bottomQueens.indexOf(lowQueens[i]), 1);
+    }
+    lows.innerHTML += " you are safe."
+    screen.createHorizontalLine();
+    screen.createBigText("That means...");
+    for (let i = 0; i < bottomQueens.length; i++)
+    screen.createImage(bottomQueens[i].image, "red");
+    screen.createBold(bottomQueens[0].getName() + ", " + bottomQueens[1].getName() + ", you will be up for elimination.")
+    }
+    else {
+    if (bottomQueens.length > 3) {
+    for (let i = 0; i < bottomQueens.length; i++)
+    if (isDesignChallenge == true)
+        bottomQueens[i].performanceScore -= ((bottomQueens[i].performanceScore * 1.5) + bottomQueens[i].unfavoritism + (bottomQueens[i].favoritism / 25));
+    else if (randomNumber(0, 100) >= 56 && currentCast.length <= totalCastSize - 4 && isDesignChallenge == false)
+        bottomQueens[i].performanceScore -= ((bottomQueens[i].performanceScore * 1.5) - (bottomQueens[i].runwayScore / 2) + bottomQueens[i].unfavoritism + (bottomQueens[i].favoritism / 25));
+    else if (randomNumber(0, 100) >= 56 && currentCast.length <= totalCastSize - 4 && isDesignChallenge == true)
+        bottomQueens[i].performanceScore -= ((bottomQueens[i].performanceScore * 1.5) + bottomQueens[i].unfavoritism + (bottomQueens[i].favoritism / 25));
+    else
+        bottomQueens[i].performanceScore += bottomQueens[i].runwayScore;
+    bottomQueens.sort((a, b) => (b.performanceScore - a.performanceScore));
+    for (let i = 0; i < bottomQueens.length - 2; i++)
+    lowQueens.push(bottomQueens[i]);
+    for (let i = 0; i < lowQueens.length; i++) {
+        bottomQueens.splice(bottomQueens.indexOf(lowQueens[i]), 1);
+        lowQueens[i].addToTrackRecord("LOW");
+        lowQueens[i].ppe += 2;
+        lowQueens[i].unfavoritism += 1;
+        screen.createImage(lowQueens[i].image, "pink");
+    }
+    screen.createBold("", "lows");
+    let lows = document.getElementById("lows");
+    for (let i = 0; i < lowQueens.length; i++)
+    lows.innerHTML += `${lowQueens[i].getName()}, `;
+    lows.innerHTML += " you are safe."
+    }
+    screen.createHorizontalLine();
+    screen.createBigText("That means...");
+    for (let i = 0; i < bottomQueens.length; i++)
+    screen.createImage(bottomQueens[i].image, "red");
+    screen.createBold(bottomQueens[0].getName() + ", " + bottomQueens[1].getName() + ", you will be up for elimination.");
+    }
+    if (pairings == true) {
+    currentCast = [];
+    for (let i = 0; i < castHolder.length; i++) {
+    currentCast.push(castHolder[i]);
+    }
+    let topHolder = [];
+    for (let i = 0; i < topQueens.length; i++) {
+        topHolder.push(topQueens[i].QueenA);
+        topHolder.push(topQueens[i].QueenB);
+        if (topQueens[i] == threeSome[0]) {
+            topHolder.push(topQueens[i].QueenC);
+        }
+    }
+    topQueens = [];
+    for (let i = 0; i < topHolder.length; i++)
+    topQueens.push(topHolder[i]);
+    }
+    noneIndividual = false;
+    pairings = false;
+    twoTeams = false;
+    screen.createButton("Proceed", "lipSync()");
+}
 function saveandBottomTwo() {
     let screen = new Scene();
     screen.clean();
@@ -4267,18 +4360,18 @@ class ActingChallenge {
         if (splitCastDuration == true) {
             description.innerHTML += "The queens will act in a " + desc1[randomNumber(0, 3)];
         }
-        else if (splitCastDuration == false && currentCast.length > 8 && randomNumber(0, 100) >= 25 && spoofCounter == false || superstars && randomNumber(0, 100) > 75) {
+        else if (splitCastDuration == false && currentCast.length > 8 && randomNumber(0, 100) >= 25 && spoofCounter == false && splitpremiere == false || superstars && randomNumber(0, 100) > 75 && splitpremiere == false) {
             description.innerHTML += "The queens will act in a " + desc1[6];
             spoofCounter = true;
         }
-        else if (splitCastDuration == false && currentCast.length < 9 && randomNumber(0, 100) >= 40 && brandingCounter == false || superstars && randomNumber(0, 100) > 55) {
+        else if (splitCastDuration == false && currentCast.length < 9 && randomNumber(0, 100) >= 40 && brandingCounter == false && splitpremiere == false || superstars && randomNumber(0, 100) > 55 && splitpremiere == false) {
             description.innerHTML += "The queens will act in a " + desc1[5];
             brandingCounter = true;
         }
         else {
             description.innerHTML += "The queens will act in a " + desc1[randomNumber(0, 3)];
         }
-        if (description.innerHTML == "The queens will act in a commercial about ") {
+        if (description.innerHTML == "The queens will advertise a commercial about ") {
             brandingChallenge = true;
         }
         else if (description.innerHTML == "The queens will act in a dragtastic video spoof about ") {
@@ -4349,11 +4442,11 @@ class ComedyChallenge {
         if (splitCastDuration == true) {
             description.innerHTML += "The queens will participate in " + desc1[randomNumber(0, 3)];
         }
-        else if (splitCastDuration == false && currentCast.length > 8 && randomNumber(0, 100) >= 35 && despysCounter == false || superstars && randomNumber(0, 100) > 75) {
+        else if (splitCastDuration == false && currentCast.length > 8 && randomNumber(0, 100) >= 35 && despysCounter == false && splitpremiere == false || superstars && randomNumber(0, 100) > 75 && splitpremiere == false) {
             description.innerHTML += "The queens will participate in " + desc1[5];
             despysCounter = true;
         }
-        else if (splitCastDuration == false && currentCast.length < 8 && randomNumber(0, 100) >= 45 && roastCounter == false || superstars && randomNumber(0, 100) > 55) {
+        else if (splitCastDuration == false && currentCast.length < 8 && randomNumber(0, 100) >= 45 && roastCounter == false && splitpremiere == false || superstars && randomNumber(0, 100) > 55 && splitpremiere == false) {
             description.innerHTML += "The queens will participate in " + desc1[4];
             roastCounter = true;
         }
@@ -4536,7 +4629,10 @@ class DesignChallenge {
             desc1[desc1["materials inspired from iconic movie posters."] = 8] = "materials inspired from iconic movie posters.";
             desc1[desc1["random mystery boxes"] = 9] = "random mystery boxes.";
         })(desc1 || (desc1 = {}));
-        description.innerHTML = "The queens will make a fabulous look with items they obtained from " + desc1[randomNumber(0, 9)];
+        if (pairings == false)
+            description.innerHTML = "The queens will make a fabulous look with items they obtained from " + desc1[randomNumber(0, 9)];
+        else if (pairings == true)
+            description.innerHTML = "In tonight's who wore it better, the queens are paired up and tasked to create similar materials they obtained from " + desc1[randomNumber(0, 9)];
         }
     }
     rankPerformances() {
@@ -4582,12 +4678,12 @@ class ImprovChallenge {
         if (splitCastDuration == true) {
             description.innerHTML = "The queens will improvise in a " + desc1[randomNumber(2, 9)];
         }
-        else if (splitCastDuration == false && randomNumber(0, 100) > 35 && debateCounter == false) {
+        else if (splitCastDuration == false && randomNumber(0, 100) > 35 && debateCounter == false && splitpremiere == false) {
             description.innerHTML = "The queens will improvise in a " + desc1[0];
             debateCounter = true;
             debateChallenge = true;
         }
-        else if (splitCastDuration == false && currentCast.length > 7 && randomNumber(0, 100) > 45 && panelsCounter == false) {
+        else if (splitCastDuration == false && currentCast.length > 7 && randomNumber(0, 100) > 45 && panelsCounter == false && splitpremiere == false) {
             description.innerHTML = "The queens will improvise in a " + desc1[1];
             panelsCounter = true;
             panelsChallenge = true;
@@ -4808,7 +4904,7 @@ class Makeover {
     generateDescription() {
         let description = document.querySelector("p#Description");
         let desc;
-        if (ruvengeEpisode == false) {
+        if (ruvengeEpisode == false && pairings == false) {
         (function (desc) {
             desc[desc["professional football players."] = 0] = "professional football players.";
             desc[desc["Drag Race superfans."] = 1] = "Drag Race superfans.";
@@ -4826,6 +4922,9 @@ class Makeover {
         }
         else if (ruvengeEpisode == true) {
             description.innerHTML = "The queens are paired up and tasked to makeover each other. <br> For an ultimate chance of going back to the competition!";
+        }
+        else if (pairings == true) {
+            description.innerHTML = "It's a freaky friday! <br> The queens are paired up and tasked to switch drag styles and emulate their partners on the runway.";
         }
     }
     rankPerformances() {
@@ -6004,6 +6103,7 @@ function doublePremiere() {
             }
         }
         else if (triplePremiere) {
+            shuffle(currentCast);
             firstCast = currentCast.splice(0, Math.floor(currentCast.length / 3));
             secondCast = currentCast.splice(0, Math.floor(currentCast.length / 2));
             thirdCast = [...currentCast];
@@ -23438,7 +23538,7 @@ let allQueens = [
     hayleykiyoko, henrygolding, jackiechan, kenta, kimlee, kittychicha, kyarypamyupamyu, kygo, laiguanlin, mariomaurer, mindykaling, priyankachopra, ryosukeyamada, vannesswu,
 ].concat(allCustomQueens).sort((a, b) => a.getName().toLowerCase().localeCompare(b.getName().toLowerCase()));
 let allQueensCopy = [];
-let krCast = [...us_season1, ...us_season2, ...us_season3, ...us_season4, ...us_season5, ...us_season6, ...us_season7, ...us_season8, ...us_season9, ...us_season10, ...us_season11, ...us_season12, ...us_season13, ...us_season14, ...us_season15, ...us_season16, ...us_season17, ...us_season18, ...us_season19, ...us_season20, ...us_season21, ...us_season22, ...us_season23, ...us_season24, ...us_season25, ...us_season26, ...us_season27, ...us_season28, ...us_season29, ...us_season30, ...us_season31, ...us_season32, ...us_season33, ...us_season34, ...us_season35, ...us_season36];
+let krCast = [...us_season1, ...us_season2, ...us_season3, ...us_season4, ...us_season5, ...us_season6, ...us_season7, ...us_season8, ...us_season9, ...us_season10, ...us_season11, ...us_season12, ...us_season13, ...us_season14, ...us_season15, ...us_season16, ...us_season17, ...us_season18, ...us_season19, ...us_season20, ...us_season21, ...us_season22, ...us_season23, ...us_season24, ...us_season25, ...us_season26, ...us_season27, ...us_season28, ...us_season29, ...us_season30, ...us_season31, ...us_season32, ...us_season33, ...us_season34, ...us_season35, ...us_season36, ...us_season37];
 let namCast = [...nam_season1, ...nam_season2, ...nam_season3, ...nam_season4];
 let euCast = [...uk_season1, ...uk_season2, ...uk_season3];
 let phCast = [...can_season1, ...can_season2, ...can_season3];
