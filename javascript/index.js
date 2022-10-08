@@ -17129,7 +17129,7 @@ function judging() {
         judgingScreen();
     }
     else if (ruvengeEpisode == true && totalCastSize == 9) {
-        //add 2 remaining and ruvenge queens at the top and 2 bottoms 
+        //add 2 remaining and ruvenge queens at the top and 2 bottoms
         remainingQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
         ruvengeQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
         for (let i = 0; i < 2; i++) {
