@@ -23941,7 +23941,7 @@ function LaLaPaRUza() {
             smack1.splice(i, 1);
             i--;
         }else if (smack1[i].trackRecord[trds] == " WIN"){
-            smack1[i].addToTrackRecord("SAFE  ;");
+            smack1[i].addToTrackRecord("SAFE  ");
             smack1.splice(i, 1);
             i--;
         }else if (smack1[i].trackRecord[trds] == "WIN " && !all_stars && !vstheworld){
