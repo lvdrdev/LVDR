@@ -22869,7 +22869,7 @@ let us_season14 = [baekhyun, chanyeol, chen, kyungsoo, hyoyeon, jessicajung, kai
 //SUPERSTARS 2
 let superstars_2 = [chaeyeon, dk, eric, haseul, hayoung, inseong, jiheon, jinsoul, jiu, johnny, juri, keonhee, mark, renjun, sana, seulgi, the8, wonyoung];
 //SEASON 15
-let babysoul = new Queen("BabySoul", 7, 8, 13, 8, 14, 12, 9, 12, 7, "BabySoul");
+let babysoul = new Queen("BabySoul", 7, 8, 13, 8, 14, 12, 9, 12, 7, "Babysoul");
 let hongjoong = new Queen("Hongjoong", 9, 10, 8, 11, 12, 10, 13, 11, 9, "Hongjoong");
 let jiae = new Queen("Jiae", 11, 9, 9, 11, 7, 12, 8, 13, 8, "Jiae");
 let jin = new Queen("JIN", 12, 9, 14, 9, 9, 10, 11, 12, 9, "JIN");
