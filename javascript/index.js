@@ -267,6 +267,7 @@ let improvChosen = false;
 let rucreateChosen = false;
 let decorChosen = false;
 let makeoverChosen = false;
+let highTeamImmune = false;
 let lastChallenge = '';
 let untuckedQueens = [];
 let dragPresidentOne = [];
@@ -1694,7 +1695,7 @@ function groupsJudging() {
             highQueens.innerHTML += `${topQueens[i].getName()}, `;
         highQueens.innerHTML += "you all did amazing this week. <br> But a certain performance snatched this week's win.";
         shuffle(topQueens);
-        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1) {
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
         let pairHolder = [];
         pairHolder.push(topQueens[0].QueenA);
         pairHolder.push(topQueens[0].QueenB);
@@ -1751,7 +1752,7 @@ function groupsJudging() {
         screen.createParagraph("You may now all untuck backstage.");
     }
     else if (topQueens.length == 1) {
-        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1) {
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
         screen.createBold(topQueens[0].getName() + ", ladies, captivated us the most this week but there could only be one winner.");
         let pairHolder = [];
         pairHolder.push(topQueens[0].QueenA);
@@ -1871,7 +1872,7 @@ function groupsJudging() {
         loseTeam.push(TeamOne[i]);
         }
     }
-    if (topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+    if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
         screen.createBold("And not just that, you are all winners, baby! You may now untuck backstage.");
         for (let i = 0; i < topQueens.length; i++) {
         weekWinner.push(topQueens[i]);
@@ -2063,7 +2064,7 @@ function groupsJudging() {
         loseTeam.push(TeamOne[i]);
         }
     }
-    if (topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+    if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
         screen.createBold("And not just that, you are all winners, baby! You may now untuck backstage.");
         for (let i = 0; i < topQueens.length; i++) {
         weekWinner.push(topQueens[i]);
@@ -2491,7 +2492,7 @@ function groupsJudging() {
         }
         }
     }
-    if (topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+    if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
         screen.createBold("And not just that, you are all winners, baby! You may now untuck backstage.");
         for (let i = 0; i < topQueens.length; i++) {
         weekWinner.push(topQueens[i]);
@@ -3442,6 +3443,2986 @@ function groupsJudging() {
     screen.createButton("Proceed", "getBottomTwo()");
     else if (savequeen)
     screen.createButton("Proceed", "saveandBottomTwo()");
+}
+function groupsTopTwo() {
+    if (pairings == true) {
+    if (currentCast.length > 6) {
+        currentCast.sort((a, b) => (a.performanceScore - b.performanceScore));
+        for (let i = 0; i < currentCast.length - 3; i++)
+        topQueens.push(currentCast[i]);
+        for (let i = currentCast.length - 3; i < currentCast.length; i++)
+        safeQueens.push(currentCast[i]);
+    }
+    else if (currentCast.length == 6) {
+        currentCast.sort((a, b) => (a.performanceScore - b.performanceScore));
+        for (let i = 0; i < 4; i++)
+        topQueens.push(currentCast[i]);
+        for (let i = 4; i < 6; i++)
+        safeQueens.push(currentCast[i]);
+    }
+    else if (currentCast.length == 5) {
+        currentCast.sort((a, b) => (a.performanceScore - b.performanceScore));
+        for (let i = 0; i < 3; i++)
+        topQueens.push(currentCast[i]);
+        for (let i = 3; i < 5; i++)
+        safeQueens.push(currentCast[i]);
+    }
+    else if (currentCast.length == 4 || currentCast.length == 3) {
+        currentCast.sort((a, b) => (a.performanceScore - b.performanceScore));
+        for (let i = 0; i < currentCast.length; i++)
+        topQueens.push(currentCast[i]);
+    }
+    if (safeQueens.length > 0) {
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < topQueens.length; i++) {
+            screen.createImage(topQueens[i].QueenA.image, "cyan");
+            screen.createImage(topQueens[i].QueenB.image, "cyan");
+            if (topQueens[i] == threeSome[0])
+            screen.createImage(topQueens[i].QueenC.image, "cyan");
+        }
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < topQueens.length; i++)
+            highQueens.innerHTML += `${topQueens[i].getName()}, `;
+        highQueens.innerHTML += ", ladies, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        shuffle(topQueens);
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        if (safeQueens.length > 0) {
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].QueenA.addToTrackRecord("SAFE");
+            safeQueens[i].QueenA.ppe += 3;
+            safeQueens[i].QueenB.addToTrackRecord("SAFE");
+            safeQueens[i].QueenB.ppe += 3;
+            if(safeQueens[i] == threeSome[0]) {
+            safeQueens[i].QueenC.addToTrackRecord("SAFE");
+            safeQueens[i].QueenC.ppe += 3;
+            }
+        }
+        }
+        critiques.innerHTML += "the rest of you still did amazing, you may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else {
+        groupsTopTwoChoice();
+    }
+    }
+    else if (twoTeams == true) {
+    TeamOne.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamTwo.sort((a, b) => (a.performanceScore - b.performanceScore));
+    top2.push(TeamOne[0]);
+    top2.push(TeamTwo[0]);
+    let topOnly = [];
+    for (let i = 0; i < currentCast.length; i++)
+    topOnly.push(currentCast[i]);
+    topOnly.splice(topOnly.indexOf(top2[0]), 1);
+    topOnly.splice(topOnly.indexOf(top2[1]), 1);
+    topOnly.sort((a, b) => (a.performanceScore - b.performanceScore));
+    if (currentCast.length > 19) {
+        for (let i = 0; i < topOnly.length - 10; i++)
+        topQueens.push(topOnly[i]);
+        topQueens.push(top2[0]);
+        topQueens.push(top2[1]);
+        shuffle(topQueens);
+        for (let i = topOnly.length - 10; i < topOnly.length; i++)
+        safeQueens.push(topOnly[i]);
+        for (let i = 0; i < safeQueens.length; i++)
+        topOnly.splice(topOnly.indexOf(safeQueens[i]));
+    }
+    else if (currentCast.length > 17) {
+        for (let i = 0; i < topOnly.length - 8; i++)
+        topQueens.push(topOnly[i]);
+        topQueens.push(top2[0]);
+        topQueens.push(top2[1]);
+        shuffle(topQueens);
+        for (let i = topOnly.length - 8; i < topOnly.length; i++)
+        safeQueens.push(topOnly[i]);
+        for (let i = 0; i < safeQueens.length; i++)
+        topOnly.splice(topOnly.indexOf(safeQueens[i]));
+    }
+    else if (currentCast.length > 13) {
+        for (let i = 0; i < topOnly.length - 6; i++)
+        topQueens.push(topOnly[i]);
+        topQueens.push(top2[0]);
+        topQueens.push(top2[1]);
+        shuffle(topQueens);
+        for (let i = topOnly.length - 6; i < topOnly.length; i++)
+        safeQueens.push(topOnly[i]);
+        for (let i = 0; i < safeQueens.length; i++)
+        topOnly.splice(topOnly.indexOf(safeQueens[i]));
+    }
+    else if (currentCast.length > 9) {
+        for (let i = 0; i < topOnly.length - 4; i++)
+        topQueens.push(topOnly[i]);
+        topQueens.push(top2[0]);
+        topQueens.push(top2[1]);
+        shuffle(topQueens);
+        for (let i = topOnly.length - 4; i < topOnly.length; i++)
+        safeQueens.push(topOnly[i]);
+        for (let i = 0; i < safeQueens.length; i++)
+        topOnly.splice(topOnly.indexOf(safeQueens[i]));
+    }
+    else if (currentCast.length < 10) {
+        for (let i = 0; i < topOnly.length; i++)
+        topQueens.push(topOnly[i]);
+        topQueens.push(top2[0]);
+        topQueens.push(top2[1]);
+        shuffle(topQueens);
+    }
+    if (safeQueens.length > 0) {
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < topQueens.length; i++)
+            screen.createImage(topQueens[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < topQueens.length; i++)
+            highQueens.innerHTML += `${topQueens[i].getName()}, `;
+        highQueens.innerHTML += ", ladies, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        if (safeQueens.length > 0) {
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        }
+        critiques.innerHTML += "the rest of you still did amazing, you may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else {
+        groupsTopTwoChoice();
+    }
+    }
+    else if (threeTeams == true) {
+    let teamOneScore = 0;
+    let teamTwoScore = 0;
+    let teamThreeScore = 0;
+    let teamOneFinalScore = 0;
+    let teamTwoFinalScore = 0;
+    let teamThreeFinalScore = 0;
+    let winningScore = 0;
+    let safeTeam = [];
+    let onetwoWin = false;
+    let onethreeWin = false;
+    let twothreeWin = false;
+    for (let i = 0; i < TeamOne.length; i++)
+    teamOneScore += TeamOne[i].performanceScore;
+    for (let i = 0; i < TeamTwo.length; i++)
+    teamTwoScore += TeamTwo[i].performanceScore;
+    for (let i = 0; i < TeamThree.length; i++)
+    teamThreeScore += TeamThree[i].performanceScore;
+    const tiebreaker = [0.01, 0.02, 0.03];
+    const ABreaker = [];
+    const BBreaker = [];
+    const CBreaker = [];
+    ABreaker.push(tiebreaker[randomNumber(0, 2)]);
+    tiebreaker.splice(tiebreaker.indexOf(ABreaker[0]), 1);
+    BBreaker.push(tiebreaker[randomNumber(0, 1)]);
+    tiebreaker.splice(tiebreaker.indexOf(BBreaker[0]), 1);
+    CBreaker.push(tiebreaker[0]);
+    tiebreaker.splice(tiebreaker.indexOf(CBreaker[0]), 1);
+    teamOneFinalScore += (teamOneScore / TeamOne.length) - ABreaker[0];
+    teamTwoFinalScore += (teamTwoScore / TeamTwo.length) - BBreaker[0];
+    teamThreeFinalScore += (teamThreeScore / TeamThree.length) - CBreaker[0];
+    const points = [teamOneFinalScore, teamTwoFinalScore, teamThreeFinalScore];
+    points.sort(function(a, b){return a - b});
+    if (points[0] == teamOneFinalScore && points[1] == teamTwoFinalScore || points[1] == teamOneFinalScore && points[0] == teamTwoFinalScore)
+    onetwoWin = true;
+    if (points[0] == teamOneFinalScore && points[1] == teamThreeFinalScore || points[1] == teamOneFinalScore && points[0] == teamThreeFinalScore)
+    onethreeWin = true;
+    if (points[0] == teamTwoFinalScore && points[1] == teamThreeFinalScore || points[1] == teamTwoFinalScore && points[0] == teamThreeFinalScore)
+    twothreeWin = true;
+    TeamOne.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamTwo.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamThree.sort((a, b) => (a.performanceScore - b.performanceScore));
+    if (onetwoWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamTwo[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Two, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Three, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (onethreeWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamThree[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Three, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Two, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (twothreeWin == true) {
+        top2.push(TeamTwo[0]);
+        top2.push(TeamThree[0]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Two & Team Three, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    }
+    else if (fourTeams == true) {
+    let teamOneScore = 0;
+    let teamTwoScore = 0;
+    let teamThreeScore = 0;
+    let teamFourScore = 0;
+    let teamOneFinalScore = 0;
+    let teamTwoFinalScore = 0;
+    let teamThreeFinalScore = 0;
+    let teamFourFinalScore = 0;
+    let winningScore = 0;
+    let safeTeam = [];
+    let onetwoWin = false;
+    let onethreeWin = false;
+    let onefourWin = false;
+    let twothreeWin = false;
+    let twofourWin = false;
+    let threefourWin = false;
+    for (let i = 0; i < TeamOne.length; i++)
+    teamOneScore += TeamOne[i].performanceScore;
+    for (let i = 0; i < TeamTwo.length; i++)
+    teamTwoScore += TeamTwo[i].performanceScore;
+    for (let i = 0; i < TeamThree.length; i++)
+    teamThreeScore += TeamThree[i].performanceScore;
+    for (let i = 0; i < TeamFour.length; i++)
+    teamFourScore += TeamFour[i].performanceScore;
+    const tiebreaker = [0.01, 0.02, 0.03, 0.04];
+    const ABreaker = [];
+    const BBreaker = [];
+    const CBreaker = [];
+    const DBreaker = [];
+    ABreaker.push(tiebreaker[randomNumber(0, 3)]);
+    tiebreaker.splice(tiebreaker.indexOf(ABreaker[0]), 1);
+    BBreaker.push(tiebreaker[randomNumber(0, 2)]);
+    tiebreaker.splice(tiebreaker.indexOf(BBreaker[0]), 1);
+    CBreaker.push(tiebreaker[randomNumber(0, 1)]);
+    tiebreaker.splice(tiebreaker.indexOf(CBreaker[0]), 1);
+    DBreaker.push(tiebreaker[0]);
+    tiebreaker.splice(tiebreaker.indexOf(DBreaker[0]), 1);
+    teamOneFinalScore += (teamOneScore / TeamOne.length) - ABreaker[0];
+    teamTwoFinalScore += (teamTwoScore / TeamTwo.length) - BBreaker[0];
+    teamThreeFinalScore += (teamThreeScore / TeamThree.length) - CBreaker[0];
+    teamFourFinalScore += (teamFourScore / TeamFour.length) - DBreaker[0];
+    const points = [teamOneFinalScore, teamTwoFinalScore, teamThreeFinalScore, teamFourFinalScore];
+    points.sort(function(a, b){return a - b});
+    if (points[0] == teamOneFinalScore && points[1] == teamTwoFinalScore || points[1] == teamOneFinalScore && points[0] == teamTwoFinalScore)
+    onetwoWin = true;
+    if (points[0] == teamOneFinalScore && points[1] == teamThreeFinalScore || points[1] == teamOneFinalScore && points[0] == teamThreeFinalScore)
+    onethreeWin = true;
+    if (points[0] == teamOneFinalScore && points[1] == teamFourFinalScore || points[1] == teamOneFinalScore && points[0] == teamFourFinalScore)
+    onefourWin = true;
+    if (points[0] == teamTwoFinalScore && points[1] == teamThreeFinalScore || points[1] == teamTwoFinalScore && points[0] == teamThreeFinalScore)
+    twothreeWin = true;
+    if (points[0] == teamTwoFinalScore && points[1] == teamFourFinalScore || points[1] == teamTwoFinalScore && points[0] == teamFourFinalScore)
+    twofourWin = true;
+    if (points[0] == teamThreeFinalScore && points[1] == teamFourFinalScore || points[1] == teamThreeFinalScore && points[0] == teamFourFinalScore)
+    threefourWin = true;
+    TeamOne.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamTwo.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamThree.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamFour.sort((a, b) => (a.performanceScore - b.performanceScore));
+    if (onetwoWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamTwo[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Two, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Three & Team Four, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (onethreeWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamThree[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Three, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Two & Team Four, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (onefourWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamFour[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamFour.length; i++)
+            highQueens.innerHTML += `${TeamFour[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Four, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Two & Team Three, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (twothreeWin == true) {
+        top2.push(TeamTwo[0]);
+        top2.push(TeamThree[0]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Two & Team Three, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One & Team Four, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (twofourWin == true) {
+        top2.push(TeamTwo[0]);
+        top2.push(TeamFour[0]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 1; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        for (let i = 0; i < TeamFour.length; i++)
+            highQueens.innerHTML += `${TeamFour[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Two & Team Four, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One & Team Three, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (threefourWin == true) {
+        top2.push(TeamThree[0]);
+        top2.push(TeamFour[0]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 1; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        for (let i = 0; i < TeamFour.length; i++)
+            highQueens.innerHTML += `${TeamFour[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Three & Team Four, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One & Team Two, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    }
+    else if (fiveTeams == true) {
+    let teamOneScore = 0;
+    let teamTwoScore = 0;
+    let teamThreeScore = 0;
+    let teamFourScore = 0;
+    let teamFiveScore = 0;
+    let teamOneFinalScore = 0;
+    let teamTwoFinalScore = 0;
+    let teamThreeFinalScore = 0;
+    let teamFourFinalScore = 0;
+    let teamFiveFinalScore = 0;
+    let winningScore = 0;
+    let safeTeam = [];
+    let onetwoWin = false;
+    let onethreeWin = false;
+    let onefourWin = false;
+    let onefiveWin = false;
+    let twothreeWin = false;
+    let twofourWin = false;
+    let twofiveWin = false;
+    let threefourWin = false;
+    let threefiveWin = false;
+    let fourfiveWin = false;
+    for (let i = 0; i < TeamOne.length; i++)
+    teamOneScore += TeamOne[i].performanceScore;
+    for (let i = 0; i < TeamTwo.length; i++)
+    teamTwoScore += TeamTwo[i].performanceScore;
+    for (let i = 0; i < TeamThree.length; i++)
+    teamThreeScore += TeamThree[i].performanceScore;
+    for (let i = 0; i < TeamFour.length; i++)
+    teamFourScore += TeamFour[i].performanceScore;
+    for (let i = 0; i < TeamFive.length; i++)
+    teamFiveScore += TeamFive[i].performanceScore;
+    const tiebreaker = [0.01, 0.02, 0.03, 0.04, 0.05];
+    const ABreaker = [];
+    const BBreaker = [];
+    const CBreaker = [];
+    const DBreaker = [];
+    const EBreaker = [];
+    ABreaker.push(tiebreaker[randomNumber(0, 4)]);
+    tiebreaker.splice(tiebreaker.indexOf(ABreaker[0]), 1);
+    BBreaker.push(tiebreaker[randomNumber(0, 3)]);
+    tiebreaker.splice(tiebreaker.indexOf(BBreaker[0]), 1);
+    CBreaker.push(tiebreaker[randomNumber(0, 2)]);
+    tiebreaker.splice(tiebreaker.indexOf(CBreaker[0]), 1);
+    DBreaker.push(tiebreaker[randomNumber(0, 1)]);
+    tiebreaker.splice(tiebreaker.indexOf(DBreaker[0]), 1);
+    EBreaker.push(tiebreaker[0]);
+    tiebreaker.splice(tiebreaker.indexOf(EBreaker[0]), 1);
+    teamOneFinalScore += (teamOneScore / TeamOne.length) - ABreaker[0];
+    teamTwoFinalScore += (teamTwoScore / TeamTwo.length) - BBreaker[0];
+    teamThreeFinalScore += (teamThreeScore / TeamThree.length) - CBreaker[0];
+    teamFourFinalScore += (teamFourScore / TeamFour.length) - DBreaker[0];
+    teamFiveFinalScore += (teamFiveScore / TeamFive.length) - EBreaker[0];
+    const points = [teamOneFinalScore, teamTwoFinalScore, teamThreeFinalScore, teamFourFinalScore, teamFiveFinalScore];
+    points.sort(function(a, b){return a - b});
+    if (points[0] == teamOneFinalScore && points[1] == teamTwoFinalScore || points[1] == teamOneFinalScore && points[0] == teamTwoFinalScore)
+    onetwoWin = true;
+    if (points[0] == teamOneFinalScore && points[1] == teamThreeFinalScore || points[1] == teamOneFinalScore && points[0] == teamThreeFinalScore)
+    onethreeWin = true;
+    if (points[0] == teamOneFinalScore && points[1] == teamFourFinalScore || points[1] == teamOneFinalScore && points[0] == teamFourFinalScore)
+    onefourWin = true;
+    if (points[0] == teamOneFinalScore && points[1] == teamFiveFinalScore || points[1] == teamOneFinalScore && points[0] == teamFiveFinalScore)
+    onefiveWin = true;
+    if (points[0] == teamTwoFinalScore && points[1] == teamThreeFinalScore || points[1] == teamTwoFinalScore && points[0] == teamThreeFinalScore)
+    twothreeWin = true;
+    if (points[0] == teamTwoFinalScore && points[1] == teamFourFinalScore || points[1] == teamTwoFinalScore && points[0] == teamFourFinalScore)
+    twofourWin = true;
+    if (points[0] == teamTwoFinalScore && points[1] == teamFiveFinalScore || points[1] == teamTwoFinalScore && points[0] == teamFiveFinalScore)
+    twofiveWin = true;
+    if (points[0] == teamThreeFinalScore && points[1] == teamFourFinalScore || points[1] == teamThreeFinalScore && points[0] == teamFourFinalScore)
+    threefourWin = true;
+    if (points[0] == teamThreeFinalScore && points[1] == teamFiveFinalScore || points[1] == teamThreeFinalScore && points[0] == teamFiveFinalScore)
+    threefiveWin = true;
+    if (points[0] == teamFourFinalScore && points[1] == teamFiveFinalScore || points[1] == teamFourFinalScore && points[0] == teamFiveFinalScore)
+    fourfiveWin = true;
+    TeamOne.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamTwo.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamThree.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamFour.sort((a, b) => (a.performanceScore - b.performanceScore));
+    TeamFive.sort((a, b) => (a.performanceScore - b.performanceScore));
+    if (onetwoWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamTwo[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamFive.length; i++)
+        safeQueens.push(TeamFive[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Two, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Three, Team Four, Team Five, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (onethreeWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamThree[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamFive.length; i++)
+        safeQueens.push(TeamFive[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Three, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Two, Team Four, Team Five, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (onefourWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamFour[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamFive.length; i++)
+        safeQueens.push(TeamFive[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamFour.length; i++)
+            highQueens.innerHTML += `${TeamFour[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Four, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Two, Team Three, Team Five, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (onefiveWin == true) {
+        top2.push(TeamOne[0]);
+        top2.push(TeamFive[0]);
+        for (let i = 1; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        for (let i = 1; i < TeamFive.length; i++)
+        topQueens.push(TeamFive[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        for (let i = 0; i < TeamFive.length; i++)
+        screen.createImage(TeamFive[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamOne.length; i++)
+            highQueens.innerHTML += `${TeamOne[i].getName()}, `;
+        for (let i = 0; i < TeamFive.length; i++)
+            highQueens.innerHTML += `${TeamFive[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team One & Team Five, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team Two, Team Three, Team Four, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (twothreeWin == true) {
+        top2.push(TeamTwo[0]);
+        top2.push(TeamThree[0]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamFive.length; i++)
+        safeQueens.push(TeamFive[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Two & Team Three, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One, Team Four, Team Five, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (twofourWin == true) {
+        top2.push(TeamTwo[0]);
+        top2.push(TeamFour[0]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 1; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamFive.length; i++)
+        safeQueens.push(TeamFive[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        for (let i = 0; i < TeamFour.length; i++)
+            highQueens.innerHTML += `${TeamFour[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Two & Team Four, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One, Team Three, Team Five, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (twofiveWin == true) {
+        top2.push(TeamTwo[0]);
+        top2.push(TeamFive[0]);
+        for (let i = 1; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        for (let i = 1; i < TeamFive.length; i++)
+        topQueens.push(TeamFive[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        for (let i = 0; i < TeamFive.length; i++)
+        screen.createImage(TeamFive[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamTwo.length; i++)
+            highQueens.innerHTML += `${TeamTwo[i].getName()}, `;
+        for (let i = 0; i < TeamFive.length; i++)
+            highQueens.innerHTML += `${TeamFive[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Two & Team Five, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One, Team Three, Team Four, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (threefourWin == true) {
+        top2.push(TeamThree[0]);
+        top2.push(TeamFour[0]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 1; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamFive.length; i++)
+        safeQueens.push(TeamFive[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        for (let i = 0; i < TeamFour.length; i++)
+            highQueens.innerHTML += `${TeamFour[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Three & Team Four, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One, Team Two, Team Five, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (threefiveWin == true) {
+        top2.push(TeamThree[0]);
+        top2.push(TeamFive[0]);
+        for (let i = 1; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        for (let i = 1; i < TeamFive.length; i++)
+        topQueens.push(TeamFive[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamFour.length; i++)
+        safeQueens.push(TeamFour[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        for (let i = 0; i < TeamFive.length; i++)
+        screen.createImage(TeamFive[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamThree.length; i++)
+            highQueens.innerHTML += `${TeamThree[i].getName()}, `;
+        for (let i = 0; i < TeamFive.length; i++)
+            highQueens.innerHTML += `${TeamFive[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Three & Team Five, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One, Team Two, Team Four, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    else if (fourfiveWin == true) {
+        top2.push(TeamFour[0]);
+        top2.push(TeamFive[0]);
+        for (let i = 1; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        for (let i = 1; i < TeamFive.length; i++)
+        topQueens.push(TeamFive[i]);
+        for (let i = 0; i < TeamOne.length; i++)
+        safeQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        safeQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        safeQueens.push(TeamThree[i]);
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        for (let i = 0; i < TeamFive.length; i++)
+        screen.createImage(TeamFive[i].image, "cyan");
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < TeamFour.length; i++)
+            highQueens.innerHTML += `${TeamFour[i].getName()}, `;
+        for (let i = 0; i < TeamFive.length; i++)
+            highQueens.innerHTML += `${TeamFive[i].getName()}, `;
+        highQueens.innerHTML += "<br> Team Four & Team Five, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < safeQueens.length; i++) {
+            critiques.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].addToTrackRecord("SAFE");
+            safeQueens[i].ppe += 3;
+        }
+        critiques.innerHTML += "Team One, Team Two, Team Three, you all still did amazing. You may now untuck backstage.";
+        screen.createButton("Proceed", "groupsTopTwoChoice()");
+    }
+    }
+}
+function groupsTopTwoChoice() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Bring Back My Girls");
+    screen.createBold("Ladies, I have made some decisions!");
+    if (pairings == true) {
+    if (topQueens[0] == threeSome[0]) {
+        let top2Holder = [];
+        top2Holder.push(topQueens[0].QueenA);
+        top2Holder.push(topQueens[0].QueenB);
+        top2Holder.push(topQueens[0].QueenC);
+        shuffle(top2Holder);
+        top2.push(top2Holder[0]);
+        top2.push(top2Holder[1]);
+        topQueens.splice(0, 1);
+        let topHolder = [];
+        for (let i = 0; i < topQueens.length; i++) {
+            topHolder.push(topQueens[i].QueenA);
+            topHolder.push(topQueens[i].QueenB);
+            if (topQueens[i] == threeSome[0]) {
+                topHolder.push(topQueens[i].QueenC);
+            }
+        }
+        topQueens = [];
+        for (let i = 0; i < topHolder.length; i++)
+        topQueens.push(topHolder[i]);
+        for (let i = 0; i < topQueens.length; i++) {
+            topQueens[i].addToTrackRecord("HIGH");
+            topQueens[i].ppe += 4;
+            topQueens[i].favoritism += 3;
+        }
+        top2Holder[2].addToTrackRecord("HIGH");
+        top2Holder[2].ppe += 4;
+        top2Holder[2].favoritism += 3;
+        topQueens.push(top2Holder[2]);
+        screen.createImage(top2[0].image, "royalblue");
+        screen.createImage(top2[1].image, "royalblue");
+        screen.createBold(top2[0].getName() + ", " + top2[1].getName() + ", condragulations! You are the top two queens of the week.");
+        shuffle(topQueens);
+        for (let i = 0; i < topQueens.length; i++) {
+            screen.createImage(topQueens[i].image, "lightblue");
+        }
+        screen.createParagraph("", "highs");
+        let highs = document.getElementById("highs");
+        for (let i = 0; i < topQueens.length; i++) {
+            highs.innerHTML += `${topQueens[i].getName()}, `;
+        }
+        highs.innerHTML += "great job, ladies. You may now step at the back of the stage.";
+        screen.createHorizontalLine();
+        screen.createBold("This week, no one is going home but there could only be one winner.");
+        screen.createImage(top2[0].image, "hotpink");
+        screen.createImage(top2[1].image, "hotpink");
+        screen.createBold(top2[0].getName() + ", " + top2[1].getName() + ", ladies, get ready to lipsync for a cash tip of ten thousand dollars.");
+        for (let i = 0; i < top2.length; i++)
+        topQueens.push(top2[i]);
+    }
+    else {
+        top2.push(topQueens[0].QueenA);
+        top2.push(topQueens[0].QueenB);
+        topQueens.splice(0, 1);
+        let topHolder = [];
+        for (let i = 0; i < topQueens.length; i++) {
+            topHolder.push(topQueens[i].QueenA);
+            topHolder.push(topQueens[i].QueenB);
+            if (topQueens[i] == threeSome[0]) {
+                topHolder.push(topQueens[i].QueenC);
+            }
+        }
+        topQueens = [];
+        for (let i = 0; i < topHolder.length; i++)
+        topQueens.push(topHolder[i]);
+        for (let i = 0; i < topQueens.length; i++) {
+            topQueens[i].addToTrackRecord("HIGH");
+            topQueens[i].ppe += 4;
+            topQueens[i].favoritism += 3;
+        }
+        screen.createImage(top2[0].image, "royalblue");
+        screen.createImage(top2[1].image, "royalblue");
+        screen.createBold(top2[0].getName() + ", " + top2[1].getName() + ", condragulations! You are the top two queens of the week.");
+        shuffle(topQueens);
+        for (let i = 0; i < topQueens.length; i++) {
+            screen.createImage(topQueens[i].image, "lightblue");
+        }
+        screen.createParagraph("", "highs");
+        let highs = document.getElementById("highs");
+        for (let i = 0; i < topQueens.length; i++) {
+            highs.innerHTML += `${topQueens[i].getName()}, `;
+        }
+        highs.innerHTML += "great job, ladies. You may now step at the back of the stage.";
+        screen.createHorizontalLine();
+        screen.createBold("This week, no one is going home but there could only be one winner.");
+        screen.createImage(top2[0].image, "hotpink");
+        screen.createImage(top2[1].image, "hotpink");
+        screen.createBold(top2[0].getName() + ", " + top2[1].getName() + ", ladies, get ready to lipsync for a cash tip of ten thousand dollars.");
+        for (let i = 0; i < top2.length; i++)
+        topQueens.push(top2[i]);
+    }
+    }
+    else if (twoTeams == true) {
+    topQueens.splice(topQueens.indexOf(top2[0]), 1);
+    topQueens.splice(topQueens.indexOf(top2[1]), 1);
+    screen.createImage(top2[0].image, "royalblue");
+    screen.createImage(top2[1].image, "royalblue");
+    screen.createBold(top2[0].getName() + ", " + top2[1].getName() + ", condragulations! You are the top two queens of the week.");
+    shuffle(topQueens);
+    for (let i = 0; i < topQueens.length; i++) {
+        screen.createImage(topQueens[i].image, "lightblue");
+    }
+    screen.createParagraph("", "highs");
+    let highs = document.getElementById("highs");
+    for (let i = 0; i < topQueens.length; i++) {
+        highs.innerHTML += `${topQueens[i].getName()}, `;
+        topQueens[i].addToTrackRecord("HIGH");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 3;
+    }
+    highs.innerHTML += "great job, ladies. You may now step at the back of the stage.";
+    screen.createHorizontalLine();
+    screen.createBold("This week, no one is going home but there could only be one winner.");
+    screen.createImage(top2[0].image, "hotpink");
+    screen.createImage(top2[1].image, "hotpink");
+    screen.createBold(top2[0].getName() + ", " + top2[1].getName() + ", ladies, get ready to lipsync for a cash tip of ten thousand dollars.");
+    topQueens.push(top2[0]);
+    topQueens.push(top2[1]);
+    }
+    else if (threeTeams == true || fourTeams == true || fiveTeams == true) {
+    screen.createImage(top2[0].image, "royalblue");
+    screen.createImage(top2[1].image, "royalblue");
+    screen.createBold(top2[0].getName() + ", " + top2[1].getName() + ", condragulations! You are the top two queens of the week.");
+    shuffle(topQueens);
+    for (let i = 0; i < topQueens.length; i++) {
+        screen.createImage(topQueens[i].image, "lightblue");
+    }
+    screen.createParagraph("", "highs");
+    let highs = document.getElementById("highs");
+    for (let i = 0; i < topQueens.length; i++) {
+        highs.innerHTML += `${topQueens[i].getName()}, `;
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 3;
+    }
+    highs.innerHTML += "great job, ladies. You may now step at the back of the stage.";
+    screen.createHorizontalLine();
+    screen.createBold("This week, no one is going home but there could only be one winner.");
+    screen.createImage(top2[0].image, "hotpink");
+    screen.createImage(top2[1].image, "hotpink");
+    screen.createBold(top2[0].getName() + ", " + top2[1].getName() + ", ladies, get ready to lipsync for a cash tip of ten thousand dollars.");
+    topQueens.push(top2[0]);
+    topQueens.push(top2[1]);
+    }
+    if (pairings == true) {
+    currentCast = [];
+    for (let i = 0; i < castHolder.length; i++)
+    currentCast.push(castHolder[i]);
+    }
+    noneIndividual = false;
+    pairings = false;
+    screen.createButton("Proceed", "top2Lipsync()");
+}
+function groupWayLipsync() {
+    if (pairings == true) {
+    let halfwayIdentifier = 0;
+    if (currentCast.length % 2 == 0 && currentCast.length > 3)
+    halfwayIdentifier += currentCast.length / 2;
+    else if (currentCast.length % 2 !== 0 && currentCast.length > 3)
+    halfwayIdentifier += (currentCast.length + 1) / 2;
+    else if (currentCast.length == 3)
+    halfwayIdentifier += 1;
+    let upperQueens = [];
+    let lowerQueens = [];
+    currentCast.sort((a, b) => (a.performanceScore - b.performanceScore));
+    for (let i = 0; i < halfwayIdentifier; i++)
+    upperQueens.push(currentCast[i]);
+    for (let i = halfwayIdentifier; i < currentCast.length; i++)
+    lowerQueens.push(currentCast[i]);
+    upperQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+    if (upperQueens.length > 3) {
+        for (let i = 0; i < 3; i++)
+        topQueens.push(upperQueens[i]);
+        for (let i = 3; i < upperQueens.length; i++)
+        safeQueens.push(upperQueens[i]);
+        for (let i = 0; i < lowerQueens.length; i++)
+        bottomQueens.push(lowerQueens[i]);
+    }
+    else if (upperQueens.length < 4) {
+        for (let i = 0; i < upperQueens.length; i++)
+        topQueens.push(upperQueens[i]);
+        for (let i = 0; i < lowerQueens.length; i++)
+        bottomQueens.push(lowerQueens[i]);
+    }
+    if (safeQueens.length > 0) {
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < topQueens.length; i++) {
+            screen.createImage(topQueens[i].QueenA.image, "cyan");
+            screen.createImage(topQueens[i].QueenB.image, "cyan");
+            if (topQueens[i] == threeSome[0])
+            screen.createImage(topQueens[i].QueenC.image, "cyan");
+        }
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < topQueens.length; i++)
+            highQueens.innerHTML += `${topQueens[i].getName()}, `;
+        highQueens.innerHTML += ", ladies, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge. <br> But the we have to choose a winner.";
+        shuffle(topQueens);
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
+        let pairHolder = [];
+        pairHolder.push(topQueens[0].QueenA);
+        pairHolder.push(topQueens[0].QueenB);
+        if (topQueens[0] == threeSome[0])
+        pairHolder.push(topQueens[0].QueenC);
+        shuffle(pairHolder);
+        screen.createImage(pairHolder[0].image, "royalblue");
+        pairHolder[0].addToTrackRecord("WIN");
+        pairHolder[0].ppe += 5;
+        pairHolder[0].coinz += 5;
+        pairHolder[0].favoritism += 5;
+        winnerEpisode.push(pairHolder[0]);
+        pairOneWin = true;
+        screen.createBold(pairHolder[0].getName() + ", condragulations! You are the winner of this week's challenge!");
+        for (let i = 1; i < pairHolder.length; i++) {
+            pairHolder[i].addToTrackRecord("HIGH");
+            pairHolder[i].ppe += 4;
+            pairHolder[i].favoritism += 2.5;
+        }
+        }
+        else {
+        screen.createImage(topQueens[0].QueenA.image, "royalblue");
+        topQueens[0].QueenA.addToTrackRecord(" WIN");
+        topQueens[0].QueenA.ppe += 5;
+        topQueens[0].QueenA.coinz += 2.5;
+        topQueens[0].QueenA.favoritism += 3.5;
+        screen.createImage(topQueens[0].QueenB.image, "royalblue");
+        topQueens[0].QueenB.addToTrackRecord(" WIN");
+        topQueens[0].QueenB.ppe += 5;
+        topQueens[0].QueenB.coinz += 2.5;
+        topQueens[0].QueenB.favoritism += 3.5;
+        if (topQueens[0] == threeSome[0]) {
+            screen.createImage(topQueens[0].QueenC.image, "royalblue");
+            topQueens[0].QueenC.addToTrackRecord(" WIN");
+            topQueens[0].QueenC.ppe += 5;
+            topQueens[0].QueenC.coinz += 2.5;
+            topQueens[0].QueenC.favoritism += 3.5;
+        }
+        screen.createBold(topQueens[0].getName() + ", condragulations! You are the winners of this week's challenge!");
+        }
+        for (let i = 1; i < topQueens.length; i++) {
+            topQueens[i].QueenA.addToTrackRecord("HIGH");
+            topQueens[i].QueenA.ppe += 4;
+            topQueens[i].QueenA.favoritism += 1.5;
+            topQueens[i].QueenB.addToTrackRecord("HIGH");
+            topQueens[i].QueenB.ppe += 4;
+            topQueens[i].QueenB.favoritism += 1.5;
+            if(topQueens[i] == threeSome[0]) {
+            topQueens[i].QueenC.addToTrackRecord("HIGH");
+            topQueens[i].QueenC.ppe += 3;
+            topQueens[i].QueenC.favoritism += 1.5;
+            }
+        }
+        screen.createParagraph("", "backstage");
+        let backstage = document.getElementById("backstage");
+        for (let i = 0; i < safeQueens.length; i++) {
+            backstage.innerHTML += `${safeQueens[i].getName()}, `;
+            safeQueens[i].QueenA.addToTrackRecord("SAFE");
+            safeQueens[i].QueenA.ppe += 3;
+            safeQueens[i].QueenB.addToTrackRecord("SAFE");
+            safeQueens[i].QueenB.ppe += 3;
+            if(safeQueens[i] == threeSome[0]) {
+            safeQueens[i].QueenC.addToTrackRecord("SAFE");
+            safeQueens[i].QueenC.ppe += 3;
+            }
+        }
+        backstage.innerHTML += " you are safe. You may join all the other queens backstage."
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        let botHolder = [];
+        for (let i = 0; i < bottomQueens.length; i++) {
+            critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+            botHolder.push(bottomQueens[i].QueenA);
+            botHolder.push(bottomQueens[i].QueenB);
+            if (bottomQueens[i] == threeSome[0])
+            botHolder.push(bottomQueens[i].QueenC);
+        }
+        bottomQueens = [];
+        for (let i = 0; i < botHolder.length; i++)
+        bottomQueens.push(botHolder[i]);
+        critiques.innerHTML += "the rest of you will be critiqued.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+        let topHolder = [];
+        for (let i = 0; i < topQueens.length; i++) {
+            topHolder.push(topQueens[i].QueenA);
+            topHolder.push(topQueens[i].QueenB);
+            if (bottomQueens[i] == threeSome[0])
+            topHolder.push(topQueens[i].QueenC);
+        }
+        topQueens = [];
+        for (let i = 0; i < topHolder.length; i++)
+        topQueens.push(topHolder[i]);
+    }
+    else if (topQueens.length == 3 || topQueens.length == 2) {
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        for (let i = 0; i < topQueens.length; i++) {
+            screen.createImage(topQueens[i].QueenA.image, "cyan");
+            screen.createImage(topQueens[i].QueenB.image, "cyan");
+            if (topQueens[i] == threeSome[0])
+            screen.createImage(topQueens[i].QueenC.image, "cyan");
+        }
+        screen.createBold("", "highQueens");
+        let highQueens = document.getElementById("highQueens");
+        for (let i = 0; i < topQueens.length; i++)
+            highQueens.innerHTML += `${topQueens[i].getName()}, `;
+        highQueens.innerHTML += ", ladies, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge. <br> But the we have to choose a winner.";
+        shuffle(topQueens);
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
+        let pairHolder = [];
+        pairHolder.push(topQueens[0].QueenA);
+        pairHolder.push(topQueens[0].QueenB);
+        if (topQueens[0] == threeSome[0])
+        pairHolder.push(topQueens[0].QueenC);
+        shuffle(pairHolder);
+        screen.createImage(pairHolder[0].image, "royalblue");
+        pairHolder[0].addToTrackRecord("WIN");
+        pairHolder[0].ppe += 5;
+        pairHolder[0].coinz += 5;
+        pairHolder[0].favoritism += 5;
+        winnerEpisode.push(pairHolder[0]);
+        pairOneWin = true;
+        screen.createBold(pairHolder[0].getName() + ", condragulations! You are the winner of this week's challenge!");
+        for (let i = 1; i < pairHolder.length; i++) {
+            pairHolder[i].addToTrackRecord("HIGH");
+            pairHolder[i].ppe += 4;
+            pairHolder[i].favoritism += 2.5;
+        }
+        }
+        else {
+        screen.createImage(topQueens[0].QueenA.image, "royalblue");
+        topQueens[0].QueenA.addToTrackRecord(" WIN");
+        topQueens[0].QueenA.ppe += 5;
+        topQueens[0].QueenA.coinz += 2.5;
+        topQueens[0].QueenA.favoritism += 3.5;
+        screen.createImage(topQueens[0].QueenB.image, "royalblue");
+        topQueens[0].QueenB.addToTrackRecord(" WIN");
+        topQueens[0].QueenB.ppe += 5;
+        topQueens[0].QueenB.coinz += 2.5;
+        topQueens[0].QueenB.favoritism += 3.5;
+        if (topQueens[0] == threeSome[0]) {
+            screen.createImage(topQueens[0].QueenC.image, "royalblue");
+            topQueens[0].QueenC.addToTrackRecord(" WIN");
+            topQueens[0].QueenC.ppe += 5;
+            topQueens[0].QueenC.coinz += 2.5;
+            topQueens[0].QueenC.favoritism += 3.5;
+        }
+        screen.createBold(topQueens[0].getName() + ", condragulations! You are the winners of this week's challenge!");
+        }
+        for (let i = 1; i < topQueens.length; i++) {
+            topQueens[i].QueenA.addToTrackRecord("HIGH");
+            topQueens[i].QueenA.ppe += 4;
+            topQueens[i].QueenA.favoritism += 1.5;
+            topQueens[i].QueenB.addToTrackRecord("HIGH");
+            topQueens[i].QueenB.ppe += 4;
+            topQueens[i].QueenB.favoritism += 1.5;
+            if(topQueens[i] == threeSome[0]) {
+            topQueens[i].QueenC.addToTrackRecord("HIGH");
+            topQueens[i].QueenC.ppe += 3;
+            topQueens[i].QueenC.favoritism += 1.5;
+            }
+        }
+        screen.createParagraph("Ladies, you may now all untuck backstage.")
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        let botHolder = [];
+        for (let i = 0; i < bottomQueens.length; i++) {
+            critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+            botHolder.push(bottomQueens[i].QueenA);
+            botHolder.push(bottomQueens[i].QueenB);
+            if (bottomQueens[i] == threeSome[0])
+            botHolder.push(bottomQueens[i].QueenC);
+        }
+        bottomQueens = [];
+        for (let i = 0; i < botHolder.length; i++)
+        bottomQueens.push(botHolder[i]);
+        critiques.innerHTML += "the rest of you will be critiqued.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+        let topHolder = [];
+        for (let i = 0; i < topQueens.length; i++) {
+            topHolder.push(topQueens[i].QueenA);
+            topHolder.push(topQueens[i].QueenB);
+            if (bottomQueens[i] == threeSome[0])
+            topHolder.push(topQueens[i].QueenC);
+        }
+        topQueens = [];
+        for (let i = 0; i < topHolder.length; i++)
+        topQueens.push(topHolder[i]);
+    }
+    else if (topQueens.length == 1) {
+        let screen = new Scene();
+        screen.clean();
+        screen.createHeader("Judging");
+        screen.createBold("When I call your name, please step forward.");
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
+        let pairHolder = [];
+        pairHolder.push(topQueens[0].QueenA);
+        pairHolder.push(topQueens[0].QueenB);
+        if (topQueens[0] == threeSome[0])
+        pairHolder.push(topQueens[0].QueenC);
+        shuffle(pairHolder);
+        screen.createImage(pairHolder[0].image, "royalblue");
+        pairHolder[0].addToTrackRecord("WIN");
+        pairHolder[0].ppe += 5;
+        pairHolder[0].coinz += 5;
+        pairHolder[0].favoritism += 5;
+        winnerEpisode.push(pairHolder[0]);
+        pairOneWin = true;
+        screen.createBold(pairHolder[0].getName() + ", condragulations! You are the winner of this week's challenge!");
+        for (let i = 1; i < pairHolder.length; i++) {
+            pairHolder[i].addToTrackRecord("HIGH");
+            pairHolder[i].ppe += 4;
+            pairHolder[i].favoritism += 2.5;
+        }
+        }
+        else {
+        screen.createImage(topQueens[0].QueenA.image, "royalblue");
+        topQueens[0].QueenA.addToTrackRecord(" WIN");
+        topQueens[0].QueenA.ppe += 5;
+        topQueens[0].QueenA.coinz += 2.5;
+        topQueens[0].QueenA.favoritism += 3.5;
+        screen.createImage(topQueens[0].QueenB.image, "royalblue");
+        topQueens[0].QueenB.addToTrackRecord(" WIN");
+        topQueens[0].QueenB.ppe += 5;
+        topQueens[0].QueenB.coinz += 2.5;
+        topQueens[0].QueenB.favoritism += 3.5;
+        if (topQueens[0] == threeSome[0]) {
+            screen.createImage(topQueens[0].QueenC.image, "royalblue");
+            topQueens[0].QueenC.addToTrackRecord(" WIN");
+            topQueens[0].QueenC.ppe += 5;
+            topQueens[0].QueenC.coinz += 2.5;
+            topQueens[0].QueenC.favoritism += 3.5;
+        }
+        screen.createBold(topQueens[0].getName() + ", condragulations! You are the winners of this week's challenge!");
+        }
+        screen.createParagraph(topQueens[0].getName() + ", ladies, you may now untuck backstage.");
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        let botHolder = [];
+        for (let i = 0; i < bottomQueens.length; i++) {
+            critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+            botHolder.push(bottomQueens[i].QueenA);
+            botHolder.push(bottomQueens[i].QueenB);
+            if (bottomQueens[i] == threeSome[0])
+            botHolder.push(bottomQueens[i].QueenC);
+        }
+        bottomQueens = [];
+        for (let i = 0; i < botHolder.length; i++)
+        bottomQueens.push(botHolder[i]);
+        critiques.innerHTML += "the rest of you will be critiqued.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+        let topHolder = [];
+        for (let i = 0; i < topQueens.length; i++) {
+            topHolder.push(topQueens[i].QueenA);
+            topHolder.push(topQueens[i].QueenB);
+            if (bottomQueens[i] == threeSome[0])
+            topHolder.push(topQueens[i].QueenC);
+        }
+        topQueens = [];
+        for (let i = 0; i < topHolder.length; i++)
+        topQueens.push(topHolder[i]);
+    }
+    }
+    else if (twoTeams == true) {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Judging");
+    screen.createBold("When I call your name, please step forward.");
+    let teamOneScore = 0;
+    let teamTwoScore = 0;
+    let teamOneFinalScore = 0;
+    let teamTwoFinalScore = 0;
+    let winningScore = 0;
+    let loseTeam = [];
+    for (let i = 0; i < TeamOne.length; i++)
+    teamOneScore += TeamOne[i].performanceScore;
+    for (let i = 0; i < TeamTwo.length; i++)
+    teamTwoScore += TeamTwo[i].performanceScore;
+    teamOneFinalScore += teamOneScore / TeamOne.length;
+    teamTwoFinalScore += teamTwoScore / TeamTwo.length;
+    if (teamOneFinalScore > teamTwoFinalScore) {
+        for (let i = 0; i < TeamOne.length; i++) {
+        screen.createImage(TeamOne[i].image, "cyan");
+        topQueens.push(TeamOne[i]);
+        }
+        screen.createBold("Condragulations, Team One! You are the winning team for this week's challenge.");
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if (topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+        screen.createBold("And not just that, you are all winners, baby! You may now untuck backstage.");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+    }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge! <br> You may now all untuck backstage.");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+    }
+    for (let i = 0; i < TeamTwo.length; i++)
+    bottomQueens.push(TeamTwo[i]);
+    }
+    else if (teamTwoFinalScore > teamOneFinalScore) {
+        for (let i = 0; i < TeamTwo.length; i++) {
+        screen.createImage(TeamTwo[i].image, "cyan");
+        topQueens.push(TeamTwo[i]);
+        }
+        screen.createBold("Condragulations, Team Two! You are the winning team for this week's challenge.");
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby! You may now untuck backstage.");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge! <br> You may now all untuck backstage.");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+    for (let i = 0; i < TeamOne.length; i++)
+    bottomQueens.push(TeamOne[i]);
+    }
+    screen.createHorizontalLine();
+    screen.createParagraph("", "critiqued");
+    let critiqued = document.getElementById("critiqued");
+    for (let i = 0; i < bottomQueens.length; i++)
+    critiqued.innerHTML += `${bottomQueens[i].getName()}, `;
+    critiqued.innerHTML += "the rest of you will be critiqued.";
+    screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (threeTeams == true) {
+    let teamOneScore = 0;
+    let teamTwoScore = 0;
+    let teamThreeScore = 0;
+    let teamOneFinalScore = 0;
+    let teamTwoFinalScore = 0;
+    let teamThreeFinalScore = 0;
+    let winningScore = 0;
+    let safeTeam = [];
+    let onetwoWin = false;
+    let onethreeWin = false;
+    let twothreeWin = false;
+    for (let i = 0; i < TeamOne.length; i++)
+    teamOneScore += TeamOne[i].performanceScore;
+    for (let i = 0; i < TeamTwo.length; i++)
+    teamTwoScore += TeamTwo[i].performanceScore;
+    for (let i = 0; i < TeamThree.length; i++)
+    teamThreeScore += TeamThree[i].performanceScore;
+    TeamOne.performanceScore = teamOneScore / TeamOne.length;
+    TeamTwo.performanceScore = teamTwoScore / TeamTwo.length;
+    TeamThree.performanceScore = teamThreeScore / TeamThree.length;
+    let groupsList = [];
+    groupsList.push(TeamOne);
+    groupsList.push(TeamTwo);
+    groupsList.push(TeamThree);
+    groupsList.sort((a, b) => (a.performanceScore - b.performanceScore));
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Judging");
+    screen.createBold("When I call your name, please step forward.");
+    if (groupsList[0] == TeamOne) {
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        screen.createBold("Condragulations, Team One! You are our winning group this week.");
+        for (let i = 0; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        if (randomNumber(0, 100) > 55 && (TeamTwo.length > 2 || TeamThree.length > 2)) {
+        if (groupsList[1] == TeamTwo) {
+            for (let i = 0; i < TeamTwo.length; i++)
+            safeQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamThree.length; i++)
+            bottomQueens.push(TeamThree[i]);
+        }
+        else if (groupsList[1] == TeamThree) {
+            for (let i = 0; i < TeamThree.length; i++)
+            safeQueens.push(TeamThree[i]);
+            for (let i = 0; i < TeamTwo.length; i++)
+            bottomQueens.push(TeamTwo[i]);
+        }
+        }
+        else {
+        for (let i = 0; i < TeamTwo.length; i++)
+        bottomQueens.push(TeamTwo[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        bottomQueens.push(TeamThree[i]);
+        }
+        if (safeQueens.length > 0) {
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        }
+        else {
+        screen.createBold("You may now untuck backstage.");
+        }
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamTwo) {
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        screen.createBold("Condragulations, Team Two! You are our winning group this week.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        if (randomNumber(0, 100) > 55 && (TeamOne.length > 2 || TeamThree.length > 2)) {
+        if (groupsList[1] == TeamOne) {
+            for (let i = 0; i < TeamOne.length; i++)
+            safeQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamThree.length; i++)
+            bottomQueens.push(TeamThree[i]);
+        }
+        else if (groupsList[1] == TeamThree) {
+            for (let i = 0; i < TeamThree.length; i++)
+            safeQueens.push(TeamThree[i]);
+            for (let i = 0; i < TeamOne.length; i++)
+            bottomQueens.push(TeamOne[i]);
+        }
+        }
+        else {
+        for (let i = 0; i < TeamOne.length; i++)
+        bottomQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamThree.length; i++)
+        bottomQueens.push(TeamThree[i]);
+        }
+        if (safeQueens.length > 0) {
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        }
+        else {
+        screen.createBold("You may now untuck backstage.");
+        }
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamThree) {
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("Condragulations, Team Two! You are our winning group this week.");
+        for (let i = 0; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        if (randomNumber(0, 100) > 55 && (TeamOne.length > 2 || TeamTwo.length > 2)) {
+        if (groupsList[1] == TeamOne) {
+            for (let i = 0; i < TeamOne.length; i++)
+            safeQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamTwo.length; i++)
+            bottomQueens.push(TeamTwo[i]);
+        }
+        else if (groupsList[1] == TeamTwo) {
+            for (let i = 0; i < TeamTwo.length; i++)
+            safeQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamOne.length; i++)
+            bottomQueens.push(TeamOne[i]);
+        }
+        }
+        else {
+        for (let i = 0; i < TeamOne.length; i++)
+        bottomQueens.push(TeamOne[i]);
+        for (let i = 0; i < TeamTwo.length; i++)
+        bottomQueens.push(TeamTwo[i]);
+        }
+        if (safeQueens.length > 0) {
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        }
+        else {
+        screen.createBold("You may now untuck backstage.");
+        }
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    }
+    else if (fourTeams == true) {
+    let teamOneScore = 0;
+    let teamTwoScore = 0;
+    let teamThreeScore = 0;
+    let teamFourScore = 0;
+    let teamOneFinalScore = 0;
+    let teamTwoFinalScore = 0;
+    let teamThreeFinalScore = 0;
+    let teamFourFinalScore = 0;
+    let winningScore = 0;
+    for (let i = 0; i < TeamOne.length; i++)
+    teamOneScore += TeamOne[i].performanceScore;
+    for (let i = 0; i < TeamTwo.length; i++)
+    teamTwoScore += TeamTwo[i].performanceScore;
+    for (let i = 0; i < TeamThree.length; i++)
+    teamThreeScore += TeamThree[i].performanceScore;
+    for (let i = 0; i < TeamFour.length; i++)
+    teamFourScore += TeamFour[i].performanceScore;
+    TeamOne.performanceScore = teamOneScore / TeamOne.length;
+    TeamTwo.performanceScore = teamTwoScore / TeamTwo.length;
+    TeamThree.performanceScore = teamThreeScore / TeamThree.length;
+    TeamFour.performanceScore = teamFourScore / TeamFour.length;
+    let groupsList = [];
+    groupsList.push(TeamOne);
+    groupsList.push(TeamTwo);
+    groupsList.push(TeamThree);
+    groupsList.push(TeamFour);
+    groupsList.sort((a, b) => (a.performanceScore - b.performanceScore));
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Judging");
+    screen.createBold("When I call your name, please step forward.");
+    if (groupsList[0] == TeamOne) {
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        screen.createBold("Condragulations, Team One! You are our winning group this week.");
+        for (let i = 0; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        if (groupsList[1] == TeamTwo) {
+            for (let i = 0; i < TeamTwo.length; i++)
+            safeQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamThree.length; i++)
+            bottomQueens.push(TeamThree[i]);
+            for (let i = 0; i < TeamFour.length; i++)
+            bottomQueens.push(TeamFour[i]);
+        }
+        else if (groupsList[1] == TeamThree) {
+            for (let i = 0; i < TeamThree.length; i++)
+            safeQueens.push(TeamThree[i]);
+            for (let i = 0; i < TeamTwo.length; i++)
+            bottomQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamFour.length; i++)
+            bottomQueens.push(TeamFour[i]);
+        }
+        else if (groupsList[1] == TeamFour) {
+            for (let i = 0; i < TeamFour.length; i++)
+            safeQueens.push(TeamFour[i]);
+            for (let i = 0; i < TeamTwo.length; i++)
+            bottomQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamThree.length; i++)
+            bottomQueens.push(TeamThree[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamTwo) {
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        screen.createBold("Condragulations, Team Two! You are our winning group this week.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        if (groupsList[1] == TeamOne) {
+            for (let i = 0; i < TeamOne.length; i++)
+            safeQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamThree.length; i++)
+            bottomQueens.push(TeamThree[i]);
+            for (let i = 0; i < TeamFour.length; i++)
+            bottomQueens.push(TeamFour[i]);
+        }
+        else if (groupsList[1] == TeamThree) {
+            for (let i = 0; i < TeamThree.length; i++)
+            safeQueens.push(TeamThree[i]);
+            for (let i = 0; i < TeamOne.length; i++)
+            bottomQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamFour.length; i++)
+            bottomQueens.push(TeamFour[i]);
+        }
+        else if (groupsList[1] == TeamFour) {
+            for (let i = 0; i < TeamFour.length; i++)
+            safeQueens.push(TeamFour[i]);
+            for (let i = 0; i < TeamOne.length; i++)
+            bottomQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamThree.length; i++)
+            bottomQueens.push(TeamThree[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamThree) {
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("Condragulations, Team Three! You are our winning group this week.");
+        for (let i = 0; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        if (groupsList[1] == TeamOne) {
+            for (let i = 0; i < TeamOne.length; i++)
+            safeQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamTwo.length; i++)
+            bottomQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamFour.length; i++)
+            bottomQueens.push(TeamFour[i]);
+        }
+        else if (groupsList[1] == TeamTwo) {
+            for (let i = 0; i < TeamTwo.length; i++)
+            safeQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamOne.length; i++)
+            bottomQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamFour.length; i++)
+            bottomQueens.push(TeamFour[i]);
+        }
+        else if (groupsList[1] == TeamFour) {
+            for (let i = 0; i < TeamFour.length; i++)
+            safeQueens.push(TeamFour[i]);
+            for (let i = 0; i < TeamOne.length; i++)
+            bottomQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamTwo.length; i++)
+            bottomQueens.push(TeamTwo[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamFour) {
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        screen.createBold("Condragulations, Team Four! You are our winning group this week.");
+        for (let i = 0; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        if (groupsList[1] == TeamOne) {
+            for (let i = 0; i < TeamOne.length; i++)
+            safeQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamTwo.length; i++)
+            bottomQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamThree.length; i++)
+            bottomQueens.push(TeamThree[i]);
+        }
+        else if (groupsList[1] == TeamTwo) {
+            for (let i = 0; i < TeamTwo.length; i++)
+            safeQueens.push(TeamTwo[i]);
+            for (let i = 0; i < TeamOne.length; i++)
+            bottomQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamThree.length; i++)
+            bottomQueens.push(TeamThree[i]);
+        }
+        else if (groupsList[1] == TeamThree) {
+            for (let i = 0; i < TeamThree.length; i++)
+            safeQueens.push(TeamThree[i]);
+            for (let i = 0; i < TeamOne.length; i++)
+            bottomQueens.push(TeamOne[i]);
+            for (let i = 0; i < TeamTwo.length; i++)
+            bottomQueens.push(TeamTwo[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    }
+    else if (fiveTeams == true) {
+    let teamOneScore = 0;
+    let teamTwoScore = 0;
+    let teamThreeScore = 0;
+    let teamFourScore = 0;
+    let teamFiveScore = 0;
+    let teamOneFinalScore = 0;
+    let teamTwoFinalScore = 0;
+    let teamThreeFinalScore = 0;
+    let teamFourFinalScore = 0;
+    let teamFiveFinalScore = 0;
+    let winningScore = 0;
+    for (let i = 0; i < TeamOne.length; i++)
+    teamOneScore += TeamOne[i].performanceScore;
+    for (let i = 0; i < TeamTwo.length; i++)
+    teamTwoScore += TeamTwo[i].performanceScore;
+    for (let i = 0; i < TeamThree.length; i++)
+    teamThreeScore += TeamThree[i].performanceScore;
+    for (let i = 0; i < TeamFour.length; i++)
+    teamFourScore += TeamFour[i].performanceScore;
+    for (let i = 0; i < TeamFive.length; i++)
+    teamFiveScore += TeamFive[i].performanceScore;
+    TeamOne.performanceScore = teamOneScore / TeamOne.length;
+    TeamTwo.performanceScore = teamTwoScore / TeamTwo.length;
+    TeamThree.performanceScore = teamThreeScore / TeamThree.length;
+    TeamFour.performanceScore = teamFourScore / TeamFour.length;
+    TeamFive.performanceScore = teamFiveScore / TeamFive.length;
+    let groupsList = [];
+    groupsList.push(TeamOne);
+    groupsList.push(TeamTwo);
+    groupsList.push(TeamThree);
+    groupsList.push(TeamFour);
+    groupsList.push(TeamFive);
+    groupsList.sort((a, b) => (a.performanceScore - b.performanceScore));
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Judging");
+    screen.createBold("When I call your name, please step forward.");
+    if (groupsList[0] == TeamOne) {
+        for (let i = 0; i < TeamOne.length; i++)
+        screen.createImage(TeamOne[i].image, "cyan");
+        screen.createBold("Condragulations, Team One! You are our winning group this week.");
+        for (let i = 0; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        let safeContainer = [];
+        safeContainer = [...groupsList[1]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        if (randomNumber(0, 100) > 45) {
+        safeContainer = [];
+        safeContainer = [...groupsList[2]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        let botContainer = [];
+        botContainer = [...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        else {
+        let botContainer = [];
+        botContainer = [...groupsList[2], ...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamTwo) {
+        for (let i = 0; i < TeamTwo.length; i++)
+        screen.createImage(TeamTwo[i].image, "cyan");
+        screen.createBold("Condragulations, Team Two! You are our winning group this week.");
+        for (let i = 0; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        let safeContainer = [];
+        safeContainer = [...groupsList[1]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        if (randomNumber(0, 100) > 45) {
+        safeContainer = [];
+        safeContainer = [...groupsList[2]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        let botContainer = [];
+        botContainer = [...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        else {
+        let botContainer = [];
+        botContainer = [...groupsList[2], ...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamThree) {
+        for (let i = 0; i < TeamThree.length; i++)
+        screen.createImage(TeamThree[i].image, "cyan");
+        screen.createBold("Condragulations, Team Three! You are our winning group this week.");
+        for (let i = 0; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        let safeContainer = [];
+        safeContainer = [...groupsList[1]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        if (randomNumber(0, 100) > 45) {
+        safeContainer = [];
+        safeContainer = [...groupsList[2]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        let botContainer = [];
+        botContainer = [...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        else {
+        let botContainer = [];
+        botContainer = [...groupsList[2], ...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamFour) {
+        for (let i = 0; i < TeamFour.length; i++)
+        screen.createImage(TeamFour[i].image, "cyan");
+        screen.createBold("Condragulations, Team Four! You are our winning group this week.");
+        for (let i = 0; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        let safeContainer = [];
+        safeContainer = [...groupsList[1]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        if (randomNumber(0, 100) > 45) {
+        safeContainer = [];
+        safeContainer = [...groupsList[2]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        let botContainer = [];
+        botContainer = [...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        else {
+        let botContainer = [];
+        botContainer = [...groupsList[2], ...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    else if (groupsList[0] == TeamFive) {
+        for (let i = 0; i < TeamFive.length; i++)
+        screen.createImage(TeamFive[i].image, "cyan");
+        screen.createBold("Condragulations, Team Five! You are our winning group this week.");
+        for (let i = 0; i < TeamFive.length; i++)
+        topQueens.push(TeamFive[i]);
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        if ((topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false && !lalaparuza || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1 || topQueens.length < 5 && winningScore < 12 && randomNumber(0, 100) > 45 && lalaparuza && totalCastSize % 2 == 0 && currentCast.length !== (totalCastSize / 2) + 1 || topQueens.length < 5 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1)) {
+        screen.createBold("And not just that, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        for (let i = 1; i < topQueens.length; i++) {
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        }
+        }
+        let safeContainer = [];
+        safeContainer = [...groupsList[1]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        if (randomNumber(0, 100) > 45) {
+        safeContainer = [];
+        safeContainer = [...groupsList[2]];
+        for (let i = 0; i < safeContainer.length; i++)
+        safeQueens.push(safeContainer[i]);
+        let botContainer = [];
+        botContainer = [...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        else {
+        let botContainer = [];
+        botContainer = [...groupsList[2], ...groupsList[3], ...groupsList[4]];
+        for (let i = 0; i < botContainer.length; i++)
+        bottomQueens.push(botContainer[i]);
+        }
+        screen.createBold("", "safes");
+        let safes = document.getElementById("safes");
+        for (let i = 0; i < safeQueens.length; i++) {
+        safes.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].addToTrackRecord("SAFE");
+        safeQueens[i].ppe += 3;
+        }
+        safes.innerHTML += "you are all safe. You may join the top queens untuck backstage.";
+        screen.createHorizontalLine();
+        screen.createParagraph("", "critiques");
+        let critiques = document.getElementById("critiques");
+        for (let i = 0; i < bottomQueens.length; i++)
+        critiques.innerHTML += `${bottomQueens[i].getName()}, `;
+        critiques.innerHTML += "let us now hear the judges critiques.";
+        screen.createButton("Proceed", "groupWayOutcome()", "groupLS");
+    }
+    }
+}
+function groupWayOutcome() {
+    let screen = new Scene();
+    let button = document.getElementById("groupLS");
+    button.remove();
+    screen.createHorizontalLine();
+    screen.createBold("Ladies, I have made some decisions!");
+    for (let i = 0; i < bottomQueens.length; i++)
+    screen.createImage(bottomQueens[i].image, "tomato");
+    screen.createBold("", "bots");
+    let bots = document.getElementById("bots");
+    for (let i = 0; i < bottomQueens.length; i++)
+    bots.innerHTML += `${bottomQueens[i].getName()}, `;
+    bots.innerHTML += "none of you deserves to be safe tonight. <br> I'm not sorry, my dears, but you are all going to lipsync for your lives.";
+    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == true && currentCast.length > 5) {
+    screen.createHorizontalLine();
+    screen.createBigText("Select The Outcome");
+    let main = document.querySelector("div#MainBlock");
+    let centering = document.createElement("center");
+    let select = document.createElement("select");
+    select.setAttribute("id", "lsOutcome");
+    let basicoption = document.createElement("option");
+    basicoption.innerHTML += "Basic Lipsync";
+    select.add(basicoption);
+    let halfoption = document.createElement("option");
+    halfoption.innerHTML += "Eliminate Half";
+    select.add(halfoption);
+    let onlyoneoption = document.createElement("option");
+    onlyoneoption.innerHTML += "Only One Survives";
+    select.add(onlyoneoption);
+    centering.appendChild(select);
+    main.appendChild(centering);
+    screen.createParagraph("");
+    screen.createButton("Select", "halfwayChoose()", "chosenOutcome");
+    }
+    else {
+    screen.createButton("Proceed", "halfWaylipSync()");
+    }
+    if (pairings == true) {
+        currentCast = [];
+        for (let i = 0; i < castHolder.length; i++)
+        currentCast.push(castHolder[i]);
+    }
+}
+function groupsLalaparuza() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Bring Back My Girls");
+    screen.createBold("Ladies, I have made some decisions!");
+    currentCast.sort((a, b) => (a.performanceScore - b.performanceScore));
+    if (pairings == true) {
+    topQueens.push(currentCast[0]);
+    if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || topQueens[0] == threeSome[0] && castHolder.length < 11 || castHolder.length < 10) {
+    let pairHolder = [];
+    pairHolder.push(topQueens[0].QueenA);
+    pairHolder.push(topQueens[0].QueenB);
+    if (topQueens[0] == threeSome[0])
+    pairHolder.push(topQueens[0].QueenC);
+    shuffle(pairHolder);
+    screen.createImage(pairHolder[0].image, "royalblue");
+    pairHolder[0].addToTrackRecord("WIN");
+    pairHolder[0].ppe += 5;
+    pairHolder[0].coinz += 5;
+    pairHolder[0].favoritism += 5;
+    winnerEpisode.push(pairHolder[0]);
+    screen.createBold(pairHolder[0].getName() + ", condragulations! You are the winner of this week's challenge!");
+    for (let i = 1; i < pairHolder.length; i++)
+    bottomQueens.push(pairHolder[i]);
+    }
+    else {
+    screen.createImage(topQueens[0].QueenA.image, "royalblue");
+    topQueens[0].QueenA.addToTrackRecord(" WIN");
+    winnerEpisode.push(topQueens[0].QueenA);
+    topQueens[0].QueenA.ppe += 5;
+    topQueens[0].QueenA.coinz += 2.5;
+    topQueens[0].QueenA.favoritism += 3.5;
+    screen.createImage(topQueens[0].QueenB.image, "royalblue");
+    topQueens[0].QueenB.addToTrackRecord(" WIN");
+    winnerEpisode.push(topQueens[0].QueenB);
+    topQueens[0].QueenB.ppe += 5;
+    topQueens[0].QueenB.coinz += 2.5;
+    topQueens[0].QueenB.favoritism += 3.5;
+    if (topQueens[0] == threeSome[0]) {
+    screen.createImage(topQueens[0].QueenC.image, "royalblue");
+    topQueens[0].QueenC.addToTrackRecord(" WIN");
+    winnerEpisode.push(topQueens[0].QueenC);
+    topQueens[0].QueenC.ppe += 5;
+    topQueens[0].QueenC.coinz += 2.5;
+    topQueens[0].QueenC.favoritism += 3.5;
+    }
+    screen.createBold(topQueens[0].getName() + ", condragulations! You are the winners of this week's challenge!");
+    }
+    topQueens = [];
+    for (let i = 0; i < winnerEpisode.length; i++)
+    topQueens.push(winnerEpisode[i]);
+    for (let i = 1; i < currentCast.length; i++) {
+    bottomQueens.push(currentCast[i].QueenA);
+    bottomQueens.push(currentCast[i].QueenB);
+    if (currentCast[i] == threeSome[0])
+    bottomQueens.push(currentCast[i].QueenC);
+    }
+    }
+    if (pairings == true) {
+        currentCast = [];
+        for (let i = 0; i < castHolder.length; i++)
+        currentCast.push(castHolder[i]);
+    }
+    else if (twoTeams == true || threeTeams == true || fourTeams == true || fiveTeams == true) {
+    let teamOneScore = 0;
+    let teamTwoScore = 0;
+    let teamThreeScore = 0;
+    let teamFourScore = 0;
+    let teamFiveScore = 0;
+    let teamOneFinalScore = 0;
+    let teamTwoFinalScore = 0;
+    let teamThreeFinalScore = 0;
+    let teamFourFinalScore = 0;
+    let teamFiveFinalScore = 0;
+    let winningScore = 0;
+    let groupsList = [];
+    for (let i = 0; i < TeamOne.length; i++)
+    teamOneScore += TeamOne[i].performanceScore;
+    for (let i = 0; i < TeamTwo.length; i++)
+    teamTwoScore += TeamTwo[i].performanceScore;
+    TeamOne.performanceScore = teamOneScore / TeamOne.length;
+    TeamTwo.performanceScore = teamTwoScore / TeamTwo.length;
+    groupsList.push(TeamOne);
+    groupsList.push(TeamTwo);
+    if (threeTeams == true || fourTeams == true || fiveTeams == true) {
+    for (let i = 0; i < TeamThree.length; i++)
+    teamThreeScore += TeamThree[i].performanceScore;
+    TeamThree.performanceScore = teamThreeScore / TeamThree.length;
+    groupsList.push(TeamThree);
+    }
+    if (fourTeams == true || fiveTeams == true) {
+    for (let i = 0; i < TeamFour.length; i++)
+    teamFourScore += TeamFour[i].performanceScore;
+    TeamFour.performanceScore = teamFourScore / TeamFour.length;
+    groupsList.push(TeamFour);
+    }
+    if (fiveTeams == true) {
+    for (let i = 0; i < TeamFive.length; i++)
+    teamFiveScore += TeamFive[i].performanceScore;
+    TeamFive.performanceScore = teamFiveScore / TeamFive.length;
+    groupsList.push(TeamFive);
+    }
+    groupsList.sort((a, b) => (a.performanceScore - b.performanceScore));
+    if (groupsList[0] == TeamOne) {
+        for (let i = 0; i < TeamOne.length; i++)
+        topQueens.push(TeamOne[i]);
+        let botAmount = 0;
+        botAmount += currentCast.length - topQueens.length;
+        if (topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+        for (let i = 0; i < topQueens.length; i++)
+        screen.createImage(topQueens[i].image, "royalblue");
+        screen.createBold("Condragulations, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        if (botAmount > 6 && randomNumber(0, 100) > 35) {
+        for (let i = 1; i < topQueens.length; i++) {
+        screen.createImage(topQueens[i].image, "lightblue");
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        highTeamImmune = true;
+        }
+        screen.createBold("The rest of your group did an amazing job as well.");
+        }
+        else {
+        topQueens.splice(1, topQueens.length - 1);
+        }
+        }
+    }
+    else if (groupsList[0] == TeamTwo) {
+        for (let i = 0; i < TeamTwo.length; i++)
+        topQueens.push(TeamTwo[i]);
+        let botAmount = 0;
+        botAmount += currentCast.length - topQueens.length;
+        if (topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+        for (let i = 0; i < topQueens.length; i++)
+        screen.createImage(topQueens[i].image, "royalblue");
+        screen.createBold("Condragulations, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        if (botAmount > 6 && randomNumber(0, 100) > 35) {
+        for (let i = 1; i < topQueens.length; i++) {
+        screen.createImage(topQueens[i].image, "lightblue");
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        highTeamImmune = true;
+        }
+        screen.createBold("The rest of your group did an amazing job as well.");
+        }
+        else {
+        topQueens.splice(1, topQueens.length - 1);
+        }
+        }
+    }
+    else if (groupsList[0] == TeamThree) {
+        for (let i = 0; i < TeamThree.length; i++)
+        topQueens.push(TeamThree[i]);
+        let botAmount = 0;
+        botAmount += currentCast.length - topQueens.length;
+        if (topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+        for (let i = 0; i < topQueens.length; i++)
+        screen.createImage(topQueens[i].image, "royalblue");
+        screen.createBold("Condragulations, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        if (botAmount > 6 && randomNumber(0, 100) > 35) {
+        for (let i = 1; i < topQueens.length; i++) {
+        screen.createImage(topQueens[i].image, "lightblue");
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        highTeamImmune = true;
+        }
+        screen.createBold("The rest of your group did an amazing job as well.");
+        }
+        else {
+        topQueens.splice(1, topQueens.length - 1);
+        }
+        }
+    }
+    else if (groupsList[0] == TeamFour) {
+        for (let i = 0; i < TeamFour.length; i++)
+        topQueens.push(TeamFour[i]);
+        let botAmount = 0;
+        botAmount += currentCast.length - topQueens.length;
+        if (topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+        for (let i = 0; i < topQueens.length; i++)
+        screen.createImage(topQueens[i].image, "royalblue");
+        screen.createBold("Condragulations, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        if (botAmount > 6 && randomNumber(0, 100) > 35) {
+        for (let i = 1; i < topQueens.length; i++) {
+        screen.createImage(topQueens[i].image, "lightblue");
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        highTeamImmune = true;
+        }
+        screen.createBold("The rest of your group did an amazing job as well.");
+        }
+        else {
+        topQueens.splice(1, topQueens.length - 1);
+        }
+        }
+    }
+    else if (groupsList[0] == TeamFive) {
+        for (let i = 0; i < TeamFive.length; i++)
+        topQueens.push(TeamFive[i]);
+        let botAmount = 0;
+        botAmount += currentCast.length - topQueens.length;
+        if (topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && ruvenge == false || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && randomNumber(0, 100) > 45 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 == 0 || topQueens.length < 5 && botAmount > 6 && winningScore < 12 && (comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && currentCast.length !== ((totalCastSize + 1) / 2) + 1) {
+        for (let i = 0; i < topQueens.length; i++)
+        screen.createImage(topQueens[i].image, "royalblue");
+        screen.createBold("Condragulations, you are all winners, baby!");
+        for (let i = 0; i < topQueens.length; i++) {
+        weekWinner.push(topQueens[i]);
+        topQueens[i].addToTrackRecord(" WIN");
+        topQueens[i].ppe += 5;
+        topQueens[i].coinz += 2.5;
+        topQueens[i].favoritism += 3;
+        }
+        }
+        else {
+        topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(topQueens[0].getName() + ", condragulations, you are the winner of this week's challenge!");
+        weekWinner.push(topQueens[0]);
+        topQueens[0].addToTrackRecord("WIN");
+        topQueens[0].ppe += 5;
+        topQueens[0].coinz += 5;
+        topQueens[0].favoritism += 5;
+        winnerEpisode.push(topQueens[0]);
+        if (botAmount > 6 && randomNumber(0, 100) > 35) {
+        for (let i = 1; i < topQueens.length; i++) {
+        screen.createImage(topQueens[i].image, "lightblue");
+        topQueens[i].addToTrackRecord("HIGH<br>TEAM");
+        topQueens[i].ppe += 4;
+        topQueens[i].favoritism += 1.5;
+        highTeamImmune = true;
+        }
+        screen.createBold("The rest of your group did an amazing job as well.");
+        }
+        else {
+        topQueens.splice(1, topQueens.length - 1);
+        }
+        }
+    }
+    for (let i = 0; i < currentCast.length; i++)
+    bottomQueens.push(currentCast[i]);
+    for (let i = 0; i < topQueens.length; i++)
+    bottomQueens.splice(bottomQueens.indexOf(topQueens[i]), 1);
+    }
+    screen.createHorizontalLine();
+    screen.createBigText("You are all dishonorably invited...");
+    screen.createBold("The rest of you captured our attentions for all the wrong reasons.")
+    for (let i = 0; i < bottomQueens.length; i++) {
+        screen.createImage(bottomQueens[i].image, "tomato");
+        bottomQueens[i].addToTrackRecord("BTM" + bottomQueens.length);
+        bottomQueens[i].unfavoritism += 2;
+        bottomQueens[i].ppe += 1;
+    }
+    screen.createParagraph("", "btm2");
+    let btm2 = document.getElementById("btm2");
+    for (let i = 0; i < bottomQueens.length; i++) {
+        btm2.innerHTML += bottomQueens[i].getName() + ", ";
+    }
+    btm2.innerHTML += "you are all going to lipsync for your lives but not now.";
+    screen.createBold("Next week, you will battle it out on a Lipsync LaLaPaRUZa Smackdown!");
+    for (let i = 0; i < eliminatedCast.length; i++)
+    eliminatedCast[i].addToTrackRecord("");
+    screen.createButton("Proceed", "survivalLipsyncs()");
 }
 function getBottomTwo() {
     let screen = new Scene();
@@ -5132,8 +8113,16 @@ function queensPerformances() {
     let flop = topQueens.filter(function (queen) { return queen.performanceScore >= 31; });
     createPerformanceDesc(slay, great, good, bad, flop);
     }
-    if (noneIndividual == true && isDesignChallenge == true)
+    if (noneIndividual == true && isDesignChallenge == true && selectOutcome == false)
         performanceScreen.createButton("Proceed", "groupsJudging()");
+    else if (noneIndividual == true && isDesignChallenge == true && selectOutcome == true) {
+        performanceScreen.createButton("Basic Judging", "groupsJudging()");
+        performanceScreen.createButton("Top 2 Non-Elimination", "groupsTopTwo()");
+        if (currentCast.length > 5 && pairings == false && twoTeams == true || currentCast.length > 8 && pairings == false && threeTeams == true || currentCast.length > 11 && pairings == false && fourTeams == true || currentCast.length > 14 && pairings == false && fiveTeams == true || castHolder.length > 5 && pairings == true)
+        performanceScreen.createButton("Multiple-Way Lipsync", "groupWayLipsync()");
+        if (currentCast.length > 7 && pairings == false || castHolder.length > 7 && pairings == true)
+        performanceScreen.createButton("LaLaPaRUZa Invitation", "groupsLalaparuza()");
+    }
     else if (extraPremiere && episodeCount == 1 && runwayPortion == true) {
         performanceScreen.createButton("Proceed", "extraQAQueens()", "button2");
     }
@@ -5461,8 +8450,16 @@ function runway() {
     let bad = currentCast.filter(function (queen) { return queen.runwayScore >= 26; });
     createRunwayDesc(slay, great, good, bad);
     }
-    if (noneIndividual == true || pairings == true)
+    if (noneIndividual == true && selectOutcome == false|| pairings == true && selectOutcome == false)
         runwayScreen.createButton("Proceed", "groupsJudging()");
+    else if (noneIndividual == true && selectOutcome == true) {
+        runwayScreen.createButton("Basic Judging", "groupsJudging()");
+        runwayScreen.createButton("Top 2 Non-Elimination", "groupsTopTwo()");
+        if (currentCast.length > 5 && pairings == false && twoTeams == true || currentCast.length > 8 && pairings == false && threeTeams == true || currentCast.length > 11 && pairings == false && fourTeams == true || currentCast.length > 14 && pairings == false && fiveTeams == true || castHolder.length > 5 && pairings == true)
+        runwayScreen.createButton("Multiple-Way Lipsync", "groupWayLipsync()");
+        if (currentCast.length > 7 && pairings == false || castHolder.length > 7 && pairings == true)
+        runwayScreen.createButton("LaLaPaRUZa Invitation", "groupsLalaparuza()");
+    }
     else if (showdownFinale == true)
         runwayScreen.createButton("Proceed", "top2Showdown()");
     else if (currentCast.length > 4 && secretEpisode == false && selectOutcome == false || currentCast.length > 4 && secretEpisode == false && selectOutcome == true && (all_stars || lipsync_assassin || vstheworld || superstars || team || throwqueen))
@@ -7125,11 +10122,11 @@ function top2Lipsync() {
     if (extraPremiere && episodeCount == 1) {
     top2[0].addToTrackRecord("WIN");
     top2[0].favoritism += 5;
-    top2[0].ppe += 2;
+    top2[0].ppe += 6;
     top2[0].coinz += 5;
     top2[1].addToTrackRecord("TOP2");
     top2[1].favoritism += 4;
-    top2[1].ppe += 1;
+    top2[1].ppe += 5;
     }
     else if (!extraPremiere || extraPremiere && episodeCount > 1) {
     top2[0].addToTrackRecord("WIN");
@@ -9067,7 +12064,48 @@ function halfWaylipSync() {
         }
         }
     }
-    screen.createButton("Proceed", "newEpisode()");
+    if ((twinstwist || comedyRuvenge || groupsRuvenge) && totalCastSize % 2 == 0 && currentCast.length == totalCastSize / 2 && ruvenge == false || (twinstwist || comedyRuvenge || groupsRuvenge) && totalCastSize % 2 == 1 && currentCast.length == (totalCastSize + 1) / 2 && ruvenge == false) {
+      ruvengeQueens = [...eliminatedCast];
+      remainingQueens = [...currentCast];
+      for (let i = 0; i < eliminatedCast.length; i++) {
+          if (eliminatedCast[i].withdraw == 1) {
+              ruvengeQueens.splice(ruvengeQueens.indexOf(eliminatedCast[i]), 1);
+          }
+      }
+      for (let i = 0; i < ruvengeQueens.length; i++) {
+      currentCast.push(ruvengeQueens[i]);
+      eliminatedCast.splice(eliminatedCast.indexOf(ruvengeQueens[i]), 1);
+      }
+      if (currentCast.length % 2 !== 0) {
+          if (top4 || top3) {
+              immuneQueen.push(winnerEpisode[0]);
+          }
+          else {
+            immuneQueen.push(topQueens[0]);
+          }
+          currentCast.splice(currentCast.indexOf(immuneQueen[0]), 1);
+          remainingQueens.splice(remainingQueens.indexOf(immuneQueen[0]), 1);
+          bringbackImmune = true;
+    }
+      ruvenge = true;
+      screen.createButton("Proceed", "newEpisode()");
+    }
+    else if (ruvengeEpisode == true) {
+        ruvengeUntucked = true;
+        ruvengeEpisode = false;
+        if (bringbackImmune == true) {
+            currentCast.push(immuneQueen[0]);
+            immuneQueen[0].addToTrackRecord("SAFE  ");
+            bringbackImmune = false;
+        }
+        screen.createButton("Proceed", "newEpisode()");
+    }
+    else if (CheckForReturning() == true)
+        screen.createButton("Proceed", "returningQueenScreen()");
+    else {
+        ruvengeEpisode = false;
+        screen.createButton("Proceed", "newEpisode()");
+    }
 }
 function floppedJudging() {
     let screen = new Scene();
@@ -9108,12 +12146,13 @@ function survivalLipsyncs() {
     lsOpponent = currentCast.slice();
     for (var i = 0; i < lsOpponent.length; i++) {
         var trds = lsOpponent[i].trackRecord.length - 1;
-        if (lsOpponent[i].trackRecord[trds] == "WIN") {
+        if (lsOpponent[i].trackRecord[trds] == "WIN" || lsOpponent[i].trackRecord[trds] == " WIN" || lsOpponent[i].trackRecord[trds] == "HIGH<br>TEAM" && highTeamImmune == true) {
             lsOpponent[i].addToTrackRecord("SAFE  ");
             lsOpponent.splice(i, 1);
             i--;
     }
     }
+    highTeamImmune = false;
     screen.createHorizontalLine();
     screen.createBigText("First Round of Lipsyncs");
     for (let i = 0; i < lsOpponent.length; i++) {
@@ -23729,7 +26768,7 @@ function CheckForReturning() {
         returningQueen = true;
         return true;
     }
-    if (lalaparuza && (totalCastSize % 2 == 0 && currentCast.length == totalCastSize / 2 || totalCastSize % 2 == 1 && currentCast.length == (totalCastSize + 1) / 2) && returningQueen == false) {
+    if (lalaparuza && (totalCastSize % 2 == 0 && currentCast.length == totalCastSize / 2 || totalCastSize % 2 !== 0 && currentCast.length == (totalCastSize + 1) / 2) && returningQueen == false) {
         returningQueen = true;
         return true;
     }
