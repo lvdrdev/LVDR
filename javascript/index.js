@@ -1695,7 +1695,7 @@ function groupsJudging() {
             highQueens.innerHTML += `${topQueens[i].getName()}, `;
         highQueens.innerHTML += "you all did amazing this week. <br> But a certain performance snatched this week's win.";
         shuffle(topQueens);
-        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length == (totalCastSize / 2) + 1) {
         let pairHolder = [];
         pairHolder.push(topQueens[0].QueenA);
         pairHolder.push(topQueens[0].QueenB);
@@ -1752,7 +1752,7 @@ function groupsJudging() {
         screen.createParagraph("You may now all untuck backstage.");
     }
     else if (topQueens.length == 1) {
-        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length == (totalCastSize / 2) + 1) {
         screen.createBold(topQueens[0].getName() + ", ladies, captivated us the most this week but there could only be one winner.");
         let pairHolder = [];
         pairHolder.push(topQueens[0].QueenA);
@@ -4714,7 +4714,7 @@ function groupWayLipsync() {
             highQueens.innerHTML += `${topQueens[i].getName()}, `;
         highQueens.innerHTML += ", ladies, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge. <br> But the we have to choose a winner.";
         shuffle(topQueens);
-        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length == (totalCastSize / 2) + 1) {
         let pairHolder = [];
         pairHolder.push(topQueens[0].QueenA);
         pairHolder.push(topQueens[0].QueenB);
@@ -4826,7 +4826,7 @@ function groupWayLipsync() {
             highQueens.innerHTML += `${topQueens[i].getName()}, `;
         highQueens.innerHTML += ", ladies, you gagged us all with your performance for this week. <br> You represent the tops of today's challenge. <br> But the we have to choose a winner.";
         shuffle(topQueens);
-        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length == (totalCastSize / 2) + 1) {
         let pairHolder = [];
         pairHolder.push(topQueens[0].QueenA);
         pairHolder.push(topQueens[0].QueenB);
@@ -4913,7 +4913,7 @@ function groupWayLipsync() {
         screen.clean();
         screen.createHeader("Judging");
         screen.createBold("When I call your name, please step forward.");
-        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length !== (totalCastSize / 2) + 1) {
+        if ((comedyRuvenge || twinstwist || groupsRuvenge) && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 !== 0 && castHolder.length == ((totalCastSize + 1) / 2) + 1 || lalaparuza && totalCastSize % 2 == 0 && castHolder.length == (totalCastSize / 2) + 1) {
         let pairHolder = [];
         pairHolder.push(topQueens[0].QueenA);
         pairHolder.push(topQueens[0].QueenB);
@@ -16193,6 +16193,1247 @@ function predefCast(cast, format, premiere, returning) {
     else
         newEpisode();
 }
+let cardChoose = false;
+let cardAverage = false;
+let cardDifficult = false;
+let selectedCard = false;
+let currentCards = [];
+let playingCards = [];
+let eliminatedCards = [];
+let botcurrentCards = [];
+let botplayingCards = [];
+let boteliminatedCards = [];
+let cardQueens = [];
+function cardGame() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h1> Please Choose An Option </h1>");
+    screen.createHorizontalLine();
+    screen.createParagraph("");
+    screen.createButton("Select Your Queens", "cardSelect()");
+    screen.createParagraph("");
+    screen.createButton("Let's Go Random", "cardRandom()");
+    screen.createParagraph("");
+}
+function cardSelect() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h1> Please Choose A Mode </h1>");
+    screen.createHorizontalLine();
+    screen.createParagraph("");
+    screen.createButton("Easy Mode", "cardStart()");
+    screen.createParagraph("");
+    screen.createButton("Average Mode", "cardMedium()");
+    screen.createParagraph("");
+    screen.createButton("Difficult Mode", "cardHard()");
+    screen.createParagraph("");
+    cardChoose = true;
+}
+function cardRandom() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h1> Please Choose A Mode </h1>");
+    screen.createHorizontalLine();
+    screen.createParagraph("");
+    screen.createButton("Easy Mode", "cardStart()");
+    screen.createParagraph("");
+    screen.createButton("Average Mode", "cardMedium()");
+    screen.createParagraph("");
+    screen.createButton("Difficult Mode", "cardHard()");
+    screen.createParagraph("");
+}
+function cardHard() {
+    cardDifficult = true;
+    cardStart();
+}
+function cardMedium() {
+    cardAverage = true;
+    cardStart();
+}
+let enterQueens = false;
+function cardStart() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    if (cardChoose == true && enterQueens == false) {
+        for (let i = 0; i < allQueens.length; i++)
+        cardQueens.push(allQueens[i]);
+        enterQueens = true;
+    }
+    if (cardChoose == true) {
+        screen.createBigText("<h3> Pick 10 Of Your Queens </h13>");
+        let main = document.querySelector("div#MainBlock");
+        let castSelection = document.createElement("p");
+        castSelection.setAttribute("id", "castSelection");
+        castSelection.innerHTML = '';
+        let select = document.createElement("select");
+        select.setAttribute("id", "queenList");
+        select.setAttribute("onchange", "returnImg()");
+        let img = document.createElement("img");
+        img.setAttribute("id", "images");
+        img.setAttribute("style", "width: 105px; height: 105px;");
+        let p = document.createElement("p");
+        p.appendChild(img);
+        for (let k = 0; k < cardQueens.length; k++) {
+            let option = document.createElement("option");
+            option.innerHTML = cardQueens[k].getName();
+            option.value = cardQueens[k].image;
+            select.add(option);
+            castbyCat.push(cardQueens[k]);
+        }
+        select.selectedIndex = randomNumber(0, currentCast.length - 1);
+        let br = document.createElement("br");
+        castSelection.appendChild(p);
+        castSelection.appendChild(select);
+        castSelection.appendChild(br);
+        main.appendChild(castSelection);
+        returnImg();
+        screen.createButton("Add To Cast", "cardPick()", "chosenCard");
+        screen.createParagraph("");
+        if (selectedCard == true) {
+        screen.createHorizontalLine();
+        screen.createParagraph("");
+        screen.createBigText("Review Your Deck");
+        screen.createBold("You currently have " + currentCards.length + " queen/s in your deck.");
+        if (duplicateQueens(currentCards)) {
+            screen.createBold("You have a duplicate queen in your deck!");
+            window.alert("Please remove the duplicate queen into your deck!");
+        }
+        if (currentCards.length > 10) {
+            screen.createBold("You already have 10 queens in your deck!");
+            window.alert("Please remove the extra queen/s into your deck!");
+        }
+        let mainCast = document.querySelector("div#MainBlock");
+        let castSelected = document.createElement("p");
+        castSelected.setAttribute("id", "castSelected");
+        castSelected.innerHTML = '';
+        let selected = document.createElement("select");
+        selected.setAttribute("id", "castList");
+        selected.setAttribute("onchange", "castImg()");
+        let imgCast = document.createElement("img");
+        imgCast.setAttribute("id", "imagesCast");
+        imgCast.setAttribute("style", "width: 105px; height: 105px;");
+        let text = document.createElement("p");
+        text.appendChild(imgCast);
+        for (let k = 0; k < currentCards.length; k++) {
+            let option = document.createElement("option");
+            option.innerHTML = currentCards[k].getName();
+            option.value = currentCards[k].image;
+            selected.add(option);
+        }
+        selected.selectedIndex = randomNumber(0, currentCast.length - 1);
+        let spare = document.createElement("br");
+        castSelected.appendChild(text);
+        castSelected.appendChild(selected);
+        castSelected.appendChild(spare);
+        mainCast.appendChild(castSelected);
+        castImg();
+        if (currentCards.length == 10)
+        screen.createButton("Lock In Your Deck", "deckLock()", "deckIn");
+        screen.createButton("Remove From Deck", "cardVoid()", "voidedCard");
+        screen.createParagraph('');
+    }
+    }
+    else {
+        screen.createBigText("<h3> Here's Your 10 Queen Cards </h3>");
+        for (let i = 0; i < allQueens.length; i++)
+        cardQueens.push(allQueens[i]);
+        if (cardDifficult == false && cardAverage == false) {
+            for (let i = 0; i < 10; i++) {
+            shuffle(cardQueens);
+            botcurrentCards.push(cardQueens[randomNumber(0, cardQueens.length - 1)]);
+            cardQueens.splice(cardQueens.indexOf(botcurrentCards[i]), 1);
+            }
+            cardQueens.sort((a, b) => (b.overallStat - a.overallStat));
+            for (let i = 0; i < 10; i++) {
+            currentCards.push(cardQueens[randomNumber(0, 50)]);
+            cardQueens.splice(cardQueens.indexOf(currentCards[i]), 1);
+            }
+        }
+        else if (cardAverage == true) {
+            for (let i = 0; i < 10; i++) {
+            shuffle(cardQueens);
+            currentCards.push(cardQueens[randomNumber(0, cardQueens.length - 1)]);
+            cardQueens.splice(cardQueens.indexOf(currentCards[i]), 1);
+            }
+            for (let i = 0; i < 10; i++) {
+            cardQueens.sort((a, b) => (b.overallStat - a.overallStat));
+            botcurrentCards.push(cardQueens[randomNumber(0, cardQueens.length / 3)]);
+            cardQueens.splice(cardQueens.indexOf(botcurrentCards[i]), 1);
+            }
+        }
+        else {
+            for (let i = 0; i < 10; i++) {
+            currentCards.push(cardQueens[randomNumber(0, cardQueens.length - 1)]);
+            cardQueens.splice(cardQueens.indexOf(currentCards[i]), 1);
+            }
+            cardQueens.sort((a, b) => (b.overallStat - a.overallStat));
+            for (let i = 0; i < 10; i++) {
+            botcurrentCards.push(cardQueens[randomNumber(0, 50)]);
+            cardQueens.splice(cardQueens.indexOf(botcurrentCards[i]), 1);
+            }
+        }
+        for (let i = 0; i < currentCards.length; i++)
+        screen.createImage(currentCards[i].image, "purple");
+        screen.createBold("", "selectedCards");
+        let cards = document.getElementById("selectedCards");
+        for (let i = 0; i < currentCards.length; i++)
+        cards.innerHTML += `${currentCards[i].getName()}, `;
+        cards.innerHTML += "I summon thee to be the user's queens for this game.";
+        screen.createButton("Start the Game!", "cardRoundStart()");
+    }
+}
+function cardPick() {
+    let screen = new Scene();
+    let select = document.getElementById("queenList");
+    let value = select.options[select.selectedIndex].text;
+    let button = document.getElementById("voidedCast");
+    let queen;
+    for (let k = 0; k < castbyCat.length; k++) {
+        if (value == castbyCat[k].getName()) {
+            queen = castbyCat[k];
+        }
+    }
+    screen.createBold(queen.getName() + " was added to your deck!");
+    currentCards.push(queen);
+    selectedCard = true;
+    cardStart();
+}
+function cardVoid() {
+    let screen = new Scene();
+    let select = document.getElementById("castList");
+    let value = select.options[select.selectedIndex].text;
+    let button = document.getElementById("chosenCard");
+    let queen;
+    for (let k = 0; k < currentCards.length; k++) {
+        if (value == currentCards[k].getName()) {
+            queen = currentCards[k];
+        }
+    }
+    screen.createBold(queen.getName() + " was removed from the cast!");
+    currentCards.splice(currentCards.indexOf(queen), 1);
+    if (currentCards.length == 0) {
+        selectedCard = false;
+    }
+    else {
+        selectedCard = true;
+    }
+    cardStart();
+}
+function deckLock() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> Here's Your 10 Queen Cards </h3>");
+    for (let i = 0; i < currentCards.length; i++)
+    cardQueens.splice(cardQueens.indexOf(currentCards[i]), 1);
+    if (cardDifficult == false && cardAverage == false) {
+        for (let i = 0; i < 10; i++) {
+            botcurrentCards.unshift(cardQueens[randomNumber(0, cardQueens.length - 1)]);
+            cardQueens.splice(cardQueens.indexOf(botcurrentCards[0]), 1);
+        }
+    }
+    else if (cardAverage == true) {
+        for (let i = 0; i < 10; i++) {
+        cardQueens.sort((a, b) => (b.overallStat - a.overallStat));
+        botcurrentCards.push(cardQueens[randomNumber(0, cardQueens.length / 3)]);
+        cardQueens.splice(cardQueens.indexOf(botcurrentCards[i]), 1);
+        }
+    }
+    else {
+        cardQueens.sort((a, b) => (b.overallStat - a.overallStat));
+        for (let i = 0; i < 10; i++) {
+            botcurrentCards.unshift(cardQueens[randomNumber(0, 50)]);
+            cardQueens.splice(cardQueens.indexOf(botcurrentCards[0]), 1);
+        }
+    }
+    for (let i = 0; i < currentCards.length; i++)
+    screen.createImage(currentCards[i].image, "purple");
+    screen.createBold("", "selectedCards");
+    let cards = document.getElementById("selectedCards");
+    for (let i = 0; i < currentCards.length; i++)
+    cards.innerHTML += `${currentCards[i].getName()}, `;
+    cards.innerHTML += "I summon thee to be the user's queens for this game.";
+    screen.createButton("Start the Game!", "cardRoundStart()");
+}
+let playCard = false;
+let starterPicked = false;
+function playPick() {
+    let screen = new Scene();
+    let select = document.getElementById("queenList");
+    let value = select.options[select.selectedIndex].text;
+    let button = document.getElementById("voidedPlay");
+    let queen;
+    for (let k = 0; k < castbyCat.length; k++) {
+        if (value == castbyCat[k].getName()) {
+            queen = castbyCat[k];
+        }
+    }
+    screen.createBold(queen.getName() + " was added to your playing deck!");
+    playingCards.push(queen);
+    if (roundCounter > 0 && pickTwoAgain == false) {
+    currentCards.splice(currentCards.indexOf(queen), 1);
+    roundStart();
+    }
+    else if (roundCounter > 0 && pickTwoAgain == true) {
+    playCard = true;
+    cardRoundStart();
+    }
+    else {
+    playCard = true;
+    cardRoundStart();
+    }
+}
+function playVoid() {
+    let screen = new Scene();
+    let select = document.getElementById("castList");
+    let value = select.options[select.selectedIndex].text;
+    let button = document.getElementById("cardPlay");
+    let queen;
+    for (let k = 0; k < playingCards.length; k++) {
+        if (value == playingCards[k].getName()) {
+            queen = playingCards[k];
+        }
+    }
+    screen.createBold(queen.getName() + " was removed from your playing deck!");
+    playingCards.splice(playingCards.indexOf(queen), 1);
+    if (playingCards.length == 0) {
+        playCard = false;
+    }
+    else {
+        playCard = true;
+    }
+    cardRoundStart();
+}
+function cardRoundStart() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    if (botplayingCards.length == 0 && botcurrentCards.length > 0) {
+        botplayingCards.push(botcurrentCards[randomNumber(0, botcurrentCards.length - 1)]);
+        botcurrentCards.splice(botcurrentCards.indexOf(botplayingCards[0]), 1);
+        if (botcurrentCards.length > 0) {
+        botplayingCards.push(botcurrentCards[randomNumber(0, botcurrentCards.length - 1)]);
+        botcurrentCards.splice(botcurrentCards.indexOf(botplayingCards[1]), 1);
+        }
+    }
+    if (starterPicked == false) {
+    screen.createBigText("<h3> Choose Two Queens </h3>");
+    screen.createBold("Select Your Queens To Move On To The Next Round.");
+    let main = document.querySelector("div#MainBlock");
+    let castSelection = document.createElement("p");
+    castSelection.setAttribute("id", "castSelection");
+    castSelection.innerHTML = '';
+    let select = document.createElement("select");
+    select.setAttribute("id", "queenList");
+    select.setAttribute("onchange", "returnImg()");
+    let img = document.createElement("img");
+    img.setAttribute("id", "images");
+    img.setAttribute("style", "width: 105px; height: 105px;");
+    let p = document.createElement("p");
+    p.appendChild(img);
+    for (let k = 0; k < currentCards.length; k++) {
+        let option = document.createElement("option");
+        option.innerHTML = currentCards[k].getName();
+        option.value = currentCards[k].image;
+        select.add(option);
+        castbyCat.push(currentCards[k]);
+    }
+    select.selectedIndex = randomNumber(0, currentCards.length - 1);
+    let br = document.createElement("br");
+    castSelection.appendChild(p);
+    castSelection.appendChild(select);
+    castSelection.appendChild(br);
+    main.appendChild(castSelection);
+    returnImg();
+    screen.createButton("Add To Playing Deck", "playPick()", "cardPlay");
+    screen.createParagraph("");
+    if (playCard == true) {
+    screen.createHorizontalLine();
+    screen.createParagraph("");
+    screen.createBigText("Review Your Starter");
+    screen.createBold("You currently have " + playingCards.length + " queen/s in your playing deck.");
+    if (duplicateQueens(playingCards)) {
+        screen.createBold("You have a duplicate queen in your deck!");
+        window.alert("Please remove the duplicate queen into your deck!");
+    }
+    if (playingCards.length > 2) {
+        screen.createBold("You already have 2 queens in your playing deck!");
+        window.alert("Please remove the extra queen/s into your deck!");
+    }
+    let mainCast = document.querySelector("div#MainBlock");
+    let castSelected = document.createElement("p");
+    castSelected.setAttribute("id", "castSelected");
+    castSelected.innerHTML = '';
+    let selected = document.createElement("select");
+    selected.setAttribute("id", "castList");
+    selected.setAttribute("onchange", "castImg()");
+    let imgCast = document.createElement("img");
+    imgCast.setAttribute("id", "imagesCast");
+    imgCast.setAttribute("style", "width: 105px; height: 105px;");
+    let text = document.createElement("p");
+    text.appendChild(imgCast);
+    for (let k = 0; k < playingCards.length; k++) {
+            let option = document.createElement("option");
+            option.innerHTML = playingCards[k].getName();
+            option.value = playingCards[k].image;
+            selected.add(option);
+    }
+    selected.selectedIndex = randomNumber(0, playingCards.length - 1);
+    let spare = document.createElement("br");
+    castSelected.appendChild(text);
+    castSelected.appendChild(selected);
+    castSelected.appendChild(spare);
+    mainCast.appendChild(castSelected);
+    castImg();
+    if (playingCards.length == 2)
+    screen.createButton("Lock In Your Deck", "roundStart()", "roundBegin");
+    screen.createButton("Remove From Deck", "playVoid()", "voidedPlay");
+    screen.createParagraph('');
+    }
+    }
+}
+let roundCounter = 0;
+let privilege = false;
+let pickTwoAgain = false;
+function roundStart() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    roundCounter++;
+    if (starterPicked == false && roundCounter == 1 || pickTwoAgain == true) {
+        currentCards.splice(currentCards.indexOf(playingCards[0]), 1);
+        currentCards.splice(currentCards.indexOf(playingCards[1]), 1);
+        starterPicked = true;
+        pickTwoAgain = false;
+    }
+    if (playingCards.length > 0 && botplayingCards.length > 0) {
+    screen.createBigText("<h3>ROUND " + roundCounter +"</h3>");
+    screen.createBold("Your Queens");
+    if (eliminatedCards.length > 0) {
+    for (let i = 0; i < eliminatedCards.length; i++)
+    screen.createImage(eliminatedCards[i].image, "darkred");
+    screen.createParagraph("");
+    }
+    if (currentCards.length > 0) {
+    for (let i = 0; i < currentCards.length; i++)
+    screen.createImage(currentCards[i].image, "yellow");
+    screen.createParagraph("");
+    }
+    for (let i = 0; i < playingCards.length; i++)
+    screen.createImage(playingCards[i].image, "hotpink");
+    if (playingCards.length == 2)
+    screen.createBold(playingCards[0].getName() + " & " + playingCards[1].getName());
+    else
+    screen.createBold(playingCards[0].getName());
+    screen.createHorizontalLine();
+    screen.createBold("Your Opponent's Queens");
+    for (let i = 0; i < botplayingCards.length; i++)
+    screen.createImage(botplayingCards[i].image, "hotpink");
+    if (botplayingCards.length == 2)
+    screen.createBold(botplayingCards[0].getName() + " & " + botplayingCards[1].getName());
+    else
+    screen.createBold(botplayingCards[0].getName());
+    if (botcurrentCards.length > 0) {
+    screen.createImage(nopic.image, "yellow");
+    if (botcurrentCards.length > 1)
+    screen.createImage(nopic.image, "yellow");
+    if (botcurrentCards.length > 2)
+    screen.createImage(nopic.image, "yellow");
+    if (botcurrentCards.length > 3)
+    screen.createImage(nopic.image, "yellow");
+    if (botcurrentCards.length > 4)
+    screen.createImage(nopic.image, "yellow");
+    if (botcurrentCards.length > 5)
+    screen.createImage(nopic.image, "yellow");
+    if (botcurrentCards.length > 6)
+    screen.createImage(nopic.image, "yellow");
+    if (botcurrentCards.length > 7)
+    screen.createImage(nopic.image, "yellow");
+    screen.createParagraph("");
+    }
+    if (boteliminatedCards.length > 0) {
+    for (let i = 0; i < boteliminatedCards.length; i++)
+    screen.createImage(boteliminatedCards[i].image, "darkred");
+    }
+    screen.createParagraph("");
+    screen.createButton("Proceed", "challengePick()");
+    }
+    else if (currentCards.length == 0 && playingCards.length == 0) {
+    screen.createBigText("<h3> You Lost! </h3>");
+    for (let i = 0; i < eliminatedCards.length; i++)
+    screen.createImage(eliminatedCards[i].image, "red");
+    screen.createHorizontalLine();
+    screen.createBigText("<h3> Your Opponent's Cards </h3>");
+    for (let i = 0; i < botplayingCards.length; i++)
+    screen.createImage(botplayingCards[i].image, "hotpink");
+    screen.createParagraph("");
+    for (let i = 0; i < botcurrentCards.length; i++)
+    screen.createImage(botcurrentCards[i].image, "yellow");
+    screen.createParagraph("");
+    for (let i = 0; i < boteliminatedCards.length; i++)
+    screen.createImage(boteliminatedCards[i].image, "red");
+    completeRundown();
+    screen.createParagraph("");
+    screen.createButton("Restart", "location.reload()");
+    screen.createParagraph("");
+    }
+    else if (botcurrentCards.length == 0 && botplayingCards.length == 0) {
+    screen.createBigText("<h3> You Won! </h3>");
+    for (let i = 0; i < eliminatedCards.length; i++)
+    screen.createImage(eliminatedCards[i].image, "red");
+    screen.createParagraph("");
+    for (let i = 0; i < currentCards.length; i++)
+    screen.createImage(currentCards[i].image, "yellow");
+    screen.createParagraph("");
+    for (let i = 0; i < playingCards.length; i++)
+    screen.createImage(playingCards[i].image, "hotpink");
+    screen.createHorizontalLine();
+    screen.createBigText("<h3> Your Opponent's Cards </h3>");
+    for (let i = 0; i < boteliminatedCards.length; i++)
+    screen.createImage(boteliminatedCards[i].image, "red");
+    completeRundown();
+    screen.createParagraph("");
+    screen.createButton("Restart", "location.reload()");
+    screen.createParagraph("");
+    }
+}
+let actingCardCounter = 0;
+let comedyCardCounter = 0;
+let liveCardCounter = 0;
+let danceCardCounter = 0;
+let groupsCardCounter = 0;
+let designCardCounter = 0;
+let improvCardCounter = 0;
+let cardMakeover = false;
+let cardDecor = false;
+let cardCreation = false;
+let cardSnatch = false;
+let cardBall = false;
+let cardRusical = false;
+let queensPlaying = [];
+function challengePick() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    queensPlaying = [];
+    for (let i = 0; i < playingCards.length; i++)
+    queensPlaying.push(playingCards[i]);
+    for (let i = 0; i < botplayingCards.length; i++)
+    queensPlaying.push(botplayingCards[i]);
+    if (privilege == false) {
+    screen.createBigText("<h3> Challenge Randomizer </h3>");
+    screen.createBold("Win the upcoming challenge and earn the privilege to choose what the next challenge will be.");
+    let cardchallenges = ["actingCard()", "comedyCard()", "liveCard()", "danceCard()", "groupsCard()", "designCard()", "improvCard()", "makeoverCard()", "decorCard()", "creationCard()", "rusicalCard()"];
+    //remove from possible challenges list:
+    if (actingCardCounter == 2)
+        cardchallenges.splice(cardchallenges.indexOf("actingCard()"), 1);
+    if (comedyCardCounter == 2)
+        cardchallenges.splice(cardchallenges.indexOf("comedyCard()"), 1);
+    if (liveCardCounter == 2)
+        cardchallenges.splice(cardchallenges.indexOf("liveCard()"), 1);
+    if (danceCardCounter == 2)
+        cardchallenges.splice(cardchallenges.indexOf("danceCard()"), 1);
+    if (groupsCardCounter == 1)
+        cardchallenges.splice(cardchallenges.indexOf("groupsCard()"), 1);
+    if (designCardCounter == 1)
+        cardchallenges.splice(cardchallenges.indexOf("designCard()"), 1);
+    if (improvCardCounter == 2)
+        cardchallenges.splice(cardchallenges.indexOf("improvCard()"), 1);
+    if (cardMakeover == true)
+        cardchallenges.splice(cardchallenges.indexOf("makeoverCard()"), 1);
+    if (cardDecor == true)
+        cardchallenges.splice(cardchallenges.indexOf("decorCard()"), 1);
+    if (cardCreation == true)
+        cardchallenges.splice(cardchallenges.indexOf("creationCard()"), 1);
+    if (cardRusical == true)
+        cardchallenges.splice(cardchallenges.indexOf("rusicalCard()"), 1);
+    shuffle(cardchallenges);
+    if (roundCounter == 1)
+    screen.createButton("Proceed", "talentCard()");
+    else if (roundCounter > 3 && randomNumber(0, 100) > 65 && cardSnatch == false)
+    screen.createButton("Proceed", "snatchCard()");
+    else if (roundCounter > 5 && randomNumber(0, 100) > 50 && cardBall == false)
+    screen.createButton("Proceed", "ballCard()");
+    else if (roundCounter > 6 && randomNumber(0, 100) > 50 && cardRusical == false)
+    screen.createButton("Proceed", "rusicalCard()");
+    else
+    randomCard(cardchallenges, screen);
+    }
+    else if (privilege == true) {
+    privilege = false;
+    screen.createBigText("<h3> Challenge Selector </h3>");
+    screen.createBold("Condragulations, you've earned the power to pick the challenge for this round.");
+    screen.createHorizontalLine();
+    screen.createButton("Acting", "actingCard()");
+    screen.createButton("Comedy", "comedyCard()");
+    screen.createButton("Live", "liveCard()");
+    screen.createButton("Dance", "danceCard()");
+    screen.createButton("Girl Group", "groupsCard()");
+    screen.createButton("Design", "designCard()");
+    screen.createButton("Improv", "improvCard()");
+    screen.createParagraph("");
+    screen.createButton("Talent Show", "talentCard()");
+    screen.createButton("Makeover", "makeoverCard()");
+    screen.createButton("Snatch Game", "snatchCard()");
+    screen.createButton("Ball", "ballCard()");
+    screen.createButton("Rusical", "rusicalCard()");
+    screen.createButton("Creation", "creationCard()");
+    screen.createButton("Decor", "decorCard()");
+    }
+    screen.createParagraph("");
+}
+function randomCard(cardchallenges, screen) {
+    let currentCard = cardchallenges[randomNumber(0, cardchallenges.length - 1)];
+    screen.createButton("Proceed", currentCard);
+}
+let cardEpisode = [];
+function talentCard() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> TALENT SHOW </h3>");
+    screen.createParagraph("The queens will have to perform on a talent show.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._talentStat + randomNumber(0, queensPlaying[i]._talentStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Talent Show");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function snatchCard() {
+    let screen = new Scene();
+    screen.clean();
+    cardSnatch = true;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> SNATCH GAME </h3>");
+    screen.createParagraph("The queens will have to bring out their funniest celebrity impersonations.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._snatchStat + randomNumber(0, queensPlaying[i]._snatchStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Snatch Game");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function makeoverCard() {
+    let screen = new Scene();
+    screen.clean();
+    cardMakeover = true;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> MAKEOVER </h3>");
+    screen.createParagraph("The queens will have to makeover random people into the style of their drag.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._makeoverStat + randomNumber(0, queensPlaying[i]._makeoverStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Makeover");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function ballCard() {
+    let screen = new Scene();
+    screen.clean();
+    cardBall = true;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> THE BALL </h3>");
+    screen.createParagraph("The queens will have to serve three different looks in the runway with the final look being made from unconventional materials.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._ballStat + randomNumber(0, queensPlaying[i]._ballStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Ball");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function rusicalCard() {
+    let screen = new Scene();
+    screen.clean();
+    cardRusical = true;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> RUSICAL </h3>");
+    screen.createParagraph("The queens will have to perform in a parody musical number.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._rusicalStat + randomNumber(0, queensPlaying[i]._rusicalStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Rusical");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function creationCard() {
+    let screen = new Scene();
+    screen.clean();
+    cardCreation = true;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> CREATION </h3>");
+    screen.createParagraph("The queens will have to serve a character-based look that they personally conceptualized.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._creationStat + randomNumber(0, queensPlaying[i]._creationStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Creation");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function decorCard() {
+    let screen = new Scene();
+    screen.clean();
+    cardDecor = true;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> DECORATION </h3>");
+    screen.createParagraph("The queens will have to design and advertise their very own draggy establishments.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._decorStat + randomNumber(0, queensPlaying[i]._decorStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Decoration");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function actingCard() {
+    let screen = new Scene();
+    screen.clean();
+    actingCardCounter++;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> ACTING </h3>");
+    screen.createParagraph("The queens will have to over act their way to the top in this challenge.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._actingStat + randomNumber(0, queensPlaying[i]._actingStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Acting");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function comedyCard() {
+    let screen = new Scene();
+    screen.clean();
+    comedyCardCounter++;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> COMEDY </h3>");
+    screen.createParagraph("The queens will have to exercise their funny bones as they lead their own comedy-based talks.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._comedyStat + randomNumber(0, queensPlaying[i]._comedyStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Comedy");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function liveCard() {
+    let screen = new Scene();
+    screen.clean();
+    liveCardCounter++;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> LIVE </h3>");
+    screen.createParagraph("The queens will have to showcase their inner performer as they embark on a vocal-based performance.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._vocalStat + randomNumber(0, queensPlaying[i]._vocalStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Live");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function danceCard() {
+    let screen = new Scene();
+    screen.clean();
+    danceCardCounter++;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> DANCE </h3>");
+    screen.createParagraph("The queens will have to bring the beat as they perform on a dance-heavy number.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._danceStat + randomNumber(0, queensPlaying[i]._danceStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Dance");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function designCard() {
+    let screen = new Scene();
+    screen.clean();
+    designCardCounter++;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> DESIGN </h3>");
+    screen.createParagraph("The queens will have to strut their stuff on the runway wearing a garment they made from absolute scratch.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._designStat + randomNumber(0, queensPlaying[i]._designStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Design");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function improvCard() {
+    let screen = new Scene();
+    screen.clean();
+    improvCardCounter++;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> IMPROV </h3>");
+    screen.createParagraph("The queens will have to improvise and make an entertaining show as they were put in the test in this challenge.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._improvStat + randomNumber(0, queensPlaying[i]._improvStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Improv");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+function groupsCard() {
+    let screen = new Scene();
+    screen.clean();
+    groupsCardCounter++;
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> GIRL GROUP </h3>");
+    screen.createParagraph("The queens will have to perform as a sickening girl group and make a statement in this challenge.");
+    for (let i = 0; i < queensPlaying.length; i++) {
+    screen.createImage(queensPlaying[i].image, "hotpink");
+    queensPlaying[i].performanceScore = queensPlaying[i]._groupsStat + randomNumber(0, queensPlaying[i]._groupsStat);
+    }
+    queensPlaying.sort((a, b) => (b.performanceScore - a.performanceScore));
+    screen.createBold("Let's find out the results.");
+    cardEpisode.push("Girl Group");
+    screen.createButton("Proceed", "cardJudging()");
+    screen.createParagraph("");
+}
+let cardBottoms = [];
+let cardWins = [];
+let cardSafe = [];
+let cardBots = [];
+let cardElims = [];
+function cardJudging() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> RESULTS </h3>");
+    screen.createParagraph("What would be the fate of your chosen queens?");
+    screen.createImage(queensPlaying[0].image, "royalblue");
+    screen.createBold("Winner: " + queensPlaying[0].getName());
+    if (queensPlaying[0] == playingCards[0] || queensPlaying[0] == playingCards[1])
+    cardWins.push("<b>" + queensPlaying[0].getName() + "</b><br>User Queen");
+    else
+    cardWins.push("<b>" + queensPlaying[0].getName() + "</b><br>Bot Queen");
+    if (queensPlaying.length > 3) {
+    screen.createImage(queensPlaying[1].image, "lime");
+    screen.createBold("Safe: " + queensPlaying[1].getName());
+    if (queensPlaying[1] == playingCards[0] || queensPlaying[1] == playingCards[1])
+    cardSafe.push("<b>" + queensPlaying[1].getName() + "</b><br>User Queen");
+    else
+    cardSafe.push("<b>" + queensPlaying[1].getName() + "</b><br>Bot Queen");
+    }
+    else {
+        cardSafe.push("");
+    }
+    screen.createImage(queensPlaying[queensPlaying.length - 2].image, "tomato");
+    screen.createImage(queensPlaying[queensPlaying.length - 1].image, "tomato");
+    screen.createBold("Bottoms: " + queensPlaying[queensPlaying.length - 2].getName() + " & " + queensPlaying[queensPlaying.length - 1].getName());
+    cardBottoms.push(queensPlaying[queensPlaying.length - 2]);
+    cardBottoms.push(queensPlaying[queensPlaying.length - 1]);
+    if (queensPlaying[0] == playingCards[0] || queensPlaying[0] == playingCards[1])
+    privilege = true;
+    screen.createButton("Proceed", "cardLipsync()");
+    screen.createParagraph("");
+}
+let shantayCard = false;
+let sashayCard = false;
+function cardLipsync() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> LIPSYNC </h3>");
+    screen.createParagraph("The time has come for you to lipsync for your life!");
+    lsSong();
+    for (let i = 0; i < cardBottoms.length; i++) {
+        cardBottoms[i].getLipsync();
+    }
+    cardBottoms.sort((a, b) => b.lipsyncScore - a.lipsyncScore);
+    if (cardBottoms[0].lipsyncScore > 10 && cardBottoms[1].lipsyncScore > 10 && shantayCard == false) {
+        for (let i = 0; i < cardBottoms.length; i++)
+        screen.createImage(cardBottoms[i].image, "yellow");
+        screen.createBold("Condragulations, shantay, you both stay!");
+        shantayCard = true;
+        if (cardBottoms[0] == playingCards[0] && cardBottoms[1] == playingCards[1] || cardBottoms[0] == playingCards[1] && cardBottoms[1] == playingCards[0])
+        cardBots.push("<b>" + cardBottoms[0].getName() + " & " + cardBottoms[1].getName() + "</b><br>User Queens");
+        else if (cardBottoms[0] == botplayingCards[0] && cardBottoms[1] == botplayingCards[1] || cardBottoms[0] == botplayingCards[1] && cardBottoms[1] == botplayingCards[0])
+        cardBots.push("<b>" + cardBottoms[0].getName() + " & " + cardBottoms[1].getName() + "</b><br>Bot Queens");
+        else
+        cardBots.push("<b>" + cardBottoms[0].getName() + " & " + cardBottoms[1].getName() + "</b><br>User & Bot Queens");
+        cardElims.push("");
+    }
+    else if (cardBottoms[0].lipsyncScore < 5 && cardBottoms[1].lipsyncScore < 5 && sashayCard == false) {
+        for (let i = 0; i < cardBottoms.length; i++)
+        screen.createImage(cardBottoms[i].image, "crimson");
+        screen.createBold("Neither of you survived that lipsync. <br> Both of you, sashay away!");
+        if (cardBottoms[0] == playingCards[0] && cardBottoms[1] == playingCards[1] || cardBottoms[0] == playingCards[1] && cardBottoms[1] == playingCards[0])
+        cardElims.push("<b>" + cardBottoms[0].getName() + " & " + cardBottoms[1].getName() + "</b><br>User Queens");
+        else if (cardBottoms[0] == botplayingCards[0] && cardBottoms[1] == botplayingCards[1] || cardBottoms[0] == botplayingCards[1] && cardBottoms[1] == botplayingCards[0])
+        cardElims.push("<b>" + cardBottoms[0].getName() + " & " + cardBottoms[1].getName() + "</b><br>Bot Queens");
+        else
+        cardElims.push("<b>" + cardBottoms[0].getName() + " & " + cardBottoms[1].getName() + "</b><br>User & Bot Queens");
+        cardBots.push("");
+        sashayCard = true;
+        if (cardBottoms[0] == playingCards[1]) {
+        playingCards.splice(playingCards.indexOf(cardBottoms[0]), 1);
+        eliminatedCards.push(cardBottoms[0]);
+        }
+        if (cardBottoms[1] == playingCards[1]) {
+        playingCards.splice(playingCards.indexOf(cardBottoms[1]), 1);
+        eliminatedCards.push(cardBottoms[1]);
+        }
+        if (cardBottoms[0] == playingCards[0]) {
+        playingCards.splice(playingCards.indexOf(cardBottoms[0]), 1);
+        eliminatedCards.push(cardBottoms[0]);
+        }
+        if (cardBottoms[1] == playingCards[0]) {
+        playingCards.splice(playingCards.indexOf(cardBottoms[1]), 1);
+        eliminatedCards.push(cardBottoms[1]);
+        }
+        if (cardBottoms[0] == botplayingCards[1]) {
+        botplayingCards.splice(botplayingCards.indexOf(cardBottoms[0]), 1);
+        boteliminatedCards.push(cardBottoms[0]);
+        }
+        if (cardBottoms[1] == botplayingCards[1]) {
+        botplayingCards.splice(botplayingCards.indexOf(cardBottoms[1]), 1);
+        boteliminatedCards.push(cardBottoms[1]);
+        }
+        if (cardBottoms[0] == botplayingCards[0]) {
+        botplayingCards.splice(botplayingCards.indexOf(cardBottoms[0]), 1);
+        boteliminatedCards.push(cardBottoms[0]);
+        }
+        if (cardBottoms[1] == botplayingCards[0]) {
+        botplayingCards.splice(botplayingCards.indexOf(cardBottoms[1]), 1);
+        boteliminatedCards.push(cardBottoms[1]);
+        }
+    }
+    else {
+        screen.createImage(cardBottoms[0].image, "tomato");
+        screen.createBold(cardBottoms[0].getName() + ", shantay, you stay.")
+        screen.createImage(cardBottoms[1].image, "red");
+        if (cardBottoms[0] == playingCards[0] || cardBottoms[0] == playingCards[1])
+        cardBots.push("<b>" + cardBottoms[0].getName() + "</b><br>User Queen");
+        else
+        cardBots.push("<b>" + cardBottoms[0].getName() + "</b><br>Bot Queen");
+        screen.createBold(cardBottoms[1].getName() + ", sashay away.");
+        if (cardBottoms[1] == playingCards[0] || cardBottoms[1] == playingCards[1])
+        cardElims.push("<b>" + cardBottoms[1].getName() + "</b><br>User Queen");
+        else
+        cardElims.push("<b>" + cardBottoms[1].getName() + "</b><br>Bot Queen");
+        if (cardBottoms[1] == playingCards[0]) {
+        playingCards.splice(playingCards.indexOf(cardBottoms[1]), 1);
+        eliminatedCards.push(cardBottoms[1]);
+        }
+        else if (cardBottoms[1] == playingCards[1]) {
+        playingCards.splice(playingCards.indexOf(cardBottoms[1]), 1);
+        eliminatedCards.push(cardBottoms[1]);
+        }
+        else if (cardBottoms[1] == botplayingCards[0]) {
+        botplayingCards.splice(botplayingCards.indexOf(cardBottoms[1]), 1);
+        boteliminatedCards.push(cardBottoms[1]);
+        }
+        else if (cardBottoms[1] == botplayingCards[1]) {
+        botplayingCards.splice(botplayingCards.indexOf(cardBottoms[1]), 1);
+        boteliminatedCards.push(cardBottoms[1]);
+        }
+    }
+    cardBottoms = [];
+    screen.createButton("Proceed", "roundsRundown()");
+    screen.createParagraph("");
+}
+let roundsHolder = [];
+function roundsRundown() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3> ROUNDS RUNDOWN </h3>");
+    screen.createParagraph("Here's the current game results.");
+    roundsHolder.push(roundCounter);
+    let main = document.querySelector("div#MainBlock");
+    let centering = document.createElement("center");
+    let trackRecords = document.createElement("table");
+    trackRecords.setAttribute("id", "trackRecord");
+    trackRecords.setAttribute("style", "font-size: 10000%;");
+    trackRecords.setAttribute("style", "width: 80%;");
+    let header = document.createElement("tr");
+    trackRecords.appendChild(header);
+    let th = document.createElement("th");
+    th.innerHTML = "Rounds";
+    th.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th);
+    let th2 = document.createElement("th");
+    th2.innerHTML = "Challenge";
+    th2.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th2);
+    let th3 = document.createElement("th");
+    th3.innerHTML = "Winner";
+    th3.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th3);
+    let th4 = document.createElement("th");
+    th4.innerHTML = "Safe";
+    th4.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th4);
+    let th5 = document.createElement("th");
+    th5.innerHTML = "Bottom";
+    th5.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th5);
+    let th6 = document.createElement("th");
+    th6.innerHTML = "Eliminated";
+    th6.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th6);
+    for (let i = 0; i < roundsHolder.length; i++) {
+    let rounds = document.createElement("tr");
+    let episode = document.createElement("td");
+    episode.setAttribute("style", "background-color: #f5ebf5; font-weight: bold; height: 50px;");
+    episode.innerHTML = roundsHolder[i];
+    rounds.appendChild(episode);
+    let challenge = document.createElement("td");
+    challenge.setAttribute("style", "background-color: #f5ebf5; font-weight: bold; height: 50px;");
+    challenge.innerHTML = cardEpisode[i];
+    rounds.appendChild(challenge);
+    let wins = document.createElement("td");
+    wins.setAttribute("style", "background-color: #f5ebf5; height: 50px;");
+    wins.innerHTML = cardWins[i];
+    rounds.appendChild(wins);
+    let safes = document.createElement("td");
+    safes.setAttribute("style", "background-color: #f5ebf5; height: 50px;");
+    safes.innerHTML = cardSafe[i];
+    rounds.appendChild(safes);
+    let bots = document.createElement("td");
+    bots.setAttribute("style", "background-color: #f5ebf5; height: 50px;");
+    bots.innerHTML = cardBots[i];
+    rounds.appendChild(bots);
+    let elims = document.createElement("td");
+    elims.setAttribute("style", "background-color: #f5ebf5; height: 50px;");
+    elims.innerHTML = cardElims[i];
+    rounds.appendChild(elims);
+    trackRecords.appendChild(rounds);
+    }
+    centering.appendChild(trackRecords);
+    main.appendChild(centering);
+    screen.createHorizontalLine();
+    screen.createParagraph("");
+    screen.createButton("Proceed", "nextRoundFixer()");
+    screen.createParagraph("");
+}
+function completeRundown() {
+    let screen = new Scene();
+    screen.createHorizontalLine();
+    screen.createBigText("<h3>ROUNDS RUNDOWN</h3>")
+    let main = document.querySelector("div#MainBlock");
+    let centering = document.createElement("center");
+    let trackRecords = document.createElement("table");
+    trackRecords.setAttribute("id", "trackRecord");
+    trackRecords.setAttribute("style", "font-size: 10000%;");
+    trackRecords.setAttribute("style", "width: 80%;");
+    let header = document.createElement("tr");
+    trackRecords.appendChild(header);
+    let th = document.createElement("th");
+    th.innerHTML = "Rounds";
+    th.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th);
+    let th2 = document.createElement("th");
+    th2.innerHTML = "Challenge";
+    th2.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th2);
+    let th3 = document.createElement("th");
+    th3.innerHTML = "Winner";
+    th3.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th3);
+    let th4 = document.createElement("th");
+    th4.innerHTML = "Safe";
+    th4.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th4);
+    let th5 = document.createElement("th");
+    th5.innerHTML = "Bottom";
+    th5.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th5);
+    let th6 = document.createElement("th");
+    th6.innerHTML = "Eliminated";
+    th6.setAttribute("style", "background-color: #e9dfe9; font-weight: bold;");
+    header.appendChild(th6);
+    for (let i = 0; i < roundsHolder.length; i++) {
+    let rounds = document.createElement("tr");
+    let episode = document.createElement("td");
+    episode.setAttribute("style", "background-color: #f5ebf5; font-weight: bold; height: 50px;");
+    episode.innerHTML = roundsHolder[i];
+    rounds.appendChild(episode);
+    let challenge = document.createElement("td");
+    challenge.setAttribute("style", "background-color: #f5ebf5; font-weight: bold; height: 50px;");
+    challenge.innerHTML = cardEpisode[i];
+    rounds.appendChild(challenge);
+    let wins = document.createElement("td");
+    wins.setAttribute("style", "background-color: #f5ebf5; height: 50px;");
+    wins.innerHTML = cardWins[i];
+    rounds.appendChild(wins);
+    let safes = document.createElement("td");
+    safes.setAttribute("style", "background-color: #f5ebf5; height: 50px;");
+    safes.innerHTML = cardSafe[i];
+    rounds.appendChild(safes);
+    let bots = document.createElement("td");
+    bots.setAttribute("style", "background-color: #f5ebf5; height: 50px;");
+    bots.innerHTML = cardBots[i];
+    rounds.appendChild(bots);
+    let elims = document.createElement("td");
+    elims.setAttribute("style", "background-color: #f5ebf5; height: 50px;");
+    elims.innerHTML = cardElims[i];
+    rounds.appendChild(elims);
+    trackRecords.appendChild(rounds);
+    }
+    centering.appendChild(trackRecords);
+    main.appendChild(centering);
+    screen.createHorizontalLine();
+}
+function nextRoundFixer() {
+    if (botplayingCards.length == 1 && botcurrentCards.length > 0 || botplayingCards.length == 0 && botcurrentCards.length == 1) {
+        shuffle(botcurrentCards);
+        botplayingCards.push(botcurrentCards[0]);
+        if (botplayingCards.length == 2)
+        botcurrentCards.splice(botcurrentCards.indexOf(botplayingCards[1]), 1);
+        else if (botplayingCards.length == 1)
+        botcurrentCards.splice(botcurrentCards.indexOf(botplayingCards[0]), 1);
+    }
+    else if (botplayingCards.length == 0 && botcurrentCards.length > 1) {
+        shuffle(botcurrentCards);
+        botplayingCards.push(botcurrentCards[0]);
+        botcurrentCards.splice(botcurrentCards.indexOf(botplayingCards[0]), 1);
+        botplayingCards.push(botcurrentCards[0]);
+        botcurrentCards.splice(botcurrentCards.indexOf(botplayingCards[1]), 1);
+    }
+    if (botplayingCards.length > 0 && currentCards.length > 0 || botplayingCards.length > 0 && playingCards.length > 0) {
+    if (playingCards.length == 1 && botplayingCards.length == 1 && currentCards.length == 0 && botcurrentCards.length == 0) {
+        finalcardRound();
+    }
+    else if (playingCards.length == 1 && currentCards.length > 0 || playingCards.length == 0 && currentCards.length == 1) {
+        addPlayingCard();
+    }
+    else if (playingCards.length == 0 && currentCards.length > 1) {
+        starterPicked = false;
+        pickTwoAgain = true;
+        playCard = false;
+        cardRoundStart();
+    }
+    else if (playingCards.length == 2 || playingCards.length == 1 && currentCards.length == 0) {
+        roundStart();
+    }
+    }
+    else if (botplayingCards.length == 0 || playingCards.length == 0) {
+        roundStart();
+    }
+}
+function finalcardRound() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    roundsHolder.push("Final");
+    cardEpisode.push("Lipsync Smackdown");
+    cardWins.push("");
+    cardSafe.push("");
+    cardBottoms.push(playingCards[0]);
+    cardBottoms.push(botplayingCards[0]);
+    screen.createBigText("<h3> FINAL LIPSYNC </h3>");
+    screen.createParagraph("The time has come for you to lipsync for your life!");
+    lsSong();
+    for (let i = 0; i < cardBottoms.length; i++) {
+        cardBottoms[i].getLipsync();
+    }
+    cardBottoms.sort((a, b) => b.lipsyncScore - a.lipsyncScore);
+    screen.createImage(cardBottoms[0].image, "tomato");
+    screen.createBold(cardBottoms[0].getName() + ", shantay, you stay.")
+    screen.createImage(cardBottoms[1].image, "red");
+    if (cardBottoms[0] == playingCards[0] || cardBottoms[0] == playingCards[1])
+        cardBots.push("<b>" + cardBottoms[0].getName() + "</b><br>User Queen");
+    else
+        cardBots.push("<b>" + cardBottoms[0].getName() + "</b><br>Bot Queen");
+    screen.createBold(cardBottoms[1].getName() + ", sashay away.");
+    if (cardBottoms[1] == playingCards[0] || cardBottoms[1] == playingCards[1])
+        cardElims.push("<b>" + cardBottoms[1].getName() + "</b><br>User Queen");
+    else
+        cardElims.push("<b>" + cardBottoms[1].getName() + "</b><br>Bot Queen");
+    if (cardBottoms[1] == playingCards[0]) {
+        playingCards.splice(playingCards.indexOf(cardBottoms[1]), 1);
+        eliminatedCards.push(cardBottoms[1]);
+    }
+    else if (cardBottoms[1] == playingCards[1]) {
+        playingCards.splice(playingCards.indexOf(cardBottoms[1]), 1);
+        eliminatedCards.push(cardBottoms[1]);
+    }
+    else if (cardBottoms[1] == botplayingCards[0]) {
+        botplayingCards.splice(botplayingCards.indexOf(cardBottoms[1]), 1);
+        boteliminatedCards.push(cardBottoms[1]);
+    }
+    else if (cardBottoms[1] == botplayingCards[1]) {
+        botplayingCards.splice(botplayingCards.indexOf(cardBottoms[1]), 1);
+        boteliminatedCards.push(cardBottoms[1]);
+    }
+    screen.createParagraph("");
+    screen.createButton("Proceed", "nextRoundFixer()");
+    screen.createParagraph("");
+}
+function addPlayingCard() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createBigText("<h3> Choose One Queens </h3>");
+    screen.createBold("Select Your Queen To Move On To The Next Round.");
+    let main = document.querySelector("div#MainBlock");
+    let castSelection = document.createElement("p");
+    castSelection.setAttribute("id", "castSelection");
+    castSelection.innerHTML = '';
+    let select = document.createElement("select");
+    select.setAttribute("id", "queenList");
+    select.setAttribute("onchange", "returnImg()");
+    let img = document.createElement("img");
+    img.setAttribute("id", "images");
+    img.setAttribute("style", "width: 105px; height: 105px;");
+    let p = document.createElement("p");
+    p.appendChild(img);
+    for (let k = 0; k < currentCards.length; k++) {
+        let option = document.createElement("option");
+        option.innerHTML = currentCards[k].getName();
+        option.value = currentCards[k].image;
+        select.add(option);
+        castbyCat.push(currentCards[k]);
+    }
+    select.selectedIndex = randomNumber(0, currentCards.length - 1);
+    let br = document.createElement("br");
+    castSelection.appendChild(p);
+    castSelection.appendChild(select);
+    castSelection.appendChild(br);
+    main.appendChild(castSelection);
+    returnImg();
+    screen.createButton("Add To Playing Deck", "playPick()", "cardPlay");
+    screen.createParagraph("");
+}
 let castbyCat = [];
 let pickedCast = [];
 let selectedCast = false;
@@ -25435,6 +26676,15 @@ class Queen {
         this._improvStat = improv;
         this._runwayStat = runway;
         this._lipsyncStat = lipsync;
+        this.overallStat = (acting + comedy + vocal + dance + lyrical + design + improv + runway + lipsync) / 9;
+        this._talentStat = (acting + comedy + vocal + dance + lyrical + design + improv + runway + lipsync) / 9;
+        this._snatchStat = (comedy + improv) / 2;
+        this._ballStat = (design + runway) / 2;
+        this._rusicalStat = (vocal + acting + dance) / 3;
+        this._creationStat = (design + acting + improv) / 3;
+        this._decorStat = (design + acting + comedy) / 3;
+        this._makeoverStat = (design + acting + dance) / 3;
+        this._groupsStat = (lyrical + dance + vocal) / 3;
         if (image == "noimage")
             this.image = "image/queens/noimage.jpg";
         else
@@ -25519,6 +26769,7 @@ class Queen {
     }
 }
 //QUEENS:
+let nopic = new Queen("NoPic", 0, 0, 0, 0, 0, 0, 0, 0, 0, "noimage");
 //SEASON 1:
 let choerry = new Queen("Choerry", 9, 10, 9, 10, 9, 11, 10, 12, 12, "Choerry");
 let chuu = new Queen("Chuu", 9, 13, 15, 10, 9, 12, 13, 12, 11, "Chuu");
@@ -26980,7 +28231,7 @@ function LaLaPaRUza() {
             smack1.splice(i, 1);
             i--;
         }else if (smack1[i].trackRecord[trds] == " WIN"){
-            smack1[i].addToTrackRecord("SAFE  ");
+            smack1[i].addToTrackRecord("SAFE  ;");
             smack1.splice(i, 1);
             i--;
         }else if (smack1[i].trackRecord[trds] == "WIN " && !all_stars && !vstheworld){
