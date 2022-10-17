@@ -28071,21 +28071,7 @@ let vanessaC = new Queen("Vanessa Van Cartier", 7, 8, 8, 10, 9, 11, 10, "Vanessa
 let vivaldi = new Queen("Vivaldi", 8, 9, 7, 7, 9, 9, 9, "Vivaldi");
 let hol_season2 = [hayleykiyoko, henrygolding, jackiechan, kenta, kimlee, kittychicha, kyarypamyupamyu, kygo, laiguanlin, mariomaurer, mindykaling, priyankachopra, ryosukeyamada, vannesswu];
 //OO SEASON 11
-let andybian = new Queen("Andy Bian", 12, 10, 10, 8, 8, 10, 8, 10, 8, "AndyBian");
-let agnezmo = new Queen("Agnez Mo", 11, 10, 11, 9, 10, 8, 7, 12, 8, "AgnezMo");
-let ariainthavong = new Queen("Aria Inthavong", 10, 11, 8, 8, 9, 9, 13, 11, 9, "AriaInthavong");
-let avanjogia = new Queen ("Avan Jogia", 12, 9, 7, 8, 9, 11, 11, 10, 9, "AvanJogia");
-let awat = new Queen("Awat “Ud” Ratanapintha", 12, 9, 11, 8, 12, 9, 13, 11, 11, "Awat");
-let brendasong = new Queen ("Brenda Song", 12, 10, 7, 10, 9, 12, 9, 11, 7, "BrendaSong");
-let christinechiu = new Queen("Christine Chiu", 13, 11, 8, 12, 9, 10, 9, 12, 11, "ChristineChiu");
-let jimmyyang = new Queen("Jimmy Yang", 13, 12, 8, 9, 10, 8, 12, 10, 8, "JimmyYang");
-let junjiito = new Queen("Junji Ito", 10, 12, 7, 9, 11, 13, 12, 12, 7, "JunjiIto");
-let michelleyeoh = new Queen("Michelle Yeoh", 9, 10, 8, 7, 8, 13, 12, 13, 8, "MichelleYeoh");
-let rachelyeoh = new Queen("Rachel Yeoh", 9, 10, 8, 7, 8, 13, 12, 13, 8, "RachelYeoh");
-let stanfukase = new Queen("Stan Fukase", 9, 12, 9, 13, 12, 9, 11, 12, 11, "StanFukase");
-let stefaniesun = new Queen("Stefanie Sun", 8, 9, 12, 9, 12, 10, 8, 12, 9, "StefanieSun");
-let tonhon = new Queen("Tonhon “Ton” Tantivejakul", 12, 10, 10, 9, 9, 11, 8, 11, 10, "Tonhon");
-let oo_season11 = [andybian, agnezmo, ariainthavong, avanjogia, awat, brendasong, christinechiu, jimmyyang, junjiito, michelleyeoh, rachelyeoh, stanfukase, stefaniesun, tonhon];
+let oo_season11 = [andybian, ariainthavong, awat, brendasong, chelseaislan, christinechiu, harryshumjr, jimmyyang, junjiito, michelleyeoh, rachelyeoh, stanfukase, stefaniesun, tonhon];
 //INTERNATIONAL ALL STARS 2
 let ias_season2 = [annemarie, beaalonzo, fwelch, gordonramsay, harrystyles, jessicajung, jolinamagdangal, juliabarretto, junji, keeho, ladygaga, lorde, melaicantiveros, onika, taylorswift];
 //INTERNATIONAL ALL STARS 3
