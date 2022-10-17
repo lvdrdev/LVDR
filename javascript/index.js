@@ -16599,6 +16599,8 @@ function cardRoundStart() {
 let roundCounter = 0;
 let privilege = false;
 let pickTwoAgain = false;
+let ruvengeCardChallenge = false;
+let botruvengeCardChallenge = false;
 function roundStart() {
     let screen = new Scene();
     screen.clean();
@@ -16660,7 +16662,16 @@ function roundStart() {
     screen.createImage(boteliminatedCards[i].image, "darkred");
     }
     screen.createParagraph("");
+    if (ruvengePower > 0 && eliminatedCards.length > 0) {
+    screen.createButton("Activate Ruvenge Challenge", "ruvengeSwitch()", "ruvengeActivator");
+    screen.createParagraph("");
+    screen.createButton("Proceed", "challengePick()", "challengePicker");
+    screen.createParagraph("");
+    }
+    else {
     screen.createButton("Proceed", "challengePick()");
+    screen.createParagraph("");
+    }
     }
     else if (currentCards.length == 0 && playingCards.length == 0) {
     screen.createBigText("<h3> You Lost! </h3>");
@@ -16701,6 +16712,19 @@ function roundStart() {
     screen.createParagraph("");
     }
 }
+function ruvengeSwitch() {
+    let screen = new Scene();
+    let button = document.getElementById("ruvengeActivator");
+    let buttonTwo = document.getElementById("challengePicker");
+    button.remove();
+    buttonTwo.remove();
+    ruvengeCardChallenge = true;
+    ruvengePower--;
+    screen.createBold("Ruvenge Challenge is Activated");
+    screen.createParagraph("");
+    screen.createButton("Proceed", "challengePick()");
+    screen.createParagraph("");
+}
 let actingCardCounter = 0;
 let comedyCardCounter = 0;
 let liveCardCounter = 0;
@@ -16727,6 +16751,13 @@ function challengePick() {
     if (privilege == false) {
     screen.createBigText("<h3> Challenge Randomizer </h3>");
     screen.createBold("Win the upcoming challenge and earn the privilege to choose what the next challenge will be.");
+    if (ruvengeCardChallenge == true)
+    screen.createBold("More importantly, receive the power to bring back one of your eliminated cards into your current deck.");
+    if (botruvengePower > 0 && boteliminatedCards.length > 0 && randomNumber(0, 100) > 45) {
+    botruvengeCardChallenge = true;
+    screen.createBold("Notice: Your opponent activated their ruvenge challenge. If they win in this challenge, they can summon back their eliminated card back to their deck.");
+    botruvengePower--;
+    }
     let cardchallenges = ["actingCard()", "comedyCard()", "liveCard()", "danceCard()", "groupsCard()", "designCard()", "improvCard()", "makeoverCard()", "decorCard()", "creationCard()", "rusicalCard()"];
     //remove from possible challenges list:
     if (actingCardCounter == 2)
@@ -16766,7 +16797,14 @@ function challengePick() {
     else if (privilege == true) {
     privilege = false;
     screen.createBigText("<h3> Challenge Selector </h3>");
-    screen.createBold("Condragulations, you've earned the power to pick the challenge for this round.");
+    screen.createBold("Condragulations, you've earned the power to pick the challenge for this round");
+    if (ruvengeCardChallenge == true)
+    screen.createBold("Choose wisely, winning will give you the power to bring back one of your eliminated cards into your current deck.");
+    if (botruvengePower > 0 && boteliminatedCards.length > 0 && randomNumber(0, 100) > 45) {
+    botruvengeCardChallenge = true;
+    screen.createBold("Notice: Your opponent activated their ruvenge challenge. If they win in this challenge, they can summon back their eliminated card back to their deck.");
+    botruvengePower--;
+    }
     screen.createHorizontalLine();
     screen.createButton("Acting", "actingCard()");
     screen.createButton("Comedy", "comedyCard()");
@@ -17033,6 +17071,11 @@ let cardWins = [];
 let cardSafe = [];
 let cardBots = [];
 let cardElims = [];
+let ruvengePower = 0;
+let roadtoRuvenge = 0;
+let botruvengePower = 0;
+let botroadtoRuvenge = 0;
+let ruvengeSummon = false;
 function cardJudging() {
     let screen = new Scene();
     screen.clean();
@@ -17041,10 +17084,50 @@ function cardJudging() {
     screen.createParagraph("What would be the fate of your chosen queens?");
     screen.createImage(queensPlaying[0].image, "royalblue");
     screen.createBold("Winner: " + queensPlaying[0].getName());
-    if (queensPlaying[0] == playingCards[0] || queensPlaying[0] == playingCards[1])
+    if (queensPlaying[0] == playingCards[0] || queensPlaying[0] == playingCards[1]) {
     cardWins.push("<b>" + queensPlaying[0].getName() + "</b><br>User Queen");
-    else
+    roadtoRuvenge++;
+    botroadtoRuvenge = 0;
+        if (roadtoRuvenge == 2) {
+        screen.createBold("You have also earned the opportunity for a ruvenge card.");
+        ruvengePower++;
+        roadtoRuvenge = 0;
+        }
+        if (ruvengeCardChallenge == true) {
+        screen.createBold("Condragulations! You may now successfully use your ruvenge card.");
+        ruvengeCardChallenge = false;
+        botruvengeCardChallenge = false;
+        ruvengeSummon = true;
+        }
+        if (botruvengeCardChallenge == true) {
+        screen.createBold("You have also successfully blocked your opponent from harnessing their ruvenge card.");
+        botruvengeCardChallenge = false;
+        ruvengeCardChallenge = false;
+        }
+    }
+    else {
     cardWins.push("<b>" + queensPlaying[0].getName() + "</b><br>Bot Queen");
+    botroadtoRuvenge++;
+    roadtoRuvenge = 0;
+        if (botroadtoRuvenge == 2) {
+        screen.createBold("Your opponent have also earned the opportunity for a ruvenge card.");
+        botruvengePower++;
+        botroadtoRuvenge = 0;
+        }
+        if (botruvengeCardChallenge == true) {
+        screen.createBold("Your opponent will be successful in using their ruvenge card.");
+        botruvengeCardChallenge = false;
+        ruvengeCardChallenge = false;
+        shuffle(boteliminatedCards);
+        botcurrentCards.push(boteliminatedCards[0]);
+        boteliminatedCards.splice(0, 1);
+        }
+        if (ruvengeCardChallenge == true) {
+        screen.createBold("Your opponent has also blocked you from harnessing your ruvenge card.");
+        botruvengeCardChallenge = false;
+        ruvengeCardChallenge = false;
+        }
+    }
     if (queensPlaying.length > 3) {
     screen.createImage(queensPlaying[1].image, "lime");
     screen.createBold("Safe: " + queensPlaying[1].getName());
@@ -17243,13 +17326,68 @@ function roundsRundown() {
     main.appendChild(centering);
     screen.createHorizontalLine();
     screen.createParagraph("");
+    if (ruvengeSummon == true)
+    screen.createButton("Proceed", "summonCard()");
+    else
     screen.createButton("Proceed", "nextRoundFixer()");
     screen.createParagraph("");
+}
+function summonCard() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("LVDR Card Game");
+    screen.createBigText("<h3>RUVENGE</h3>");
+    screen.createBold("Select a queen you want to use your ruvenge card on.");
+    ruvengeSummon = false;
+    let main = document.querySelector("div#MainBlock");
+    let castSelection = document.createElement("p");
+    castSelection.setAttribute("id", "castSelection");
+    castSelection.innerHTML = '';
+    let select = document.createElement("select");
+    select.setAttribute("id", "queenList");
+    select.setAttribute("onchange", "returnImg()");
+    let img = document.createElement("img");
+    img.setAttribute("id", "images");
+    img.setAttribute("style", "width: 105px; height: 105px;");
+    let p = document.createElement("p");
+    p.appendChild(img);
+    for (let k = 0; k < eliminatedCards.length; k++) {
+        let option = document.createElement("option");
+        option.innerHTML = eliminatedCards[k].getName();
+        option.value = eliminatedCards[k].image;
+        select.add(option);
+        castbyCat.push(eliminatedCards[k]);
+    }
+    select.selectedIndex = randomNumber(0, eliminatedCards.length - 1);
+    let br = document.createElement("br");
+    castSelection.appendChild(p);
+    castSelection.appendChild(select);
+    castSelection.appendChild(br);
+    main.appendChild(castSelection);
+    returnImg();
+    screen.createButton("Return to Current Deck", "ruvengePick()", "ruvengePlay");
+    screen.createParagraph("");
+}
+function ruvengePick() {
+    let screen = new Scene();
+    let select = document.getElementById("queenList");
+    let value = select.options[select.selectedIndex].text;
+    let button = document.getElementById("voidedPlay");
+    let queen;
+    for (let k = 0; k < castbyCat.length; k++) {
+        if (value == castbyCat[k].getName()) {
+            queen = castbyCat[k];
+        }
+    }
+    screen.createBold(queen.getName() + " was back on your current deck!");
+    currentCards.push(queen);
+    eliminatedCards.splice(eliminatedCards.indexOf(queen), 1);
+    nextRoundFixer();
 }
 function completeRundown() {
     let screen = new Scene();
     screen.createHorizontalLine();
-    screen.createBigText("<h3>ROUNDS RUNDOWN</h3>")
+    screen.createBigText("<h3>ROUNDS RUNDOWN</h3>");
     let main = document.querySelector("div#MainBlock");
     let centering = document.createElement("center");
     let trackRecords = document.createElement("table");
@@ -17491,6 +17629,8 @@ let asS11 = false;
 let asS12 = false;
 let asS13 = false;
 let iasS1 = false;
+let iasS2 = false;
+let iasS3 = false;
 let ssS1 = false;
 let ssS2 = false;
 let pcS1 = false;
@@ -18838,7 +18978,7 @@ function lockedIn() {
         p.appendChild(img);
         for (let k = 0; k < allstars_3.length; k++) {
             let option = document.createElement("option");
-            option.innerHTML = allstars_1[k].getName();
+            option.innerHTML = allstars_3[k].getName();
             option.value = allstars_3[k].image;
             select.add(option);
             castbyCat.push(allstars_3[k])
@@ -19178,6 +19318,8 @@ function lockedIn() {
     screen.createParagraph("");
     screen.createBigText("<h2> LVDR INTERNATIONAL ALL STARS </h2>");
     screen.createButton("Season 1", "iasS1choose()");
+    screen.createButton("Season 2", "iasS2choose()");
+    screen.createButton("Season 3", "iasS3choose()");
     screen.createParagraph("");
     if (iasS1 == true) {
         screen.createHorizontalLine();
@@ -19207,6 +19349,70 @@ function lockedIn() {
         castSelection.appendChild(br);
         main.appendChild(castSelection);
         iasS1 = false;
+        returnImg();
+        screen.createButton("Add To Cast", "castPick()", "chosenCast");
+        screen.createParagraph("");
+    }
+    else if (iasS2 == true) {
+        screen.createHorizontalLine();
+        let main = document.querySelector("div#MainBlock");
+        let castSelection = document.createElement("p");
+        castSelection.setAttribute("id", "castSelection");
+        castSelection.innerHTML = '';
+        let select = document.createElement("select");
+        select.setAttribute("id", "queenList");
+        select.setAttribute("onchange", "returnImg()");
+        let img = document.createElement("img");
+        img.setAttribute("id", "images");
+        img.setAttribute("style", "width: 105px; height: 105px;");
+        let p = document.createElement("p");
+        p.appendChild(img);
+        for (let k = 0; k < ias_season2.length; k++) {
+            let option = document.createElement("option");
+            option.innerHTML = ias_season2[k].getName();
+            option.value = ias_season2[k].image;
+            select.add(option);
+            castbyCat.push(ias_season2[k])
+        }
+        select.selectedIndex = randomNumber(0, currentCast.length - 1);
+        let br = document.createElement("br");
+        castSelection.appendChild(p);
+        castSelection.appendChild(select);
+        castSelection.appendChild(br);
+        main.appendChild(castSelection);
+        iasS2 = false;
+        returnImg();
+        screen.createButton("Add To Cast", "castPick()", "chosenCast");
+        screen.createParagraph("");
+    }
+    else if (iasS3 == true) {
+        screen.createHorizontalLine();
+        let main = document.querySelector("div#MainBlock");
+        let castSelection = document.createElement("p");
+        castSelection.setAttribute("id", "castSelection");
+        castSelection.innerHTML = '';
+        let select = document.createElement("select");
+        select.setAttribute("id", "queenList");
+        select.setAttribute("onchange", "returnImg()");
+        let img = document.createElement("img");
+        img.setAttribute("id", "images");
+        img.setAttribute("style", "width: 105px; height: 105px;");
+        let p = document.createElement("p");
+        p.appendChild(img);
+        for (let k = 0; k < ias_season3.length; k++) {
+            let option = document.createElement("option");
+            option.innerHTML = ias_season3[k].getName();
+            option.value = ias_season3[k].image;
+            select.add(option);
+            castbyCat.push(ias_season3[k])
+        }
+        select.selectedIndex = randomNumber(0, currentCast.length - 1);
+        let br = document.createElement("br");
+        castSelection.appendChild(p);
+        castSelection.appendChild(select);
+        castSelection.appendChild(br);
+        main.appendChild(castSelection);
+        iasS3 = false;
         returnImg();
         screen.createButton("Add To Cast", "castPick()", "chosenCast");
         screen.createParagraph("");
@@ -20406,6 +20612,14 @@ function asS13choose() {
 }
 function iasS1choose() {
     iasS1 = true;
+    lockedIn();
+}
+function iasS2choose() {
+    iasS2 = true;
+    lockedIn();
+}
+function iasS3choose() {
+    iasS3 = true;
     lockedIn();
 }
 function ssS1choose() {
