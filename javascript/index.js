@@ -1815,6 +1815,93 @@ function groupsJudging() {
         for (let i = 0; i < bottomQueens.length; i++)
             critiques.innerHTML += `${bottomQueens[i].getName()}, `;
         critiques.innerHTML += "let us now hear the judges' critiques.";
+        if (castHolder.length > 6 && randomNumber(0, 100) > 65 && (top3 || top4 || savequeen)) {
+        let critiQueens = [];
+        for (let i = 0; i < safeQueens.length; i++) {
+        critiQueens.push(safeQueens[i].QueenA);
+        critiQueens.push(safeQueens[i].QueenB);
+        if (safeQueens[i] == threeSome[0])
+        critiQueens.push(safeQueens[i].QueenC);
+        }
+        for (let i = 0; i < bottomQueens.length; i++) {
+        critiQueens.push(bottomQueens[i].QueenA);
+        critiQueens.push(bottomQueens[i].QueenB);
+        if (bottomQueens[i] == threeSome[0])
+        critiQueens.push(bottomQueens[i].QueenC);
+        }
+        let desc;
+        (function (desc) {
+            desc[desc[" because they think the judges are not appreciating their drag."] = 0] = " because they think the judges are not appreciating their drag.";
+            desc[desc[" because the competition is taking a toll on their mental health."] = 1] = " because the competition is taking a toll on their mental health.";
+            desc[desc[" because they know they did the worst this week."] = 2] = " because they know they did the worst this week.";
+            desc[desc[" because they want to take responsibility as the leader."] = 3] = " because they want to take responsibility as the leader.";
+            desc[desc[" because they are not thrilled by the competition anymore."] = 4] = " because they are not thrilled by the competition anymore.";
+            desc[desc[" because they felt extremely defeated for the past weeks."] = 5] = " because they felt extremely defeated for the past weeks.";
+            desc[desc[" because they are obviously the weakest one in the challenge."] = 6] = " because they are obviously the weakest one in the challenge.";
+            desc[desc[" because the struggle is real."] = 7] = " because the struggle is real.";
+            desc[desc[" because they believe that being the next Drag Superstar should not just be about being pretty."] = 8] = " because they believe that being the next Drag Superstar should not just be about being pretty.";
+            desc[desc[" because they felt like they are dragged down by their performance."] = 9] = " because they felt like they are dragged down by their performance.";
+            desc[desc[" because she really dragged the team down."] = 10] = " because she really dragged the team down.";
+            desc[desc[" because they believe that they still lack experience to win the show."] = 11] = " because they believe that they still lack experience to win the show.";
+            desc[desc[" because they don't think that they are a genuine threat."] = 12] = " because they don't think that they are a genuine threat.";
+            desc[desc[" because they keep failing to meet the judges' expectations."] = 13] = " because they keep failing to meet the judges' expectations.";
+            desc[desc[" because they believe it is their time to go."] = 14] = " because they believe it is their time to go.";
+            desc[desc[" because they are not doing anything spectacular on the show so far."] = 15] = " because they are not doing anything spectacular on the show so far.";
+            desc[desc[" because they think that the judges' are not seeing that they are a complete bitch."] = 16] = " because they think that the judges' are not seeing that they are a complete bitch.";
+            desc[desc[" because she is so ready to see her ass get sent home."] = 17] = " because she is so ready to see her ass get sent home.";
+            desc[desc[" because she is not on any other queen's level in the show."] = 18] = " because she is not on any other queen's level in the show.";
+        })(desc || (desc = {}));
+        screen.createHorizontalLine();
+        screen.createBold("Queens, I wanna hear from you...");
+        screen.createParagraph("Who should go home tonight and why?");
+        let sendHome = [];
+        for (let i = 0; i < critiQueens.length; i++)
+        sendHome.push(critiQueens[i]);
+        for (let i = 0; i < critiQueens.length; i++) {
+        let canselfChoice = false;
+        let selfChoice = false;
+        let weekWorst = false;
+        let trackWorst = false;
+        if (randomNumber(0, 100) > 70) {
+        sendHome.splice(sendHome.indexOf(critiQueens[i]), 1);
+        }
+        else {
+        canselfChoice = true;
+        }
+        if (randomNumber(0, 100) > 65) {
+        sendHome.sort((b, a) => (a.performanceScore - b.performanceScore));
+        critiQueens[i].lipstick = sendHome[0];
+        weekWorst = true;
+        }
+        else if (randomNumber(0, 100) > 25) {
+        sendHome.sort((a, b) => ((a.favoritism - a.unfavoritism) - (b.favoritism - b.unfavoritism)));
+        critiQueens[i].lipstick = sendHome[0];
+        trackWorst = true;
+        }
+        else {
+        critiQueens[i].lipstick = sendHome[randomNumber(0, sendHome.length - 1)];
+        }
+        if (critiQueens[i] == critiQueens[i].lipstick)
+        selfChoice = true;
+        if (selfChoice == false) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        if (weekWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(6, 10)]);
+        else if (trackWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(11, 15)]);
+        else
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(16, 18)]);
+        }
+        else if (selfChoice == true) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        screen.createBold(critiQueens[i].getName() + " chose themself" + desc[randomNumber(0, 5)]);
+        }
+        if (canselfChoice == false)
+        sendHome.push(critiQueens[i]);
+        }
+        }
     }
     else if (twoTeams == true) {
     let teamOneScore = 0;
@@ -1929,6 +2016,87 @@ function groupsJudging() {
     for (let i = 0; i < bottomQueens.length; i++)
     critiques.innerHTML += `${bottomQueens[i].getName()}, `;
     critiques.innerHTML += "let us now hear the judges' critiques.";
+    if (currentCast.length > 6 && randomNumber(0, 100) > 65 && (top3 || top4 || savequeen)) {
+        let critiQueens = [];
+        for (let i = 0; i < safeQueens.length; i++) {
+        critiQueens.push(safeQueens[i]);
+        }
+        for (let i = 0; i < bottomQueens.length; i++) {
+        critiQueens.push(bottomQueens[i]);
+        }
+        let desc;
+        (function (desc) {
+            desc[desc[" because they think the judges are not appreciating their drag."] = 0] = " because they think the judges are not appreciating their drag.";
+            desc[desc[" because the competition is taking a toll on their mental health."] = 1] = " because the competition is taking a toll on their mental health.";
+            desc[desc[" because they know they did the worst this week."] = 2] = " because they know they did the worst this week.";
+            desc[desc[" because they want to take responsibility as the leader."] = 3] = " because they want to take responsibility as the leader.";
+            desc[desc[" because they are not thrilled by the competition anymore."] = 4] = " because they are not thrilled by the competition anymore.";
+            desc[desc[" because they felt extremely defeated for the past weeks."] = 5] = " because they felt extremely defeated for the past weeks.";
+            desc[desc[" because they are obviously the weakest one in the challenge."] = 6] = " because they are obviously the weakest one in the challenge.";
+            desc[desc[" because the struggle is real."] = 7] = " because the struggle is real.";
+            desc[desc[" because they believe that being the next Drag Superstar should not just be about being pretty."] = 8] = " because they believe that being the next Drag Superstar should not just be about being pretty.";
+            desc[desc[" because they felt like they are dragged down by their performance."] = 9] = " because they felt like they are dragged down by their performance.";
+            desc[desc[" because she really dragged the team down."] = 10] = " because she really dragged the team down.";
+            desc[desc[" because they believe that they still lack experience to win the show."] = 11] = " because they believe that they still lack experience to win the show.";
+            desc[desc[" because they don't think that they are a genuine threat."] = 12] = " because they don't think that they are a genuine threat.";
+            desc[desc[" because they keep failing to meet the judges' expectations."] = 13] = " because they keep failing to meet the judges' expectations.";
+            desc[desc[" because they believe it is their time to go."] = 14] = " because they believe it is their time to go.";
+            desc[desc[" because they are not doing anything spectacular on the show so far."] = 15] = " because they are not doing anything spectacular on the show so far.";
+            desc[desc[" because they think that the judges' are not seeing that they are a complete bitch."] = 16] = " because they think that the judges' are not seeing that they are a complete bitch.";
+            desc[desc[" because she is so ready to see her ass get sent home."] = 17] = " because she is so ready to see her ass get sent home.";
+            desc[desc[" because she is not on any other queen's level in the show."] = 18] = " because she is not on any other queen's level in the show.";
+        })(desc || (desc = {}));
+        screen.createHorizontalLine();
+        screen.createBold("Queens, I wanna hear from you...");
+        screen.createParagraph("Who should go home tonight and why?");
+        let sendHome = [];
+        for (let i = 0; i < critiQueens.length; i++)
+        sendHome.push(critiQueens[i]);
+        for (let i = 0; i < critiQueens.length; i++) {
+        let canselfChoice = false;
+        let selfChoice = false;
+        let weekWorst = false;
+        let trackWorst = false;
+        if (randomNumber(0, 100) > 70) {
+        sendHome.splice(sendHome.indexOf(critiQueens[i]), 1);
+        }
+        else {
+        canselfChoice = true;
+        }
+        if (randomNumber(0, 100) > 65) {
+        sendHome.sort((b, a) => (a.performanceScore - b.performanceScore));
+        critiQueens[i].lipstick = sendHome[0];
+        weekWorst = true;
+        }
+        else if (randomNumber(0, 100) > 25) {
+        sendHome.sort((a, b) => ((a.favoritism - a.unfavoritism) - (b.favoritism - b.unfavoritism)));
+        critiQueens[i].lipstick = sendHome[0];
+        trackWorst = true;
+        }
+        else {
+        critiQueens[i].lipstick = sendHome[randomNumber(0, sendHome.length - 1)];
+        }
+        if (critiQueens[i] == critiQueens[i].lipstick)
+        selfChoice = true;
+        if (selfChoice == false) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        if (weekWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(6, 10)]);
+        else if (trackWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(11, 15)]);
+        else
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(16, 18)]);
+        }
+        else if (selfChoice == true) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        screen.createBold(critiQueens[i].getName() + " chose themself" + desc[randomNumber(0, 5)]);
+        }
+        if (canselfChoice == false)
+        sendHome.push(critiQueens[i]);
+        }
+    }
     }
     else if (threeTeams == true) {
     let teamOneScore = 0;
@@ -2103,6 +2271,87 @@ function groupsJudging() {
     for (let i = 0; i < bottomQueens.length; i++)
     critiques.innerHTML += `${bottomQueens[i].getName()}, `;
     critiques.innerHTML += "let us now hear the judges' critiques.";
+    if (currentCast.length > 6 && randomNumber(0, 100) > 65 && (top3 || top4 || savequeen)) {
+        let critiQueens = [];
+        for (let i = 0; i < safeQueens.length; i++) {
+        critiQueens.push(safeQueens[i]);
+        }
+        for (let i = 0; i < bottomQueens.length; i++) {
+        critiQueens.push(bottomQueens[i]);
+        }
+        let desc;
+        (function (desc) {
+            desc[desc[" because they think the judges are not appreciating their drag."] = 0] = " because they think the judges are not appreciating their drag.";
+            desc[desc[" because the competition is taking a toll on their mental health."] = 1] = " because the competition is taking a toll on their mental health.";
+            desc[desc[" because they know they did the worst this week."] = 2] = " because they know they did the worst this week.";
+            desc[desc[" because they want to take responsibility as the leader."] = 3] = " because they want to take responsibility as the leader.";
+            desc[desc[" because they are not thrilled by the competition anymore."] = 4] = " because they are not thrilled by the competition anymore.";
+            desc[desc[" because they felt extremely defeated for the past weeks."] = 5] = " because they felt extremely defeated for the past weeks.";
+            desc[desc[" because they are obviously the weakest one in the challenge."] = 6] = " because they are obviously the weakest one in the challenge.";
+            desc[desc[" because the struggle is real."] = 7] = " because the struggle is real.";
+            desc[desc[" because they believe that being the next Drag Superstar should not just be about being pretty."] = 8] = " because they believe that being the next Drag Superstar should not just be about being pretty.";
+            desc[desc[" because they felt like they are dragged down by their performance."] = 9] = " because they felt like they are dragged down by their performance.";
+            desc[desc[" because she really dragged the team down."] = 10] = " because she really dragged the team down.";
+            desc[desc[" because they believe that they still lack experience to win the show."] = 11] = " because they believe that they still lack experience to win the show.";
+            desc[desc[" because they don't think that they are a genuine threat."] = 12] = " because they don't think that they are a genuine threat.";
+            desc[desc[" because they keep failing to meet the judges' expectations."] = 13] = " because they keep failing to meet the judges' expectations.";
+            desc[desc[" because they believe it is their time to go."] = 14] = " because they believe it is their time to go.";
+            desc[desc[" because they are not doing anything spectacular on the show so far."] = 15] = " because they are not doing anything spectacular on the show so far.";
+            desc[desc[" because they think that the judges' are not seeing that they are a complete bitch."] = 16] = " because they think that the judges' are not seeing that they are a complete bitch.";
+            desc[desc[" because she is so ready to see her ass get sent home."] = 17] = " because she is so ready to see her ass get sent home.";
+            desc[desc[" because she is not on any other queen's level in the show."] = 18] = " because she is not on any other queen's level in the show.";
+        })(desc || (desc = {}));
+        screen.createHorizontalLine();
+        screen.createBold("Queens, I wanna hear from you...");
+        screen.createParagraph("Who should go home tonight and why?");
+        let sendHome = [];
+        for (let i = 0; i < critiQueens.length; i++)
+        sendHome.push(critiQueens[i]);
+        for (let i = 0; i < critiQueens.length; i++) {
+        let canselfChoice = false;
+        let selfChoice = false;
+        let weekWorst = false;
+        let trackWorst = false;
+        if (randomNumber(0, 100) > 70) {
+        sendHome.splice(sendHome.indexOf(critiQueens[i]), 1);
+        }
+        else {
+        canselfChoice = true;
+        }
+        if (randomNumber(0, 100) > 65) {
+        sendHome.sort((b, a) => (a.performanceScore - b.performanceScore));
+        critiQueens[i].lipstick = sendHome[0];
+        weekWorst = true;
+        }
+        else if (randomNumber(0, 100) > 25) {
+        sendHome.sort((a, b) => ((a.favoritism - a.unfavoritism) - (b.favoritism - b.unfavoritism)));
+        critiQueens[i].lipstick = sendHome[0];
+        trackWorst = true;
+        }
+        else {
+        critiQueens[i].lipstick = sendHome[randomNumber(0, sendHome.length - 1)];
+        }
+        if (critiQueens[i] == critiQueens[i].lipstick)
+        selfChoice = true;
+        if (selfChoice == false) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        if (weekWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(6, 10)]);
+        else if (trackWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(11, 15)]);
+        else
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(16, 18)]);
+        }
+        else if (selfChoice == true) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        screen.createBold(critiQueens[i].getName() + " chose themself" + desc[randomNumber(0, 5)]);
+        }
+        if (canselfChoice == false)
+        sendHome.push(critiQueens[i]);
+        }
+    }
     }
     else if (fourTeams == true) {
     let teamOneScore = 0;
@@ -2531,6 +2780,87 @@ function groupsJudging() {
     for (let i = 0; i < bottomQueens.length; i++)
     critiques.innerHTML += `${bottomQueens[i].getName()}, `;
     critiques.innerHTML += "let us now hear the judges' critiques.";
+    if (currentCast.length > 6 && randomNumber(0, 100) > 65 && (top3 || top4 || savequeen)) {
+        let critiQueens = [];
+        for (let i = 0; i < safeQueens.length; i++) {
+        critiQueens.push(safeQueens[i]);
+        }
+        for (let i = 0; i < bottomQueens.length; i++) {
+        critiQueens.push(bottomQueens[i]);
+        }
+        let desc;
+        (function (desc) {
+            desc[desc[" because they think the judges are not appreciating their drag."] = 0] = " because they think the judges are not appreciating their drag.";
+            desc[desc[" because the competition is taking a toll on their mental health."] = 1] = " because the competition is taking a toll on their mental health.";
+            desc[desc[" because they know they did the worst this week."] = 2] = " because they know they did the worst this week.";
+            desc[desc[" because they want to take responsibility as the leader."] = 3] = " because they want to take responsibility as the leader.";
+            desc[desc[" because they are not thrilled by the competition anymore."] = 4] = " because they are not thrilled by the competition anymore.";
+            desc[desc[" because they felt extremely defeated for the past weeks."] = 5] = " because they felt extremely defeated for the past weeks.";
+            desc[desc[" because they are obviously the weakest one in the challenge."] = 6] = " because they are obviously the weakest one in the challenge.";
+            desc[desc[" because the struggle is real."] = 7] = " because the struggle is real.";
+            desc[desc[" because they believe that being the next Drag Superstar should not just be about being pretty."] = 8] = " because they believe that being the next Drag Superstar should not just be about being pretty.";
+            desc[desc[" because they felt like they are dragged down by their performance."] = 9] = " because they felt like they are dragged down by their performance.";
+            desc[desc[" because she really dragged the team down."] = 10] = " because she really dragged the team down.";
+            desc[desc[" because they believe that they still lack experience to win the show."] = 11] = " because they believe that they still lack experience to win the show.";
+            desc[desc[" because they don't think that they are a genuine threat."] = 12] = " because they don't think that they are a genuine threat.";
+            desc[desc[" because they keep failing to meet the judges' expectations."] = 13] = " because they keep failing to meet the judges' expectations.";
+            desc[desc[" because they believe it is their time to go."] = 14] = " because they believe it is their time to go.";
+            desc[desc[" because they are not doing anything spectacular on the show so far."] = 15] = " because they are not doing anything spectacular on the show so far.";
+            desc[desc[" because they think that the judges' are not seeing that they are a complete bitch."] = 16] = " because they think that the judges' are not seeing that they are a complete bitch.";
+            desc[desc[" because she is so ready to see her ass get sent home."] = 17] = " because she is so ready to see her ass get sent home.";
+            desc[desc[" because she is not on any other queen's level in the show."] = 18] = " because she is not on any other queen's level in the show.";
+        })(desc || (desc = {}));
+        screen.createHorizontalLine();
+        screen.createBold("Queens, I wanna hear from you...");
+        screen.createParagraph("Who should go home tonight and why?");
+        let sendHome = [];
+        for (let i = 0; i < critiQueens.length; i++)
+        sendHome.push(critiQueens[i]);
+        for (let i = 0; i < critiQueens.length; i++) {
+        let canselfChoice = false;
+        let selfChoice = false;
+        let weekWorst = false;
+        let trackWorst = false;
+        if (randomNumber(0, 100) > 70) {
+        sendHome.splice(sendHome.indexOf(critiQueens[i]), 1);
+        }
+        else {
+        canselfChoice = true;
+        }
+        if (randomNumber(0, 100) > 65) {
+        sendHome.sort((b, a) => (a.performanceScore - b.performanceScore));
+        critiQueens[i].lipstick = sendHome[0];
+        weekWorst = true;
+        }
+        else if (randomNumber(0, 100) > 25) {
+        sendHome.sort((a, b) => ((a.favoritism - a.unfavoritism) - (b.favoritism - b.unfavoritism)));
+        critiQueens[i].lipstick = sendHome[0];
+        trackWorst = true;
+        }
+        else {
+        critiQueens[i].lipstick = sendHome[randomNumber(0, sendHome.length - 1)];
+        }
+        if (critiQueens[i] == critiQueens[i].lipstick)
+        selfChoice = true;
+        if (selfChoice == false) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        if (weekWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(6, 10)]);
+        else if (trackWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(11, 15)]);
+        else
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(16, 18)]);
+        }
+        else if (selfChoice == true) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        screen.createBold(critiQueens[i].getName() + " chose themself" + desc[randomNumber(0, 5)]);
+        }
+        if (canselfChoice == false)
+        sendHome.push(critiQueens[i]);
+        }
+    }
     }
     else if (fiveTeams == true) {
     let teamOneScore = 0;
@@ -3438,6 +3768,87 @@ function groupsJudging() {
     for (let i = 0; i < bottomQueens.length; i++)
     critiques.innerHTML += `${bottomQueens[i].getName()}, `;
     critiques.innerHTML += "let us now hear the judges' critiques.";
+    if (currentCast.length > 6 && randomNumber(0, 100) > 65 && (top3 || top4 || savequeen)) {
+        let critiQueens = [];
+        for (let i = 0; i < safeQueens.length; i++) {
+        critiQueens.push(safeQueens[i]);
+        }
+        for (let i = 0; i < bottomQueens.length; i++) {
+        critiQueens.push(bottomQueens[i]);
+        }
+        let desc;
+        (function (desc) {
+            desc[desc[" because they think the judges are not appreciating their drag."] = 0] = " because they think the judges are not appreciating their drag.";
+            desc[desc[" because the competition is taking a toll on their mental health."] = 1] = " because the competition is taking a toll on their mental health.";
+            desc[desc[" because they know they did the worst this week."] = 2] = " because they know they did the worst this week.";
+            desc[desc[" because they want to take responsibility as the leader."] = 3] = " because they want to take responsibility as the leader.";
+            desc[desc[" because they are not thrilled by the competition anymore."] = 4] = " because they are not thrilled by the competition anymore.";
+            desc[desc[" because they felt extremely defeated for the past weeks."] = 5] = " because they felt extremely defeated for the past weeks.";
+            desc[desc[" because they are obviously the weakest one in the challenge."] = 6] = " because they are obviously the weakest one in the challenge.";
+            desc[desc[" because the struggle is real."] = 7] = " because the struggle is real.";
+            desc[desc[" because they believe that being the next Drag Superstar should not just be about being pretty."] = 8] = " because they believe that being the next Drag Superstar should not just be about being pretty.";
+            desc[desc[" because they felt like they are dragged down by their performance."] = 9] = " because they felt like they are dragged down by their performance.";
+            desc[desc[" because she really dragged the team down."] = 10] = " because she really dragged the team down.";
+            desc[desc[" because they believe that they still lack experience to win the show."] = 11] = " because they believe that they still lack experience to win the show.";
+            desc[desc[" because they don't think that they are a genuine threat."] = 12] = " because they don't think that they are a genuine threat.";
+            desc[desc[" because they keep failing to meet the judges' expectations."] = 13] = " because they keep failing to meet the judges' expectations.";
+            desc[desc[" because they believe it is their time to go."] = 14] = " because they believe it is their time to go.";
+            desc[desc[" because they are not doing anything spectacular on the show so far."] = 15] = " because they are not doing anything spectacular on the show so far.";
+            desc[desc[" because they think that the judges' are not seeing that they are a complete bitch."] = 16] = " because they think that the judges' are not seeing that they are a complete bitch.";
+            desc[desc[" because she is so ready to see her ass get sent home."] = 17] = " because she is so ready to see her ass get sent home.";
+            desc[desc[" because she is not on any other queen's level in the show."] = 18] = " because she is not on any other queen's level in the show.";
+        })(desc || (desc = {}));
+        screen.createHorizontalLine();
+        screen.createBold("Queens, I wanna hear from you...");
+        screen.createParagraph("Who should go home tonight and why?");
+        let sendHome = [];
+        for (let i = 0; i < critiQueens.length; i++)
+        sendHome.push(critiQueens[i]);
+        for (let i = 0; i < critiQueens.length; i++) {
+        let canselfChoice = false;
+        let selfChoice = false;
+        let weekWorst = false;
+        let trackWorst = false;
+        if (randomNumber(0, 100) > 70) {
+        sendHome.splice(sendHome.indexOf(critiQueens[i]), 1);
+        }
+        else {
+        canselfChoice = true;
+        }
+        if (randomNumber(0, 100) > 65) {
+        sendHome.sort((b, a) => (a.performanceScore - b.performanceScore));
+        critiQueens[i].lipstick = sendHome[0];
+        weekWorst = true;
+        }
+        else if (randomNumber(0, 100) > 25) {
+        sendHome.sort((a, b) => ((a.favoritism - a.unfavoritism) - (b.favoritism - b.unfavoritism)));
+        critiQueens[i].lipstick = sendHome[0];
+        trackWorst = true;
+        }
+        else {
+        critiQueens[i].lipstick = sendHome[randomNumber(0, sendHome.length - 1)];
+        }
+        if (critiQueens[i] == critiQueens[i].lipstick)
+        selfChoice = true;
+        if (selfChoice == false) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        if (weekWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(6, 10)]);
+        else if (trackWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(11, 15)]);
+        else
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(16, 18)]);
+        }
+        else if (selfChoice == true) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        screen.createBold(critiQueens[i].getName() + " chose themself" + desc[randomNumber(0, 5)]);
+        }
+        if (canselfChoice == false)
+        sendHome.push(critiQueens[i]);
+        }
+    }
     }
     if (top3 || top4)
     screen.createButton("Proceed", "getBottomTwo()");
@@ -10143,17 +10554,17 @@ function top2Lipsync() {
     screen.createButton("Proceed", "newEpisode()");
 }
 function halfWayElimJudging() {
-    let judgingScreen = new Scene();
-    judgingScreen.clean();
-    judgingScreen.createHeader("Judging!");
-    judgingScreen.createBold("Based on tonight's performances...");
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Judging!");
+    screen.createBold("Based on tonight's performances...");
     for (let i = 0; i < topQueens.length; i++) {
-        judgingScreen.createImage(topQueens[i].image, "cyan");
+        screen.createImage(topQueens[i].image, "cyan");
         }
     for (let i = 0; i < bottomQueens.length; i++) {
-        judgingScreen.createImage(bottomQueens[i].image, "cyan");
+        screen.createImage(bottomQueens[i].image, "cyan");
         }
-        judgingScreen.createBold("", "judged");
+        screen.createBold("", "judged");
         let judged = document.getElementById("judged");
         for (let i = 0; i < topQueens.length; i++) {
             judged.innerHTML += `${topQueens[i].getName()}, `;
@@ -10162,8 +10573,8 @@ function halfWayElimJudging() {
             judged.innerHTML += `${bottomQueens[i].getName()}, `;
         }
         judged.innerHTML += "you represent the tops and bottoms of the week.";
-        judgingScreen.createHorizontalLine();
-        judgingScreen.createParagraph("", "safeQueens");
+        screen.createHorizontalLine();
+        screen.createParagraph("", "safeQueens");
         let safeQueens = document.getElementById("safeQueens");
     for (let i = 0; i < currentCast.length; i++) {
         if (topQueens.indexOf(currentCast[i]) == -1 && bottomQueens.indexOf(currentCast[i]) == -1) {
@@ -10173,7 +10584,7 @@ function halfWayElimJudging() {
         }
     }
     safeQueens.innerHTML += "you are safe.";
-    judgingScreen.createButton("Proceed", "halfWayDecisions()");
+    screen.createButton("Proceed", "halfWayDecisions()");
 }
 function halfWayDecisions() {
     let screen = new Scene();
@@ -21964,32 +22375,32 @@ function vstheworldJudging() {
     }
 }
 function judgingScreen() {
-    let judgingScreen = new Scene();
-    judgingScreen.clean();
-    judgingScreen.createHeader("Judging!");
-    judgingScreen.createBold("Based on tonight's performances...");
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Judging!");
+    screen.createBold("Based on tonight's performances...");
     if (team == true) {
-        judgingScreen.createImage(topQueens[0].QueenA.image, "cyan");
-        judgingScreen.createImage(topQueens[1].QueenA.image, "cyan");
-        judgingScreen.createImage(topQueens[0].QueenB.image, "cyan");
-        judgingScreen.createImage(topQueens[1].QueenB.image, "cyan");
-        judgingScreen.createImage(bottomQueens[0].QueenB.image, "cyan");
-        judgingScreen.createImage(bottomQueens[1].QueenB.image, "cyan");
-        judgingScreen.createImage(bottomQueens[2].QueenB.image, "cyan");
-        judgingScreen.createImage(bottomQueens[0].QueenA.image, "cyan");
-        judgingScreen.createImage(bottomQueens[1].QueenA.image, "cyan");
-        judgingScreen.createImage(bottomQueens[2].QueenA.image, "cyan");
-        judgingScreen.createBold(`${topQueens[0].getName()}, ${topQueens[1].getName()}, ${bottomQueens[0].getName()}, ${bottomQueens[1].getName()}, ${bottomQueens[2].getName()}, you represent the tops and bottoms of the week.`);
-        judgingScreen.createHorizontalLine();
+        screen.createImage(topQueens[0].QueenA.image, "cyan");
+        screen.createImage(topQueens[1].QueenA.image, "cyan");
+        screen.createImage(topQueens[0].QueenB.image, "cyan");
+        screen.createImage(topQueens[1].QueenB.image, "cyan");
+        screen.createImage(bottomQueens[0].QueenB.image, "cyan");
+        screen.createImage(bottomQueens[1].QueenB.image, "cyan");
+        screen.createImage(bottomQueens[2].QueenB.image, "cyan");
+        screen.createImage(bottomQueens[0].QueenA.image, "cyan");
+        screen.createImage(bottomQueens[1].QueenA.image, "cyan");
+        screen.createImage(bottomQueens[2].QueenA.image, "cyan");
+        screen.createBold(`${topQueens[0].getName()}, ${topQueens[1].getName()}, ${bottomQueens[0].getName()}, ${bottomQueens[1].getName()}, ${bottomQueens[2].getName()}, you represent the tops and bottoms of the week.`);
+        screen.createHorizontalLine();
     }
     else if (ruvengeEpisode == true && throwqueen == false) {
         for (let i = 0; i < topQueens.length; i++) {
-            judgingScreen.createImage(topQueens[i].image, "cyan");
+            screen.createImage(topQueens[i].image, "cyan");
         }
         for (let i = 0; i < bottomQueens.length; i++) {
-            judgingScreen.createImage(bottomQueens[i].image, "cyan");
+            screen.createImage(bottomQueens[i].image, "cyan");
         }
-        judgingScreen.createBold("", "judged");
+        screen.createBold("", "judged");
         let judged = document.getElementById("judged");
         for (let i = 0; i < topQueens.length; i++) {
             judged.innerHTML += `${topQueens[i].getName()}, `;
@@ -21998,28 +22409,28 @@ function judgingScreen() {
             judged.innerHTML += `${bottomQueens[i].getName()}, `;
         }
         judged.innerHTML += "you represent the tops and bottoms of the week.";
-        judgingScreen.createHorizontalLine();
+        screen.createHorizontalLine();
     }
     else if (ruvengeEpisode == true && throwqueen == true) {
         for (let i = 0; i < topQueens.length; i++) {
-            judgingScreen.createImage(topQueens[i].image, "cyan");
+            screen.createImage(topQueens[i].image, "cyan");
         }
-        judgingScreen.createBold("", "judged");
+        screen.createBold("", "judged");
         let judged = document.getElementById("judged");
         for (let i = 0; i < topQueens.length; i++) {
             judged.innerHTML += `${topQueens[i].getName()}, `;
         }
         judged.innerHTML += "you are all candidates for the win.";
-        judgingScreen.createHorizontalLine();
+        screen.createHorizontalLine();
     }
     else if (throwqueen == true && ruvengeEpisode == false) {
         for (let i = 0; i < topQueens.length; i++) {
-            judgingScreen.createImage(topQueens[i].image, "cyan");
+            screen.createImage(topQueens[i].image, "cyan");
         }
         for (let i = 0; i < bottomQueens.length; i++) {
-            judgingScreen.createImage(bottomQueens[i].image, "cyan");
+            screen.createImage(bottomQueens[i].image, "cyan");
         }
-        judgingScreen.createBold("", "judged");
+        screen.createBold("", "judged");
         let judged = document.getElementById("judged");
         for (let i = 0; i < topQueens.length; i++) {
             judged.innerHTML += `${topQueens[i].getName()}, `;
@@ -22028,10 +22439,10 @@ function judgingScreen() {
             judged.innerHTML += `${bottomQueens[i].getName()}, `;
         }
         judged.innerHTML += "one of you did the worst this week and the rest are candidates for the win.";
-        judgingScreen.createHorizontalLine();
-        judgingScreen.createParagraph("", "fairJudged");
+        screen.createHorizontalLine();
+        screen.createParagraph("", "fairJudged");
         let fairJudged = document.getElementById("fairJudged");
-        judgingScreen.createParagraph("", "lowJudged");
+        screen.createParagraph("", "lowJudged");
         let lowJudged = document.getElementById("lowJudged");
         for (let i = 0; i < fairQueens.length; i++) {
             fairJudged.innerHTML += `${fairQueens[i].getName()}, `;
@@ -22047,25 +22458,25 @@ function judgingScreen() {
     }
     else {
         for (let i = 0; i < topQueens.length; i++) {
-            judgingScreen.createImage(topQueens[i].image, "cyan");
+            screen.createImage(topQueens[i].image, "cyan");
         }
         for (let i = 0; i < bottomQueens.length; i++) {
-            judgingScreen.createImage(bottomQueens[i].image, "cyan");
+            screen.createImage(bottomQueens[i].image, "cyan");
         }
-        judgingScreen.createBold("", "judged");
+        screen.createBold("", "judged");
         let judged = document.getElementById("judged");
         for (let i = 0; i < topQueens.length; i++) {
             judged.innerHTML += `${topQueens[i].getName()}, `;
             judged.innerHTML += `${bottomQueens[i].getName()}, `;
         }
         judged.innerHTML += "you represent the tops and bottoms of the week.";
-        judgingScreen.createHorizontalLine();
+        screen.createHorizontalLine();
     }
     if (!throwqueen)
-    judgingScreen.createParagraph("", "safeQueens");
+    screen.createParagraph("", "safeQueens");
     let safeQueens = document.getElementById("safeQueens");
         if (ruvengeEpisode == true) {
-        judgingScreen.createParagraph("", "outQueens");
+        screen.createParagraph("", "outQueens");
         let outQueens = document.getElementById("outQueens");
     }
     //check if the queen is in the top or in the bottom, and if not put her as safe:
@@ -22131,18 +22542,99 @@ function judgingScreen() {
     else if (ruvengeEpisode == true && remainingQueens.length <= 6 && (!all_stars || !lipsync_assassin) || ruvengeEpisode == true && totalCastSize == 9) {
             outQueens.innerHTML += "that means, my dears, you have failed to reach the top."
     }
+    if (currentCast.length > 6 && randomNumber(0, 100) > 65 && (top3 || top4 || savequeen)) {
+        let critiQueens = [];
+        for (let i = 0; i < topQueens.length; i++) {
+        critiQueens.push(topQueens[i]);
+        }
+        for (let i = 0; i < bottomQueens.length; i++) {
+        critiQueens.push(bottomQueens[i]);
+        }
+        let desc;
+        (function (desc) {
+            desc[desc[" because they think the judges are not appreciating their drag."] = 0] = " because they think the judges are not appreciating their drag.";
+            desc[desc[" because the competition is taking a toll on their mental health."] = 1] = " because the competition is taking a toll on their mental health.";
+            desc[desc[" because they know they did the worst this week."] = 2] = " because they know they did the worst this week.";
+            desc[desc[" because they want to take responsibility as the leader."] = 3] = " because they want to take responsibility as the leader.";
+            desc[desc[" because they are not thrilled by the competition anymore."] = 4] = " because they are not thrilled by the competition anymore.";
+            desc[desc[" because they felt extremely defeated for the past weeks."] = 5] = " because they felt extremely defeated for the past weeks.";
+            desc[desc[" because they are obviously the weakest one in the challenge."] = 6] = " because they are obviously the weakest one in the challenge.";
+            desc[desc[" because the struggle is real."] = 7] = " because the struggle is real.";
+            desc[desc[" because they believe that being the next Drag Superstar should not just be about being pretty."] = 8] = " because they believe that being the next Drag Superstar should not just be about being pretty.";
+            desc[desc[" because they felt like they are dragged down by their performance."] = 9] = " because they felt like they are dragged down by their performance.";
+            desc[desc[" because she really dragged the team down."] = 10] = " because she really dragged the team down.";
+            desc[desc[" because they believe that they still lack experience to win the show."] = 11] = " because they believe that they still lack experience to win the show.";
+            desc[desc[" because they don't think that they are a genuine threat."] = 12] = " because they don't think that they are a genuine threat.";
+            desc[desc[" because they keep failing to meet the judges' expectations."] = 13] = " because they keep failing to meet the judges' expectations.";
+            desc[desc[" because they believe it is their time to go."] = 14] = " because they believe it is their time to go.";
+            desc[desc[" because they are not doing anything spectacular on the show so far."] = 15] = " because they are not doing anything spectacular on the show so far.";
+            desc[desc[" because they think that the judges' are not seeing that they are a complete bitch."] = 16] = " because they think that the judges' are not seeing that they are a complete bitch.";
+            desc[desc[" because she is so ready to see her ass get sent home."] = 17] = " because she is so ready to see her ass get sent home.";
+            desc[desc[" because she is not on any other queen's level in the show."] = 18] = " because she is not on any other queen's level in the show.";
+        })(desc || (desc = {}));
+        screen.createHorizontalLine();
+        screen.createBold("Queens, I wanna hear from you...");
+        screen.createParagraph("Who should go home tonight and why?");
+        let sendHome = [];
+        for (let i = 0; i < critiQueens.length; i++)
+        sendHome.push(critiQueens[i]);
+        for (let i = 0; i < critiQueens.length; i++) {
+        let canselfChoice = false;
+        let selfChoice = false;
+        let weekWorst = false;
+        let trackWorst = false;
+        if (randomNumber(0, 100) > 70) {
+        sendHome.splice(sendHome.indexOf(critiQueens[i]), 1);
+        }
+        else {
+        canselfChoice = true;
+        }
+        if (randomNumber(0, 100) > 65) {
+        sendHome.sort((b, a) => (a.performanceScore - b.performanceScore));
+        critiQueens[i].lipstick = sendHome[0];
+        weekWorst = true;
+        }
+        else if (randomNumber(0, 100) > 25) {
+        sendHome.sort((a, b) => ((a.favoritism - a.unfavoritism) - (b.favoritism - b.unfavoritism)));
+        critiQueens[i].lipstick = sendHome[0];
+        trackWorst = true;
+        }
+        else {
+        critiQueens[i].lipstick = sendHome[randomNumber(0, sendHome.length - 1)];
+        }
+        if (critiQueens[i] == critiQueens[i].lipstick)
+        selfChoice = true;
+        if (selfChoice == false) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        if (weekWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(6, 10)]);
+        else if (trackWorst = true)
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(11, 15)]);
+        else
+        screen.createBold(critiQueens[i].getName() + " chose " + critiQueens[i].lipstick.getName() + desc[randomNumber(16, 18)]);
+        }
+        else if (selfChoice == true) {
+        screen.createImage(critiQueens[i].image, "gray");
+        screen.createImage(critiQueens[i].lipstick.image, "crimson");
+        screen.createBold(critiQueens[i].getName() + " chose themself" + desc[randomNumber(0, 5)]);
+        }
+        if (canselfChoice == false)
+        sendHome.push(critiQueens[i]);
+        }
+    }
     if (top3 || top4)
-        judgingScreen.createButton("Proceed", "winAndBtm2()");
+        screen.createButton("Proceed", "winAndBtm2()");
     else if (savequeen)
-        judgingScreen.createButton("Proceed", "winAndBtm3()");
+        screen.createButton("Proceed", "winAndBtm3()");
     else if (all_stars)
-        judgingScreen.createButton("Proceed", "top2AndBtm()");
+        screen.createButton("Proceed", "top2AndBtm()");
     else if (lipsync_assassin)
-        judgingScreen.createButton("Proceed", "topAndBtm()");
+        screen.createButton("Proceed", "topAndBtm()");
     else if (throwqueen)
-        judgingScreen.createButton("Proceed", "winAndChoose()");
+        screen.createButton("Proceed", "winAndChoose()");
     else if (team)
-        judgingScreen.createButton("Proceed", "teamWinAndBtm2()");
+        screen.createButton("Proceed", "teamWinAndBtm2()");
 }
 function top2Winner() {
     let screen = new Scene();
@@ -27373,7 +27865,7 @@ let us_season14 = [baekhyun, chanyeol, chen, kyungsoo, hyoyeon, jessicajung, kai
 //SUPERSTARS 2
 let superstars_2 = [chaeyeon, dk, eric, haseul, hayoung, inseong, jiheon, jinsoul, jiu, johnny, juri, keonhee, mark, renjun, sana, seulgi, the8, wonyoung];
 //SEASON 15
-let babysoul = new Queen("BabySoul", 7, 8, 13, 8, 14, 12, 9, 12, 7, "Babysoul");
+let babysoul = new Queen("BabySoul", 7, 8, 13, 8, 14, 12, 9, 12, 7, "BabySoul");
 let hongjoong = new Queen("Hongjoong", 9, 10, 8, 11, 12, 10, 13, 11, 9, "Hongjoong");
 let jiae = new Queen("Jiae", 11, 9, 9, 11, 7, 12, 8, 13, 8, "Jiae");
 let jin = new Queen("JIN", 12, 9, 14, 9, 9, 10, 11, 12, 9, "JIN");
@@ -28070,22 +28562,6 @@ let countess = new Queen("The Countess", 8, 9, 7, 9, 8, 8, 8, "Countess");
 let vanessaC = new Queen("Vanessa Van Cartier", 7, 8, 8, 10, 9, 11, 10, "VanessaC");
 let vivaldi = new Queen("Vivaldi", 8, 9, 7, 7, 9, 9, 9, "Vivaldi");
 let hol_season2 = [hayleykiyoko, henrygolding, jackiechan, kenta, kimlee, kittychicha, kyarypamyupamyu, kygo, laiguanlin, mariomaurer, mindykaling, priyankachopra, ryosukeyamada, vannesswu];
-//OO SEASON 11
-let andybian = new Queen("Andy Bian", 12, 10, 10, 8, 8, 10, 8, 10, 8, "AndyBian");
-let ariainthavong = new Queen("Aria Inthavong", 10, 11, 8, 8, 9, 9, 13, 11, 9, "AriaInthavong");
-let awat = new Queen("Awat “Ud” Ratanapintha", 12, 9, 11, 8, 12, 9, 13, 11, 11, "Awat");
-let brendasong = new Queen ("Brenda Song", 12, 10, 7, 10, 9, 12, 9, 11, 7, "BrendaSong");
-let chelseaislan = new Queen("Chelsie Islan", 11, 10, 11, 9, 10, 8, 7, 12, 8, "ChelsieIslan");
-let christinechiu = new Queen("Christine Chiu", 13, 11, 8, 12, 9, 10, 9, 12, 11, "ChristineChiu");
-let harryshumjr = new Queen("Harry Shum Jr.", 12, 9, 7, 8, 9, 11, 11, 10, 9, "HarryShumJr");
-let jimmyyang = new Queen("Jimmy Yang", 13, 12, 8, 9, 10, 8, 12, 10, 8, "JimmyYang");
-let junjiito = new Queen("Junji Ito", 10, 12, 7, 9, 11, 13, 12, 12, 7, "JunjiIto");
-let michelleyeoh = new Queen("Michelle Yeoh", 9, 10, 8, 7, 8, 13, 12, 13, 8, "MichelleYeoh");
-let rachelyeoh = new Queen("Rachel Yeoh", 9, 10, 8, 7, 8, 13, 12, 13, 8, "RachelYeoh");
-let stanfukase = new Queen("Stan Fukase", 9, 12, 9, 13, 12, 9, 11, 12, 11, "StanFukase");
-let stefaniesun = new Queen("Stefanie Sun", 8, 9, 12, 9, 12, 10, 8, 12, 9, "StefanieSun");
-let tonhon = new Queen("Tonhon “Ton” Tantivejakul", 12, 10, 10, 9, 9, 11, 8, 11, 10, "Tonhon");
-let oo_season11 = [andybian, ariainthavong, awat, brendasong, chelseaislan, christinechiu, harryshumjr, jimmyyang, junjiito, michelleyeoh, rachelyeoh, stanfukase, stefaniesun, tonhon];
 //INTERNATIONAL ALL STARS 2
 let ias_season2 = [annemarie, beaalonzo, fwelch, gordonramsay, harrystyles, jessicajung, jolinamagdangal, juliabarretto, junji, keeho, ladygaga, lorde, melaicantiveros, onika, taylorswift];
 //INTERNATIONAL ALL STARS 3
@@ -28214,7 +28690,6 @@ let allQueens = [
     beabinene, bellapadilla, deniselaurel, jeangarcia, jessicasoho, katrinahalili, korinasanchez, pokwang, popsfernandez, roxannebarcelo, sueramirez, viceganda,
     aamirkhan, anggun, ariellin, barbiehsu, brightvachirawit, elaizaikeda, kentoyamazaki, lanacondor, luhan, vicchou, victoriasong, winmetawin,
     hayleykiyoko, henrygolding, jackiechan, kenta, kimlee, kittychicha, kyarypamyupamyu, kygo, laiguanlin, mariomaurer, mindykaling, priyankachopra, ryosukeyamada, vannesswu,
-    andybian, ariainthavong, awat, brendasong, chelseaislan, christinechiu, harryshumjr, jimmyyang, junjiito, michelleyeoh, rachelyeoh, stanfukase, stefaniesun, tonhon,
 ].concat(allCustomQueens).sort((a, b) => a.getName().toLowerCase().localeCompare(b.getName().toLowerCase()));
 let allQueensCopy = [];
 let krCast = [...us_season1, ...us_season2, ...us_season3, ...us_season4, ...us_season5, ...us_season6, ...us_season7, ...us_season8, ...us_season9, ...us_season10, ...us_season11, ...us_season12, ...us_season13, ...us_season14, ...us_season15, ...us_season16, ...us_season17, ...us_season18, ...us_season19, ...us_season20, ...us_season21, ...us_season22, ...us_season23, ...us_season24, ...us_season25, ...us_season26, ...us_season27, ...us_season28, ...us_season29, ...us_season30, ...us_season31, ...us_season32, ...us_season33, ...us_season34, ...us_season35, ...us_season36, ...us_season37];
