@@ -22563,7 +22563,7 @@ function judgingScreen() {
     else if (ruvengeEpisode == true && remainingQueens.length <= 6 && (!all_stars || !lipsync_assassin) || ruvengeEpisode == true && totalCastSize == 9) {
             outQueens.innerHTML += "that means, my dears, you have failed to reach the top."
     }
-    if (currentCast.length > 6 && randomNumber(0, 100) > 65 && (top3 || top4 || savequeen)) {
+    if (currentCast.length > 6 && randomNumber(0, 100) > 70 && (top3 || top4 || savequeen) && episodeCount > 2) {
         let critiQueens = [];
         for (let i = 0; i < topQueens.length; i++) {
         critiQueens.push(topQueens[i]);
