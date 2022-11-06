@@ -9499,7 +9499,7 @@ function addQueen() {
     if (sameName == false) {
         allCustomQueens.push(customQueen);
         let announce = document.getElementById("announce-new");
-        announce.innerHTML = `${customQueen.getName()} added to the queen list!`;
+        announce.innerHTML = `${customQueen.getName()} is now added to the queen list!`;
         localStorage.setItem("customQueens", JSON.stringify(allCustomQueens));
         setTimeout(() => {
             document.location.reload();
@@ -9570,6 +9570,8 @@ function updateCustomQueen(){
     let customQueen = new Queen(name, acting, comedy, vocal, dance, lyrical, design, improv, runway, lipsync);
     allCustomQueens.splice(index, 1);
     allCustomQueens.push(customQueen);
+    customQueen.customqueen = true;
+    customQueen.custom = true;
     let announce = document.getElementById("announce-new");
     announce.innerHTML = `${customQueen.getName()} updated!`;
     localStorage.setItem("customQueens", JSON.stringify(allCustomQueens));
@@ -16447,6 +16449,7 @@ function generateSpace() {
             let img = document.createElement("img");
             img.setAttribute("class", "images");
             img.setAttribute("id", "image" + i.toString());
+            img.setAttribute("style", "width: 105px; height: 105px;");
             let p = document.createElement("p");
             p.appendChild(img);
             if (document.getElementById("onlyCustomQueens").checked == true){
@@ -27367,7 +27370,7 @@ function lsaLipSync() {
     allQueens.splice(allQueens.indexOf(assassin), 1);
 }
 class Queen {
-    constructor(name, acting, comedy, vocal, dance, lyrical, design, improv, runway, lipsync, image = "noimage") {
+    constructor(name, acting, comedy, vocal, dance, lyrical, design, improv, runway, lipsync, image = "noimage", custom = false) {
         this.trackRecord = [];
         this.runwayScore = 0;
         this.lipsyncScore = 0;
@@ -27390,6 +27393,7 @@ class Queen {
         this.euID = 0;
         this.phID = 0;
         this.ooID = 0;
+        this.customqueen = false;
         this._name = name;
         this._actingStat = acting;
         this._comedyStat = comedy;
@@ -27411,6 +27415,8 @@ class Queen {
         this._groupsStat = (lyrical + dance + vocal) / 3;
         if (image == "noimage")
             this.image = "image/queens/noimage.jpg";
+        else if (custom == true)
+            this.image = image;
         else
             this.image = "image/queens/" + image + ".webp";
     }
@@ -29176,7 +29182,7 @@ class Scene {
     createImage(source, color = "black") {
         let image = document.createElement("img");
         image.src = source;
-        image.setAttribute("style", `border-color: ${color}`);
+        image.setAttribute("style", `border-color: ${color}; width: 105px; height: 105px;`);
         this._MainBlock.appendChild(image);
     }
 }
