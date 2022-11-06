@@ -9464,6 +9464,7 @@ function addQueen() {
     let improv = document.getElementById("improvStat").valueAsNumber;
     let runway = document.getElementById("runwayStat").valueAsNumber;
     let lipsync = document.getElementById("lipsyncStat").valueAsNumber;
+    let image = document.getElementById("url").value.trim();
     if ((acting || comedy || vocal || dance || lyrical || design || improv || runway || lipsync) < 0 || (acting || comedy || vocal || dance || lyrical || design || improv || runway || lipsync) > 15) {
         window.alert("Queens' stats must be between 0 and 15!");
         return;
