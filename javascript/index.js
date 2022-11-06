@@ -9473,7 +9473,22 @@ function addQueen() {
         window.alert("One of the boxes is empty!");
         return;
     }
-    let customQueen = new Queen(name, acting, comedy, vocal, dance, lyrical, design, improv, runway, lipsync);
+    let extension = image.substring(image.lastIndexOf(".") + 1).toLowerCase();
+    let noimagemaybe = false;
+    if (extension == "png" || extension == "jpg" || extension == ""){
+        console.log("Good file");
+        if (image == ""){
+            image = "noimage";
+            noimagemaybe = false;
+        }else {
+            noimagemaybe = true;
+        }
+    } else {
+        window.alert("Invalid image extension! Use jpg or png instead!");
+        document.getElementById("url").value = "";
+        return;
+    }
+    let customQueen = new Queen(name, acting, comedy, vocal, dance, lyrical, design, improv, runway, lipsync, image, noimagemaybe);
     let sameName = false;
     for (let i = 0; i < allCustomQueens.length; i++)
         if (allCustomQueens[i].getName() == customQueen.getName()) {
@@ -9528,6 +9543,7 @@ function editCustomQueen(){
     document.getElementById("improvStat").value = allCustomQueens[index]._improvStat;
     document.getElementById("runwayStat").value = allCustomQueens[index]._runwayStat;
     document.getElementById("lipsyncStat").value = allCustomQueens[index]._lipsyncStat;
+    document.getElementById("url").value = allCustomQueens[index].image;
 }
 function updateCustomQueen(){
     let select = document.getElementById("custom-remove");
@@ -9542,6 +9558,7 @@ function updateCustomQueen(){
     let improv = document.getElementById("improvStat").valueAsNumber;
     let runway = document.getElementById("runwayStat").valueAsNumber;
     let lipsync = document.getElementById("lipsyncStat").valueAsNumber;
+    let image = document.getElementById("url").value.trim();
     if ((acting || comedy || vocal || dance || lyrical || design || improv || runway || lipsync) < 0 || (acting || comedy || vocal || dance || lyrical || design || improv || runway || lipsync) > 15) {
         window.alert("Queens' stats must be between 0 and 15!");
         return;
