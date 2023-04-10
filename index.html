@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link id="style" rel="stylesheet" href="css/style.light.css">
     <link rel="icon" href="image/favicon.ico">
+    <script src="javascript/index.js" defer></script>
+    <script src="https://kit.fontawesome.com/65fd17a1f9.js" crossorigin="anonymous"></script>
     <title>LV Drag Race</title>
 </head>
 <body>
@@ -13,11 +15,11 @@
         <h1 id="MainTitle">LV Drag Race</h1>
         <p><big>Racers, start your engines and may the best artist win!</big></p>
         <div class="search-wrapper">
+            <h3> Queen Selector </h3>
             <big><label for="search">Choose your contestants:</label></big>
             <input type="search" id="search" class="searchInput" placeholder="Type a name.." data-search>
         </div>
         <div>
-            <button onclick="addRandomContestant()" id="randomK">Random</button>
             <button onclick="moreKweens()" class="hide" id="moreK">Choose More Contestants</button>
         </div>
         <div class="drag-cards" data-drag-cards-container></div>
@@ -27,10 +29,9 @@
                 <div class="header" data-header></div>
             </div>
         </template>
-        <hr>
         <big class="hide" id="castBig">Current Cast: <br></big>
         <div id="chosenKweens" class="drag-cards"></div>
-        <h3> Random Queens </h3>
+        <h3> Random Generator </h3>
         <p>
             How many queens do you want on your cast?
             <br>
@@ -38,7 +39,7 @@
             <input type="number" min="3" max="22" id="castSize">
             <button onclick="generateSpace()">Select</button>
         <p id="castSelection"></p>
-
+        <hr>
         <p>Select your premiere type: </p>
         <select id="premiere-format">
             <option>Normal premiere</option>
@@ -137,7 +138,4 @@
     </a>
 <script src="https://code.jquery.com/jquery-1.12.4.js" integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.js" integrity="sha512-sn/GHTj+FCxK5wam7k9w4gPPm6zss4Zwl/X9wgrvGMFbnedR8lTUSLdsolDRBRzsX6N+YgG6OWyvn9qaFVXH9w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="javascript/index.js"></script>
-
 </html>
-
