@@ -243,7 +243,8 @@ let sashayLipsync = false;
 let disqLipsync = false;
 let surviveHalf = false;
 let surviveOne = false;
-let showgirlShowdown = false;
+let showgirlShowdownFive = false;
+let showgirlShowdownFour = false;
 let final5Episode = false;
 let showdownFinale = false;
 let dragParty = false;
@@ -6491,7 +6492,7 @@ function groupWayOutcome() {
     for (let i = 0; i < bottomQueens.length; i++)
     bots.innerHTML += `${bottomQueens[i].getName()}, `;
     bots.innerHTML += "none of you deserves to be safe tonight. <br> I'm not sorry, my dears, but you are all going to lipsync for your lives.";
-    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == true && currentCast.length > 5) {
+    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == true && currentCast.length > 5) {
     screen.createHorizontalLine();
     screen.createBigText("Select The Outcome");
     let main = document.querySelector("div#MainBlock");
@@ -8571,7 +8572,7 @@ function queensPerformances() {
     else if (isDesignChallenge == true && secretEpisode == true) {
         performanceScreen.createButton("Proceed", "results()");
     }
-    else if (selectOutcome == true && isDesignChallenge == true && splitpremiere == false && splitCastDuration == false && secretEpisode == false && s9Premiere == false && pageantPremiere == false && extraPremiere == false && (showgirlShowdown == false || showgirlShowdown == true && forFinaleLS == false || showgirlShowdown == true && forFinaleLS == true && currentCast.length > 3) && ruvengeEpisode == false || (s9Premiere || pageantPremiere || extraPremiere) && selectOutcome == true && episodeCount > 1 && (showgirlShowdown == false || showgirlShowdown == true && forFinaleLS == false || showgirlShowdown == true && forFinaleLS == true && currentCast.length > 3) && ruvengeEpisode == false) {
+    else if (selectOutcome == true && isDesignChallenge == true && splitpremiere == false && splitCastDuration == false && secretEpisode == false && s9Premiere == false && pageantPremiere == false && extraPremiere == false && (showgirlShowdownFive == false || showgirlShowdownFive == true && forFinaleLS == false || showgirlShowdownFive == true && forFinaleLS == true && currentCast.length > 3) && ruvengeEpisode == false || (s9Premiere || pageantPremiere || extraPremiere) && selectOutcome == true && episodeCount > 1 && (showgirlShowdownFive == false || showgirlShowdownFive == true && forFinaleLS == false || showgirlShowdownFive == true && forFinaleLS == true && currentCast.length > 3) && ruvengeEpisode == false) {
         performanceScreen.createButton("Basic Judging", "judging()");
         performanceScreen.createButton("Top 2 Non-Elimination", "top2Choice()");
         if (currentCast.length > 6) {
@@ -8904,7 +8905,7 @@ function runway() {
         runwayCats();
     else if (splitpremiere == true)
         runwayScreen.createParagraph("<b> The theme is... signature showstoppers! </b>");
-    else if (currentCast.length == 3 && top3  && showgirlShowdown == false && pairings == false || currentCast.length == 4 && top3 && showgirlShowdown == true && pairings == false || currentCast.length == 5 && savequeen && pairings == false || currentCast.length == 5 && top4 && pairings == false || currentCast.length == 4 && (all_stars || lipsync_assassin || throwqueen || vstheworld) || currentCast.length == 2 && team)
+    else if (currentCast.length == 3 && top3  && showgirlShowdownFive == false && pairings == false || currentCast.length == 4 && top3 && showgirlShowdownFive == true && pairings == false || currentCast.length == 5 && savequeen && pairings == false || currentCast.length == 5 && top4 && pairings == false || currentCast.length == 4 && (all_stars || lipsync_assassin || throwqueen || vstheworld) || currentCast.length == 2 && team)
         runwayScreen.createParagraph("<b> The theme is... drag excellence! </b>");
     }
     if (pairings == true) {
@@ -8944,7 +8945,7 @@ function runway() {
     }
     else if (currentCast.length == 4 && splitpremiere == true)
         runwayScreen.createButton("Proceed", "judging()");
-    else if (currentCast.length == 4 && top3 && selectOutcome == false || currentCast.length == 4 && top3 && selectOutcome == true && showgirlShowdown == true)
+    else if (currentCast.length == 4 && top3 && selectOutcome == false || currentCast.length == 4 && top3 && selectOutcome == true && showgirlShowdownFive == true)
         runwayScreen.createButton("Proceed", "judging()");
     else if (currentCast.length == 4 && team)
         runwayScreen.createButton("Proceed", "judging()");
@@ -8970,9 +8971,9 @@ function runway() {
         runwayScreen.createButton("Proceed", "judging()");
     else if (selectOutcome == true && secretEpisode == true)
         runwayScreen.createButton("Proceed", "results()");
-    else if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && secretEpisode == false && showgirlShowdown == true && currentCast.length == 5)
+    else if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && secretEpisode == false && showgirlShowdownFive == true && currentCast.length == 5)
         runwayScreen.createButton("Proceed", "judging()");
-    else if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && secretEpisode == false && showgirlShowdown == false && (top3 || top4 || savequeen) || selectOutcome == true && splitpremiere == false && splitCastDuration == false && secretEpisode == false && showgirlShowdown == true && currentCast.length > 5 && (top3 || top4 || savequeen)) {
+    else if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && secretEpisode == false && showgirlShowdownFive == false && (top3 || top4 || savequeen) || selectOutcome == true && splitpremiere == false && splitCastDuration == false && secretEpisode == false && showgirlShowdownFive == true && currentCast.length > 5 && (top3 || top4 || savequeen)) {
         runwayScreen.createButton("Basic Judging", "judging()");
         runwayScreen.createButton("Top 2 Non-Elimination", "top2Choice()");
         if (currentCast.length > 6) {
@@ -9318,7 +9319,7 @@ function createChallenge(challenges, miniChallengeScreen) {
     else if ((smackdown || twinstwist) == false && currentCast.length == 6 && makeoverCounter == false && splitCastDuration == false && superstars == false)
         miniChallengeScreen.createButton("Proceed", "makeover()");
     //makeover with smackdown
-    else if (smackdown == true && currentCast.length == 5 && makeoverCounter == false && showgirlShowdown == false || smackdown == true && returningQueen == true && showgirlShowdown == true && currentCast.length == 6 && makeoverCounter == false)
+    else if (smackdown == true && currentCast.length == 5 && makeoverCounter == false && showgirlShowdownFive == false || smackdown == true && returningQueen == true && showgirlShowdownFive == true && currentCast.length == 6 && makeoverCounter == false)
         miniChallengeScreen.createButton("Proceed", "makeover()");
     //rumix
     else if (currentCast.length == 5 && (savequeen || top4) && (!smackdown || returningQueen == true) && goldticket == false)
@@ -10613,7 +10614,7 @@ function top2Lipsync() {
     top2[1].ppe += 5;
     }
     lsaQueen.push(" ");
-    if (showgirlShowdown == true && currentCast.length == 5)
+    if (showgirlShowdownFive == true && currentCast.length == 5 || showgirlShowdownFour == true && currentCast.length == 4)
     final5Episode = true;
     screen.createButton("Proceed", "newEpisode()");
 }
@@ -10693,7 +10694,7 @@ function halfWayDecisions() {
         btm2.innerHTML += bottomQueens[i].getName() + ", ";
     }
     btm2.innerHTML += "this week, none of you deserves to be safe. <br> I'm not sorry, my dears, but you are all up for elimination.";
-    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == true && currentCast.length > 5) {
+    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == true && currentCast.length > 5) {
     screen.createHorizontalLine();
     screen.createBigText("Select The Outcome");
     let main = document.querySelector("div#MainBlock");
@@ -14047,7 +14048,7 @@ function newEpisode() {
             screen.createImage(currentCast[i].image);
             screen.createBold(currentCast[i].getName());
         }
-        if (selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdown == false && (top4 || savequeen || top3) && currentCast.length > 5 || selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdown == true && currentCast.length > 6 && (top4 || savequeen || top3)) {
+        if (selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == false && (top4 || savequeen || top3) && currentCast.length > 5 || selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == true && currentCast.length > 6 && (top4 || savequeen || top3)) {
             screen.createBigText("Select The Outcome");
             let main = document.querySelector("div#MainBlock");
             let centering = document.createElement("center");
@@ -14074,9 +14075,9 @@ function newEpisode() {
             screen.createButton("Proceed", "queenWithdraw()");
         else if (currentCast.length == 4 && superstars == true)
             screen.createButton("Proceed", "finaleLS()");
-        else if (currentCast.length == 5 && (top4 || savequeen) && showgirlShowdown && final5Episode == true && forFinaleLS == false || currentCast.length == 3 && top3 && showgirlShowdown)
+        else if (currentCast.length == 5 && (top4 || savequeen) && showgirlShowdownFive && final5Episode == true && forFinaleLS == false || currentCast.length == 3 && top3 && showgirlShowdownFive || currentCast.length == 4 && (top4 || savequeen) && showgirlShowdownFour && final5Episode == true && forFinaleLS == false)
             screen.createButton("Proceed", "finaleShowdown()");
-        else if (currentCast.length == 3 && (top4 || savequeen) && showgirlShowdown && forFinaleLS == true)
+        else if (currentCast.length == 3 && (top4 || savequeen) && showgirlShowdownFive && forFinaleLS == true)
             screen.createButton("Proceed", "finaleShowGirls()");
         else if (currentCast.length == totalCastSize && team == true)
             screen.createButton("Proceed", "teamsScreen()");
@@ -14086,7 +14087,7 @@ function newEpisode() {
             screen.createButton("Proceed", "miniChallenge()");
         else if (currentCast.length == 4 && vstheworld == true && splitpremiere == false)
             screen.createButton("Proceed", "finaleAS()");
-        else if (currentCast.length > 4 && (selectOutcome == false || withdrawOut == true || splitpremiere == true) || currentCast.length == 5 && selectOutcome == true && showgirlShowdown == false || currentCast.length == 4 && selectOutcome == true && showgirlShowdown == false && top3 && forFinaleLS == false || currentCast.length <= 6 && showgirlShowdown == true && selectOutcome == true && (forFinaleLS == false || forFinaleLS == true && currentCast.length > 4))
+        else if (currentCast.length > 4 && (selectOutcome == false || withdrawOut == true || splitpremiere == true) || currentCast.length == 5 && selectOutcome == true && showgirlShowdownFive == false || currentCast.length == 4 && selectOutcome == true && showgirlShowdownFive == false && top3 && forFinaleLS == false || currentCast.length <= 6 && showgirlShowdownFive == true && selectOutcome == true && (forFinaleLS == false || forFinaleLS == true && currentCast.length > 4))
             screen.createButton("Proceed", "miniChallenge()");
         else if (currentCast.length == 4 && team || currentCast.length == 4 && top3 && splitpremiere == true)
             screen.createButton("Proceed", "miniChallenge()");
@@ -14096,11 +14097,11 @@ function newEpisode() {
             screen.createButton("Proceed", "reunionLipsyncs()");
         else if (currentCast.length == 4 && (top4 || savequeen) && splitpremiere == false && forFinaleLS == true)
             screen.createButton("Proceed", "reunionLipsyncs()");
-        else if (currentCast.length == 4 && savequeen)
+        else if (currentCast.length == 4 && savequeen && showgirlShowdownFour == false)
             screen.createButton("Proceed", "finaleTop4()");
         else if (currentCast.length == 4 && top4 && splitpremiere == true)
             screen.createButton("Proceed", "miniChallenge()");
-        else if (currentCast.length == 4 && top4 && splitpremiere == false && forFinaleLS == false)
+        else if (currentCast.length == 4 && top4 && splitpremiere == false && forFinaleLS == false && showgirlShowdownFour == false)
             screen.createButton("Proceed", "finaleTop4()");
         else if (currentCast.length == 4 && (all_stars || lipsync_assassin || throwqueen) && splitpremiere == true)
             screen.createButton("Proceed", "miniChallenge()");
@@ -15155,7 +15156,7 @@ function finalLipSync() {
         finalLS[1].addToTrackRecord("SHARED WIN");
         finalLS[0].coinz += 100;
         finalLS[1].coinz += 100;
-        if (showgirlShowdown == true && (top4 || savequeen)) {
+        if (showgirlShowdownFive == true && (top4 || savequeen)) {
             finalLS[0].coinz += 50;
             finalLS[1].coinz += 50;
         }
@@ -15171,7 +15172,7 @@ function finalLipSync() {
         if (superstars == true) {
             finalLS[winner].coinz += 250;
         }
-        else if (showgirlShowdown == true && (top4 || savequeen || top3)) {
+        else if (showgirlShowdownFive == true && (top4 || savequeen || top3)) {
             finalLS[winner].coinz += 150;
         }
         else {
@@ -15183,7 +15184,7 @@ function finalLipSync() {
         if (superstars == true) {
             finalLS[winner].coinz += 250;
         }
-        else if (showgirlShowdown == true && (top4 || savequeen || top3)) {
+        else if (showgirlShowdownFive == true && (top4 || savequeen || top3)) {
             finalLS[winner].coinz += 150;
         }
         else {
@@ -15197,7 +15198,7 @@ function finalLipSync() {
                 if (superstars) {
                     finalLS[i].coinz += 50;
                 }
-                else if (showgirlShowdown == true && (top4 || savequeen || top3)) {
+                else if (showgirlShowdownFive == true && (top4 || savequeen || top3)) {
                     finalLS[i].coinz += 50;
                 }
                 }
@@ -15206,7 +15207,7 @@ function finalLipSync() {
                 if (superstars) {
                     finalLS[i].coinz += 50;
                 }
-                else if (showgirlShowdown == true && (top4 || savequeen || top3)) {
+                else if (showgirlShowdownFive == true && (top4 || savequeen || top3)) {
                     finalLS[i].coinz += 50;
                 }
                 }
@@ -15631,7 +15632,7 @@ function contestantProgress() {
     }
     lsOlympics = false;
     }
-    document.body.style.backgroundImage = "linear-gradient(to bottom right, #FFD700, #8F00FF, #000000)";
+    document.body.style.backgroundImage = "linear-gradient(to bottom right, #eeaf61, #fb9062, #ee5d6c, #ce4993, #6a0d83)";
     let main = document.querySelector("div#MainBlock");
     let centering = document.createElement("center");
     let trackRecords = document.createElement("table");
@@ -15669,9 +15670,9 @@ function contestantProgress() {
     name.setAttribute("style", "background-color: #f5ebf5; font-weight: bold; height: 50px;");
     if (onFinale) {
         let winnerQueen;
-        if ( savequeen == false && top4 == false && superstars == false && top3 == false || top3 == true && showgirlShowdown == false)
+        if ( savequeen == false && top4 == false && superstars == false && top3 == false || top3 == true && showgirlShowdownFive == false)
             winnerQueen = currentCast[0];
-        else if (onTop4Finale == true || top3 && showgirlShowdown == true)
+        else if (onTop4Finale == true || top3 && showgirlShowdownFive == true)
             winnerQueen = finalLS[0];
         else
             winnerQueen = currentCast[0];
@@ -16713,7 +16714,7 @@ function contestantProgress() {
     if (all_stars || lipsync_assassin)
     screen.createButton("Download Lipstick Choices", "downloadLC()");
     screen.createHorizontalLine();
-    if (selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdown == false && (top4 || savequeen || top3) && currentCast.length > 5 || selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdown == true && currentCast.length > 6 && (top4 || savequeen || top3)) {
+    if (selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == false && (top4 || savequeen || top3) && currentCast.length > 5 || selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == true && currentCast.length > 6 && (top4 || savequeen || top3)) {
         screen.createBigText("Select The Outcome");
         let main = document.querySelector("div#MainBlock");
         let centering = document.createElement("center");
@@ -16740,9 +16741,9 @@ function contestantProgress() {
         screen.createButton("Proceed", "queenWithdraw()");
     else if (currentCast.length == 4 && superstars == true)
         screen.createButton("Proceed", "finaleLS()");
-    else if (currentCast.length == 5 && (top4 || savequeen) && showgirlShowdown && final5Episode == true && forFinaleLS == false || currentCast.length == 3 && top3 && showgirlShowdown)
+    else if (currentCast.length == 5 && (top4 || savequeen) && showgirlShowdownFive && final5Episode == true && forFinaleLS == false || currentCast.length == 3 && top3 && showgirlShowdownFive || currentCast.length == 4 && (top4 || savequeen) && showgirlShowdownFour && final5Episode == true && forFinaleLS == false)
         screen.createButton("Proceed", "finaleShowdown()");
-    else if (currentCast.length == 3 && (top4 || savequeen) && showgirlShowdown && forFinaleLS == true)
+    else if (currentCast.length == 3 && (top4 || savequeen) && showgirlShowdownFive && forFinaleLS == true)
         screen.createButton("Proceed", "finaleShowGirls()");
     else if (currentCast.length == totalCastSize && team == true)
         screen.createButton("Proceed", "teamsScreen()");
@@ -16752,7 +16753,7 @@ function contestantProgress() {
         screen.createButton("Proceed", "miniChallenge()");
     else if (currentCast.length == 4 && vstheworld == true && splitpremiere == false)
         screen.createButton("Proceed", "finaleAS()");
-    else if (currentCast.length > 4 && (selectOutcome == false || withdrawOut == true || splitpremiere == true) || currentCast.length == 5 && selectOutcome == true && showgirlShowdown == false || currentCast.length == 4 && selectOutcome == true && showgirlShowdown == false && top3 && forFinaleLS == false || currentCast.length <= 6 && showgirlShowdown == true && selectOutcome == true && (forFinaleLS == false || forFinaleLS == true && currentCast.length > 4))
+    else if (currentCast.length > 4 && (selectOutcome == false || withdrawOut == true || splitpremiere == true) || currentCast.length == 5 && selectOutcome == true && showgirlShowdownFive == false || currentCast.length == 4 && selectOutcome == true && showgirlShowdownFive == false && top3 && forFinaleLS == false || currentCast.length <= 6 && showgirlShowdownFive == true && selectOutcome == true && (forFinaleLS == false || forFinaleLS == true && currentCast.length > 4) || showgirlShowdownFour == true && currentCast.length == 4 && final5Episode == false)
         screen.createButton("Proceed", "miniChallenge()");
     else if (currentCast.length == 4 && team || currentCast.length == 4 && top3 && splitpremiere == true)
         screen.createButton("Proceed", "miniChallenge()");
@@ -16762,11 +16763,11 @@ function contestantProgress() {
         screen.createButton("Proceed", "reunionLipsyncs()");
     else if (currentCast.length == 4 && (top4 || savequeen) && splitpremiere == false && forFinaleLS == true)
         screen.createButton("Proceed", "reunionLipsyncs()");
-    else if (currentCast.length == 4 && savequeen)
+    else if (currentCast.length == 4 && savequeen && showgirlShowdownFour == false)
         screen.createButton("Proceed", "finaleTop4()");
     else if (currentCast.length == 4 && top4 && splitpremiere == true)
         screen.createButton("Proceed", "miniChallenge()");
-    else if (currentCast.length == 4 && top4 && splitpremiere == false && forFinaleLS == false)
+    else if (currentCast.length == 4 && top4 && splitpremiere == false && forFinaleLS == false && showgirlShowdownFour == false)
         screen.createButton("Proceed", "finaleTop4()");
     else if (currentCast.length == 4 && (all_stars || lipsync_assassin || throwqueen) && splitpremiere == true)
         screen.createButton("Proceed", "miniChallenge()");
@@ -17017,8 +17018,10 @@ function predefCast(cast, format, premiere, returning) {
         selectOutcome = true;
     if (document.getElementById("disableDouble").checked == true)
         noDouble = true;
-    if (document.getElementById("showgirlShowdown").checked == true)
-        showgirlShowdown = true;
+    if (document.getElementById("showgirlShowdownFive").checked == true)
+        showgirlShowdownFive = true;
+    if (document.getElementById("showgirlShowdownFour").checked == true)
+        showgirlShowdownFour = true;
     if (document.getElementById("forFinaleLS").checked == true)
         forFinaleLS = true;
     if (document.getElementById("GagEpisodes").checked == true)
@@ -21166,14 +21169,24 @@ function lockedIn() {
     seasonFormats.appendChild(br3);
     let showdownselect = document.createElement("input");
     showdownselect.setAttribute("type", "checkbox");
-    showdownselect.setAttribute("id", "showgirlShowdown");
+    showdownselect.setAttribute("id", "showgirlShowdownFive");
     showdownselect.setAttribute("class", "boxcheck");
     let showdownText = document.createElement("i");
-    showdownText.innerHTML += "Enable Showgirl Showdown Finale";
+    showdownText.innerHTML += "Enable Showgirl Showdown Finale (Top 5 / Top 3)";
     let br4 = document.createElement("br");
     seasonFormats.appendChild(showdownselect);
     seasonFormats.appendChild(showdownText);
     seasonFormats.appendChild(br4);
+    let fourdownselect = document.createElement("input");
+    fourdownselect.setAttribute("type", "checkbox");
+    fourdownselect.setAttribute("id", "showgirlShowdownFour");
+    fourdownselect.setAttribute("class", "boxcheck");
+    let fourdownText = document.createElement("i");
+    fourdownText.innerHTML += "Enable Showgirl Showdown Finale (Top 4)";
+    let brZ = document.createElement("br");
+    seasonFormats.appendChild(fourdownselect);
+    seasonFormats.appendChild(fourdownText);
+    seasonFormats.appendChild(brZ);
     let elipsyncselect = document.createElement("input");
     elipsyncselect.setAttribute("type", "checkbox");
     elipsyncselect.setAttribute("id", "elimLipsync");
@@ -21694,8 +21707,10 @@ function startSimulation(challenge = "") {
             selectOutcome = true;
         if (document.getElementById("disableDouble").checked == true)
             noDouble = true;
-        if (document.getElementById("showgirlShowdown").checked == true)
-            showgirlShowdown = true;
+        if (document.getElementById("showgirlShowdownFive").checked == true)
+            showgirlShowdownFive = true;
+        if (document.getElementById("showgirlShowdownFour").checked == true)
+            showgirlShowdownFour = true;
         if (document.getElementById("GagEpisodes").checked == true)
             gagRate = true;
         if (document.getElementById("dragParty").checked == true)
@@ -21781,7 +21796,7 @@ function startSimulation(challenge = "") {
             secretSitcoms = false;
             currentCast = [];
         }
-        else if (top4 == false && savequeen == false && top3 == false && showgirlShowdown == true) {
+        else if (top4 == false && savequeen == false && top3 == false && showgirlShowdownFive == true || top4 == false && savequeen == false && top3 == false && showgirlShowdownFour == true) {
             window.alert("Showgirl Showdown is only available for Regular Season Format!");
             team = false;
             all_stars = false;
@@ -21789,7 +21804,39 @@ function startSimulation(challenge = "") {
             throwqueen = false;
             superstars = false;
             vstheworld = false;
-            showgirlShowdown = false;
+            showgirlShowdownFive = false;
+            showgirlShowdownFour = false;
+            currentCast = [];
+        }
+        else if (top3 == true && showgirlShowdownFour == true) {
+            window.alert("Showgirl Showdown is a mismatch on your selected format!");
+            team = false;
+            all_stars = false;
+            lipsync_assassin = false;
+            throwqueen = false;
+            superstars = false;
+            vstheworld = false;
+            showgirlShowdownFive = false;
+            showgirlShowdownFour = false;
+            top3 = false;
+            currentCast = [];
+        }
+        else if (showgirlShowdownFive == true && showgirlShowdownFour == true) {
+            window.alert("Please check only one Showgirl Showdown checkbox!");
+            team = false;
+            all_stars = false;
+            lipsync_assassin = false;
+            throwqueen = false;
+            superstars = false;
+            vstheworld = false;
+            showgirlShowdownFive = false;
+            showgirlShowdownFour = false;
+            currentCast = [];
+        }
+        else if (showgirlShowdownFour == true && forFinaleLS == true) {
+            window.alert("Lipsync for the Finale is not available for a Top 4 Showgirl Showdown!");
+            showgirlShowdownFour = false;
+            forFinaleLS = false;
             currentCast = [];
         }
         else if (dragParty == true && !s12Premiere) {
@@ -21971,7 +22018,7 @@ function startSimulation(challenge = "") {
         vstheworld = false;
         currentCast = [];
         }
-        else if (forFinaleLS == true && (top4 || savequeen) && showgirlShowdown == false) {
+        else if (forFinaleLS == true && (top4 || savequeen) && showgirlShowdownFive == false && showgirlShowdownFour == false) {
             window.alert("The lipsync for the finale feature needs to have a Showgirl Showdown Finale for this format!");
         forFinaleLS = false;
         top4 = false;
@@ -22168,15 +22215,17 @@ function judging() {
         }
         splitCastJudging();
     }
-    else if ((top4 || savequeen || top3) && currentCast.length >= 8 && (currentCast.length <= totalCastSize - 4 && splitCastPremiere == false || splitCastDuration == false && splitCastPremiere == true) && splitpremiere == false && top2Episode == false && (gagRate == false && currentCast[currentCast.length - 1].performanceScore < 16 || gagRate == true && currentCast[currentCast.length - 1].performanceScore < 26) && selectOutcome == false || showgirlShowdown && (top4 || savequeen) && currentCast.length == 5 && final5Episode == false && forFinaleLS == false && randomNumber(0, 100) > 50) {
+    else if ((top4 || savequeen || top3) && currentCast.length >= 8 && (currentCast.length <= totalCastSize - 4 && splitCastPremiere == false || splitCastDuration == false && splitCastPremiere == true) && splitpremiere == false && top2Episode == false && (gagRate == false && currentCast[currentCast.length - 1].performanceScore < 16 || gagRate == true && currentCast[currentCast.length - 1].performanceScore < 26) && selectOutcome == false || showgirlShowdownFive && (top4 || savequeen) && currentCast.length == 5 && final5Episode == false && forFinaleLS == false && randomNumber(0, 100) > 50 || showgirlShowdownFour && (top4 || savequeen) && currentCast.length == 4 && final5Episode == false && forFinaleLS == false) {
         //add 6 queens at the top and the rest is safe
         currentCast.sort((a, b) => (a.performanceScore - b.performanceScore));
         topQueens.push(currentCast[0]);
         topQueens.push(currentCast[1]);
         topQueens.push(currentCast[2]);
         topQueens.push(currentCast[3]);
-        topQueens.push(currentCast[4]);
-        if (currentCast.length != 5) {
+        if (currentCast.length > 4) {
+            topQueens.push(currentCast[4]);
+        }
+        if (currentCast.length != 4 && currentCast.length != 5) {
             topQueens.push(currentCast[5]);
         }
         for (let i = 0; i < currentCast.length; i++) {
@@ -22185,7 +22234,7 @@ function judging() {
                 currentCast[i].ppe += 3;
         }
         top2Episode = true;
-        if (showgirlShowdown && (top4 || savequeen) && currentCast.length == 5 && final5Episode == false) {
+        if (showgirlShowdownFive && (top4 || savequeen) && currentCast.length == 5 && final5Episode == false || showgirlShowdownFour && (top4 || savequeen) && currentCast.length == 4 && final5Episode == false) {
             final5Episode = true;
         }
         top2nonElimJudging();
@@ -24018,7 +24067,7 @@ function winAndBtm2() {
         btm2.innerHTML += bottomQueens[i].getName() + ", ";
     }
     btm2.innerHTML += "I'm sorry my dears but you are up for elimination.";
-    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == true && currentCast.length > 5) {
+    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == true && currentCast.length > 5) {
     screen.createHorizontalLine();
     screen.createBigText("Select The Outcome");
     let main = document.querySelector("div#MainBlock");
@@ -24031,7 +24080,7 @@ function winAndBtm2() {
     let shantayoption = document.createElement("option");
     shantayoption.innerHTML += "Double Shantay";
     select.add(shantayoption);
-    if (showgirlShowdown == false && currentCast.length > 5 || showgirlShowdown == true && currentCast.length > 6) {
+    if (showgirlShowdownFive == false && currentCast.length > 5 || showgirlShowdownFive == true && currentCast.length > 6) {
     let sashayoption = document.createElement("option");
     sashayoption.innerHTML += "Double Sashay";
     select.add(sashayoption);
@@ -24237,7 +24286,7 @@ function winAndBtm3() {
       btm2.innerHTML += bottomQueens[i].getName() + ", ";
     }
     btm2.innerHTML += "that means you two, my dears, are up for elimination.";
-    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == true && currentCast.length > 5) {
+    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == true && currentCast.length > 5) {
     screen.createHorizontalLine();
     screen.createBigText("Select The Outcome");
     let main = document.querySelector("div#MainBlock");
@@ -24250,7 +24299,7 @@ function winAndBtm3() {
     let shantayoption = document.createElement("option");
     shantayoption.innerHTML += "Double Shantay";
     select.add(shantayoption);
-    if (showgirlShowdown == false && currentCast.length > 5 || showgirlShowdown == true && currentCast.length > 6) {
+    if (showgirlShowdownFive == false && currentCast.length > 5 || showgirlShowdownFive == true && currentCast.length > 6) {
     let sashayoption = document.createElement("option");
     sashayoption.innerHTML += "Double Sashay";
     select.add(sashayoption);
@@ -24347,7 +24396,7 @@ function winAndBtm() {
         currentCast[i].votes -= currentCast[i].votes
     }
     btm2.innerHTML += "that means you two, my dears, are up for elimination.";
-    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdown == true && currentCast.length > 5) {
+    if (selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == false || selectOutcome == true && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == true && currentCast.length > 5) {
     screen.createHorizontalLine();
     screen.createBigText("Select The Outcome");
     let main = document.querySelector("div#MainBlock");
@@ -24360,7 +24409,7 @@ function winAndBtm() {
     let shantayoption = document.createElement("option");
     shantayoption.innerHTML += "Double Shantay";
     select.add(shantayoption);
-    if (showgirlShowdown == false && currentCast.length > 5 || showgirlShowdown == true && currentCast.length > 6) {
+    if (showgirlShowdownFive == false && currentCast.length > 5 || showgirlShowdownFive == true && currentCast.length > 6) {
     let sashayoption = document.createElement("option");
     sashayoption.innerHTML += "Double Sashay";
     select.add(sashayoption);
@@ -24989,7 +25038,7 @@ function lipSync() {
     }
     let partyOneElim = false;
     let partyTwoElim = false;
-    if (score1 > 9 && score2 > 9 && randomNumber(0, 100) <= 56 && !doubleShantay && noDouble == false && splitpremiere == false && splitCastDuration == false && currentCast.length > 5 && currentCast.length != totalCastSize && selectOutcome == false || showgirlShowdown && (top4 || savequeen) && currentCast.length == 5 && final5Episode == false && forFinaleLS == false || selectOutcome == true && shantayLipsync == true) {
+    if (score1 > 9 && score2 > 9 && randomNumber(0, 100) <= 56 && !doubleShantay && noDouble == false && splitpremiere == false && splitCastDuration == false && currentCast.length > 5 && currentCast.length != totalCastSize && selectOutcome == false || showgirlShowdownFive && (top4 || savequeen) && currentCast.length == 5 && final5Episode == false && forFinaleLS == false || showgirlShowdownFour && (top4 || savequeen) && currentCast.length == 4 && final5Episode == false && forFinaleLS == false || selectOutcome == true && shantayLipsync == true) {
         screen.createImage(bottomQueens[0].image, "magenta");
         screen.createImage(bottomQueens[1].image, "magenta");
         screen.createBold("Condragulations, shantay you both stay!!");
@@ -25001,7 +25050,7 @@ function lipSync() {
         bottomQueens[1].ppe += 1;
         doubleShantay = true;
         shantayLipsync = false;
-        if (showgirlShowdown && (top4 || savequeen) && currentCast.length == 5 && final5Episode == false) {
+        if (showgirlShowdownFive && (top4 || savequeen) && currentCast.length == 5 && final5Episode == false || showgirlShowdownFour && (top4 || savequeen) && currentCast.length == 4 && final5Episode == false) {
             final5Episode = true;
         }
     }
@@ -29161,7 +29210,7 @@ function CheckForReturning() {
         }
         return false;
     }
-    if (smackdown && currentCast.length == 4 && (all_stars || savequeen || top4 || lipsync_assassin || throwqueen) && returningQueen == false || smackdown && currentCast.length == 5 && top3 && forFinaleLS == true && returningQueen == false || smackdown && currentCast.length == 5 && vstheworld && returningQueen == false || showgirlShowdown == true && (top4 || savequeen) && currentCast.length == 5 && returningQueen == false && smackdown == true || smackdown == true && currentCast.length == 3 && returningQueen == false) {
+    if (smackdown && currentCast.length == 4 && (all_stars || savequeen || top4 || lipsync_assassin || throwqueen) && returningQueen == false || smackdown && currentCast.length == 5 && top3 && forFinaleLS == true && returningQueen == false || smackdown && currentCast.length == 5 && vstheworld && returningQueen == false || showgirlShowdownFive == true && (top4 || savequeen) && currentCast.length == 5 && returningQueen == false && smackdown == true || smackdown == true && currentCast.length == 3 && returningQueen == false) {
         returningQueen = true;
         return true;
     }
@@ -29273,7 +29322,7 @@ function queenReturnsVote() {
 function lipsyncSmackdown() {
     var screen = new Scene();
     screen.clean();
-    document.body.style.backgroundImage = "linear-gradient(to bottom right, #FFD700, #8F00FF, #000000)";
+    document.body.style.backgroundImage = "linear-gradient(to bottom right, #eeaf61, #fb9062, #ee5d6c, #ce4993, #6a0d83)";
     screen.createHeader("Let the Lipsync Smackdown begin!!");
     screen.createParagraph("The eliminated queens are back to compete in an epic Lipsync Smackdown and a chance to return to the competition.");
     let nonReturn = [];
@@ -29353,7 +29402,7 @@ function LaLaPaRUza() {
     var screen = new Scene();
     screen.clean();
     episodeCount++;
-    document.body.style.backgroundImage = "linear-gradient(to bottom right, #FFD700, #8F00FF, #000000)";
+    document.body.style.backgroundImage = "linear-gradient(to bottom right, #eeaf61, #fb9062, #ee5d6c, #ce4993, #6a0d83)";
     screen.createHeader("LaLaPaRUZa!!");
     screen.createParagraph("All of the eliminated queens are back to get a chance to return into the competition. But first they have to send home a remaining queen in a shocking mid-season lipsync smackdown.");
     let nonReturn = [];
