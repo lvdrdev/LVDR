@@ -15631,7 +15631,7 @@ function contestantProgress() {
     }
     lsOlympics = false;
     }
-    document.body.style.backgroundImage = "linear-gradient(to bottom right, #eeaf61, #fb9062, #ee5d6c, #ce4993, #6a0d83)";
+    document.body.style.backgroundImage = "linear-gradient(to bottom right, #FFD700, #8F00FF, #000000)";
     let main = document.querySelector("div#MainBlock");
     let centering = document.createElement("center");
     let trackRecords = document.createElement("table");
@@ -29273,7 +29273,7 @@ function queenReturnsVote() {
 function lipsyncSmackdown() {
     var screen = new Scene();
     screen.clean();
-    document.body.style.backgroundImage = "linear-gradient(to bottom right, #eeaf61, #fb9062, #ee5d6c, #ce4993, #6a0d83)";
+    document.body.style.backgroundImage = "linear-gradient(to bottom right, #FFD700, #8F00FF, #000000)";
     screen.createHeader("Let the Lipsync Smackdown begin!!");
     screen.createParagraph("The eliminated queens are back to compete in an epic Lipsync Smackdown and a chance to return to the competition.");
     let nonReturn = [];
@@ -29353,7 +29353,7 @@ function LaLaPaRUza() {
     var screen = new Scene();
     screen.clean();
     episodeCount++;
-    document.body.style.backgroundImage = "linear-gradient(to bottom right, #eeaf61, #fb9062, #ee5d6c, #ce4993, #6a0d83)";
+    document.body.style.backgroundImage = "linear-gradient(to bottom right, #FFD700, #8F00FF, #000000)";
     screen.createHeader("LaLaPaRUZa!!");
     screen.createParagraph("All of the eliminated queens are back to get a chance to return into the competition. But first they have to send home a remaining queen in a shocking mid-season lipsync smackdown.");
     let nonReturn = [];
@@ -30046,7 +30046,7 @@ function moreKweens() {
     let button = document.getElementById("randomK");
     let button1 = document.getElementById("moreK");
     let button2 = document.getElementById("randomKC");
-    if (currentCast.length < 20) {
+    if (currentCast.length < 24) {
         button.classList.toggle("hide", false);
         button1.classList.toggle("hide", true);
         button2.classList.toggle("hide", false);
@@ -30124,6 +30124,7 @@ queenCardContainer.addEventListener("click", e => {
         if (currentCast.length != 0) {
             big.classList.toggle("hide", false);
             big.innerHTML = "Current Cast: " + currentCast.length;
+            totalCastSize = currentCast.length;
         }
     }
 })
