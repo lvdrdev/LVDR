@@ -7784,7 +7784,8 @@ function untucked() {
     })(descBot || (descBot = {}));
     queenOne = [];
     queenTwo = [];
-    queenOne.push(bottomQueens[randomNumber(0, bottomQueens.length - 1)]);
+    shuffle(bottomQueens);
+    queenOne.push(bottomQueens[0]);
     bottomQueens.splice(bottomQueens.indexOf(queenOne[0]), 1);
     screen.createImage(queenOne[0].image, "orange");
     if (savequeen || throwqueen) {
@@ -7797,7 +7798,8 @@ function untucked() {
     screen.createParagraph("<b>" + queenOne[0].getName() + "</b> " + descBot[randomNumber(0, 10)]);
     }
     if (randomNumber(0, 100) > 65 && bottomQueens.length > 1 || throwqueen == false && bottomQueens.length > 1) {
-        queenTwo.push(bottomQueens[randomNumber(0, bottomQueens.length - 1)]);
+        shuffle(bottomQueens);
+        queenTwo.push(bottomQueens[0]);
         screen.createImage(queenTwo[0].image, "orange");
         if (savequeen || throwqueen) {
         screen.createParagraph("<b>" + queenTwo[0].getName() + "</b> " + descBot[randomNumber(0, 15)]);
@@ -13152,6 +13154,8 @@ function finalSurvival() {
           bringbackImmune = true;
     }
       ruvenge = true;
+      if (ruvenge = true)
+      screen.createBigText("Ruvenge is True");
       screen.createButton("Proceed", "newEpisode()");
     }
     else if (ruvengeEpisode == true) {
@@ -30162,11 +30166,10 @@ queenCardContainer.addEventListener("click", e => {
         resetSearch();
         let button = document.getElementById("randomK");
         let button1 = document.getElementById("moreK");
-        if (currentCast.length == 20) {
+        if (currentCast.length == 24) {
             searchInput.setAttribute("readonly", true);
             searchInput.removeAttribute("placeholder");
-            searchInput.setAttribute("placeholder", "You can't choose more than 20 contestants");
-            button.classList.toggle("hide", true);
+            searchInput.setAttribute("placeholder", "You can't choose more than 24 contestants");
             button1.classList.toggle("hide", false);
         }
         let big = document.getElementById("castBig");
