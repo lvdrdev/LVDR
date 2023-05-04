@@ -16898,7 +16898,6 @@ function entryQueen() {
     totalCastSize++;
     for (let i = 0; i < episodeCount - 1; i++) {
     queen.addToTrackRecord("");
-    i++;
     }
     queen.addToTrackRecord("IN");
     let main = document.querySelector("div#MainBlock");
