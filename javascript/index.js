@@ -16900,6 +16900,7 @@ function entryQueen() {
     for (let i = 0; i < episodeCount - 2; i++) {
     queen.addToTrackRecord("");
     }
+    }
     else {
     for (let i = 0; i < episodeCount - 1; i++) {
     queen.addToTrackRecord("");
