@@ -16840,12 +16840,13 @@ function contestantProgress() {
     nonCast.push(allQueens[i]);
     for (let i = 0; i < currentCast.length; i++)
     nonCast.splice(nonCast.indexOf(currentCast[i]), 1);
-    if (eliminatedCast.length > 1) {
+    if (eliminatedCast.length > 0) {
     for (let i = 0; i < eliminatedCast.length; i++)
     nonCast.splice(nonCast.indexOf(eliminatedCast[i]), 1);
     screen.createBold(eliminatedCast[0].getName() + "'s Favoritism: " + eliminatedCast[0].favoritism + " point/s.");
     screen.createBold(eliminatedCast[0].getName() + "'s Unfavoritism: " + eliminatedCast[0].unfavoritism + " point/s.");
     }
+    screen.createBold("Episode: " + episodeCount);
     screen.createHorizontalLine();
     screen.createBigText("Sudden Queen!");
     let main = document.querySelector("div#MainBlock");
