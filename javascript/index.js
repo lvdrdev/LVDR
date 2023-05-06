@@ -16757,6 +16757,47 @@ function contestantProgress() {
     if (all_stars || lipsync_assassin)
     screen.createButton("Download Lipstick Choices", "downloadLC()");
     screen.createHorizontalLine();
+    if (suddenQueen == true && episodeCount > 2) {
+    nonCast = [];
+    for (let i = 0; i < allQueens.length; i++)
+    nonCast.push(allQueens[i]);
+    for (let i = 0; i < currentCast.length; i++)
+    nonCast.splice(nonCast.indexOf(currentCast[i]), 1);
+    if (eliminatedCast.length > 0) {
+    for (let i = 0; i < eliminatedCast.length; i++)
+    nonCast.splice(nonCast.indexOf(eliminatedCast[i]), 1);
+    screen.createBold(eliminatedCast[0].getName() + "'s Favoritism: " + eliminatedCast[0].favoritism + " point/s.");
+    screen.createBold(eliminatedCast[0].getName() + "'s Unfavoritism: " + eliminatedCast[0].unfavoritism + " point/s.");
+    }
+    screen.createHorizontalLine();
+    screen.createBigText("Sudden Queen!");
+    let main = document.querySelector("div#MainBlock");
+    let castSelection = document.createElement("p");
+    castSelection.setAttribute("id", "castSelection");
+    castSelection.innerHTML = '';
+    let select = document.createElement("select");
+    select.setAttribute("id", "queenList");
+    select.setAttribute("onchange", "returnImg()");
+    let img = document.createElement("img");
+    img.setAttribute("id", "images");
+    img.setAttribute("style", "width: 105px; height: 105px;");
+    let p = document.createElement("p");
+    p.appendChild(img);
+    for (let k = 0; k < nonCast.length; k++) {
+        let option = document.createElement("option");
+        option.innerHTML = nonCast[k].getName();
+        option.value = nonCast[k].image;
+        select.add(option);
+    }
+    select.selectedIndex = randomNumber(0, currentCast.length - 1);
+    let br = document.createElement("br");
+    castSelection.appendChild(p);
+    castSelection.appendChild(select);
+    castSelection.appendChild(br);
+    main.appendChild(castSelection);
+    returnImg();
+    screen.createButton("Choose Queen", "entryQueen()", "enterQueen");
+    }
     if (selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == false && (top4 || savequeen || top3) && currentCast.length > 5 || selectOutcome == true && withdrawOut == false && splitpremiere == false && splitCastDuration == false && showgirlShowdownFive == true && currentCast.length > 6 && (top4 || savequeen || top3)) {
         screen.createBigText("Select The Outcome");
         let main = document.querySelector("div#MainBlock");
@@ -16834,47 +16875,6 @@ function contestantProgress() {
     }
     for (let i = 0; i < eliminatedCast.length; i++)
         eliminatedCast[i].addToTrackRecord('');
-    if (suddenQueen == true && episodeCount > 2) {
-    nonCast = [];
-    for (let i = 0; i < allQueens.length; i++)
-    nonCast.push(allQueens[i]);
-    for (let i = 0; i < currentCast.length; i++)
-    nonCast.splice(nonCast.indexOf(currentCast[i]), 1);
-    if (eliminatedCast.length > 0) {
-    for (let i = 0; i < eliminatedCast.length; i++)
-    nonCast.splice(nonCast.indexOf(eliminatedCast[i]), 1);
-    screen.createBold(eliminatedCast[0].getName() + "'s Favoritism: " + eliminatedCast[0].favoritism + " point/s.");
-    screen.createBold(eliminatedCast[0].getName() + "'s Unfavoritism: " + eliminatedCast[0].unfavoritism + " point/s.");
-    }
-    screen.createHorizontalLine();
-    screen.createBigText("Sudden Queen!");
-    let main = document.querySelector("div#MainBlock");
-    let castSelection = document.createElement("p");
-    castSelection.setAttribute("id", "castSelection");
-    castSelection.innerHTML = '';
-    let select = document.createElement("select");
-    select.setAttribute("id", "queenList");
-    select.setAttribute("onchange", "returnImg()");
-    let img = document.createElement("img");
-    img.setAttribute("id", "images");
-    img.setAttribute("style", "width: 105px; height: 105px;");
-    let p = document.createElement("p");
-    p.appendChild(img);
-    for (let k = 0; k < nonCast.length; k++) {
-        let option = document.createElement("option");
-        option.innerHTML = nonCast[k].getName();
-        option.value = nonCast[k].image;
-        select.add(option);
-    }
-    select.selectedIndex = randomNumber(0, currentCast.length - 1);
-    let br = document.createElement("br");
-    castSelection.appendChild(p);
-    castSelection.appendChild(select);
-    castSelection.appendChild(br);
-    main.appendChild(castSelection);
-    returnImg();
-    screen.createButton("Choose Queen", "entryQueen()", "enterQueen");
-    }
 }
 let nonCast = [];
 let chosenSudden = [];
