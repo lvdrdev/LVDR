@@ -16846,7 +16846,6 @@ function contestantProgress() {
     screen.createBold(eliminatedCast[0].getName() + "'s Favoritism: " + eliminatedCast[0].favoritism + " point/s.");
     screen.createBold(eliminatedCast[0].getName() + "'s Unfavoritism: " + eliminatedCast[0].unfavoritism + " point/s.");
     }
-    screen.createBold("Episode: " + episodeCount);
     screen.createHorizontalLine();
     screen.createBigText("Sudden Queen!");
     let main = document.querySelector("div#MainBlock");
