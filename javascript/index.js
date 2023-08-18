@@ -23313,7 +23313,7 @@ function top2Winner() {
     else
         topQueens[i].performanceScore += topQueens[i].runwayScore;
     for (let i = 0; i < topQueens.length; i++)
-        topQueens[i].performanceScore -= topQueens[i].ssWin;
+        topQueens[i].performanceScore += topQueens[i].ssWin;
     for (let i = 0; i < currentCast.length; i++) {
         if (currentCast[i].ssSafe >= 2) {
         currentCast[i]._lipsyncStat++;
@@ -23385,6 +23385,8 @@ function top2Winner() {
         screen.createBold("Ladies, we are coming closer to the end of the competition. <br> That's why, this week the winner of lipsync gets the chance to steal two stars from their fellow queens!");
         screen.createButton("Proceed", "ssFinal()");
     }
+    screen.createParagraph('');
+    screen.createBold("Updated ver01");
 }
 function ssLegacy() {
     for (let i = 0; i < top2.length; i++) {
