@@ -22912,6 +22912,7 @@ function superstarsJudging() {
     let judged = document.getElementById("judged");
     for (let i = 0; i < topQueens.length; i++) {
         judged.innerHTML += `${topQueens[i].getName()}, `;
+        topQueens[i].ssSafe = 0;
     }
     judged.innerHTML += "you are the queens of queens for this week's challenge.";
     screen.createHorizontalLine();
@@ -22919,6 +22920,7 @@ function superstarsJudging() {
     let untuck = document.getElementById("untuck");
     for (let i = 0; i < safeQueens.length; i++) {
         untuck.innerHTML += `${safeQueens[i].getName()}, `;
+        safeQueens[i].ssSafe += 1;
     }
     untuck.innerHTML += "great job this week. You may now untuck backstage.";
     screen.createButton("Proceed", "top2Winner()");
@@ -23310,15 +23312,32 @@ function top2Winner() {
         topQueens[i].performanceScore -= ((topQueens[i].performanceScore * 1.5) + topQueens[i].unfavoritism + (topQueens[i].favoritism / 25));
     else
         topQueens[i].performanceScore += topQueens[i].runwayScore;
+    for (let i = 0; i < topQueens.length; i++)
+        topQueens[i].performanceScore -= topQueens[i].ssWin;
+    for (let i = 0; i < currentCast.length; i++) {
+        if (currentCast[i].ssSafe >= 2) {
+        currentCast[i]._lipsyncStat++;
+        currentCast[i]._actingStat++;
+        currentCast[i]._comedyStat++;
+        currentCast[i]._vocalStat++;
+        currentCast[i]._danceStat++;
+        currentCast[i]._lyricalStat++;
+        currentCast[i]._improvStat++;
+        currentCast[i]._designStat++;
+        currentCast[i]._runwayStat++;
+        }
+    }
     topQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
     screen.createImage(topQueens[0].image, "darkviolet");
     screen.createImage(topQueens[1].image, "darkviolet");
     screen.createBold(topQueens[0].getName() + ", " + topQueens[1].getName() + ", condragulations! You are the top two superstars of the week. <br> You will both have the chance to lipsync for the stars.");
     topQueens[0].favoritism += 5;
     topQueens[0].ppe += 5;
+    topQueens[0].ssWin += 1;
     top2.push(topQueens[0]);
     topQueens[1].favoritism += 5;
     topQueens[1].ppe += 5;
+    topQueens[1].ssWin += 1;
     if (totalCastSize % 2 == 0 && superstarsEpisode <= totalCastSize / 2 || totalCastSize % 2 != 0 && superstarsEpisode <= (totalCastSize + 1) / 2) {
         topQueens[0].starpoints += 1;
         topQueens[1].starpoints += 1;
@@ -28020,6 +28039,8 @@ class Queen {
         this.ppe = 0;
         this.coinz = 0;
         this.starpoints = 0;
+        this.ssWin = 0;
+        this.ssSafe = 0;
         this.episodesOn = 0;
         this.lastEpisode = 0;
         this.lipsyncFave = 0;
