@@ -23328,6 +23328,7 @@ function top2Winner() {
         }
     }
     if (totalCastSize % 2 == 0 && superstarsEpisode == totalCastSize + 2 || totalCastSize % 2 != 0 && superstarsEpisode == totalCastSize + 3) {
+        screen.createBold("One Last Episode!");
         for (let i = 0; i < currentCast.length; i++) {
         if (currentCast[i].starpoints == 0) {
         currentCast[i]._lipsyncStat++;
@@ -23349,7 +23350,27 @@ function top2Winner() {
         currentCast[i]._designStat++;
         currentCast[i]._runwayStat++;
         }
-        else if (currentCast[i].starpoints == 0) {
+        else if (currentCast[i].starpoints == 1) {
+        currentCast[i]._lipsyncStat++;
+        currentCast[i]._actingStat++;
+        currentCast[i]._comedyStat++;
+        currentCast[i]._vocalStat++;
+        currentCast[i]._danceStat++;
+        currentCast[i]._lyricalStat++;
+        currentCast[i]._improvStat++;
+        currentCast[i]._designStat++;
+        currentCast[i]._runwayStat++;
+        }
+        if (currentCast[i].ssWin == 0) {
+        currentCast[i]._lipsyncStat++;
+        currentCast[i]._actingStat++;
+        currentCast[i]._comedyStat++;
+        currentCast[i]._vocalStat++;
+        currentCast[i]._danceStat++;
+        currentCast[i]._lyricalStat++;
+        currentCast[i]._improvStat++;
+        currentCast[i]._designStat++;
+        currentCast[i]._runwayStat++;
         currentCast[i]._lipsyncStat++;
         currentCast[i]._actingStat++;
         currentCast[i]._comedyStat++;
@@ -23372,6 +23393,10 @@ function top2Winner() {
     top2.push(topQueens[0]);
     topQueens[1].favoritism += 5;
     topQueens[1].ppe += 5;
+    topQueens[1].ssWin += 1;
+    if (topQueens[0].ssWin >= 3)
+    topQueens[0].ssWin += 1;
+    if (topQueens[1].ssWin >= 3)
     topQueens[1].ssWin += 1;
     if (totalCastSize % 2 == 0 && superstarsEpisode <= totalCastSize / 2 || totalCastSize % 2 != 0 && superstarsEpisode <= (totalCastSize + 1) / 2) {
         topQueens[0].starpoints += 1;
@@ -23420,6 +23445,8 @@ function top2Winner() {
         screen.createBold("Ladies, we are coming closer to the end of the competition. <br> That's why, this week the winner of lipsync gets the chance to steal two stars from their fellow queens!");
         screen.createButton("Proceed", "ssFinal()");
     }
+    screen.createParagraph('');
+    screen.createBold("Updated ver02");
 }
 function ssLegacy() {
     for (let i = 0; i < top2.length; i++) {
