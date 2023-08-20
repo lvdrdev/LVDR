@@ -271,7 +271,7 @@ let decorChosen = false;
 let makeoverChosen = false;
 let highTeamImmune = false;
 let ballChallenge = false;
-let famegames = true;
+let famegames = false;
 let famegamesCounter = 0;
 let lastChallenge = '';
 let untuckedQueens = [];
@@ -18120,6 +18120,8 @@ function predefCast(cast, format, premiere, returning) {
         selectOutcome = true;
     if (document.getElementById("disableDouble").checked == true)
         noDouble = true;
+    if (document.getElementById("disableDouble").checked == true)
+        famegames = true;
     if (document.getElementById("showgirlShowdownFive").checked == true)
         showgirlShowdownFive = true;
     if (document.getElementById("showgirlShowdownFour").checked == true)
@@ -22267,6 +22269,16 @@ function lockedIn() {
     doubleselect.setAttribute("class", "boxcheck");
     let doubleText = document.createElement("i");
     doubleText.innerHTML += "Disable double shantays and sashays";
+    let brF = document.createElement("br");
+    seasonFormats.appendChild(outcomeselect);
+    seasonFormats.appendChild(outcomeText);
+    seasonFormats.appendChild(brF);
+    let famegamesselect = document.createElement("input");
+    famegamesselect.setAttribute("type", "checkbox");
+    famegamesselect.setAttribute("id", "famegames");
+    famegamesselect.setAttribute("class", "boxcheck");
+    let famegamesText = document.createElement("i");
+    famegamesText.innerHTML += "Enable Fame Games Twist";
     let br3 = document.createElement("br");
     seasonFormats.appendChild(doubleselect);
     seasonFormats.appendChild(doubleText);
@@ -22821,6 +22833,8 @@ function startSimulation(challenge = "") {
             selectOutcome = true;
         if (document.getElementById("disableDouble").checked == true)
             noDouble = true;
+        if (document.getElementById("famegames").checked == true)
+            famegames = true;
         if (document.getElementById("showgirlShowdownFive").checked == true)
             showgirlShowdownFive = true;
         if (document.getElementById("showgirlShowdownFour").checked == true)
@@ -22853,6 +22867,17 @@ function startSimulation(challenge = "") {
             throwqueen = false;
             vstheworld = false;
             superstars = false;
+            currentCast = [];
+        }
+        else if (famegames == true && superstars || famegames == true && vstheworld || famegames == true && splitCastPremiere || famegames == true && forFinaleLS == true) {
+            window.alert("Fame Games Twist doesn't support Superstars and Versus The World Format. Reunion Lipsyncs is also not supported!");
+            savequeen = false;
+            top4 = false;
+            all_stars = false;
+            throwqueen = false;
+            vstheworld = false;
+            superstars = false;
+            forFinaleLS = false;
             currentCast = [];
         }
         else if (elimLipsync == true && !s6Premiere) {
@@ -24274,7 +24299,6 @@ function top2Winner() {
         }
     }
     if (totalCastSize % 2 == 0 && superstarsEpisode == totalCastSize + 2 || totalCastSize % 2 != 0 && superstarsEpisode == totalCastSize + 3) {
-        screen.createBold("One Last Episode!");
         for (let i = 0; i < currentCast.length; i++) {
         if (currentCast[i].starpoints == 0) {
         currentCast[i]._lipsyncStat++;
@@ -24391,8 +24415,6 @@ function top2Winner() {
         screen.createBold("Ladies, we are coming closer to the end of the competition. <br> That's why, this week the winner of lipsync gets the chance to steal two stars from their fellow queens!");
         screen.createButton("Proceed", "ssFinal()");
     }
-    screen.createParagraph('');
-    screen.createBold("Updated ver02");
 }
 function ssLegacy() {
     for (let i = 0; i < top2.length; i++) {
