@@ -14757,7 +14757,7 @@ function famegamesFinale() {
     queenofFame.push(eliminatedCast[eliminatedCast.length - 1]);
     screen.createHorizontalLine();
     screen.createImage(queenofFame[0].image, "darkblue");
-    screen.createBold("Votes: " + queenofFame[0].famegamesScore + "<br>" + "Condragulations, " + queenofFame[0].getName() + ", you are the Queen of the Fame Games!");
+    screen.createBold("Votes: " + Math.round(queenofFame[0].famegamesScore) + "<br>" + "Condragulations, " + queenofFame[0].getName() + ", you are the Queen of the Fame Games!");
     queenofFame[0].trackRecord.pop();
     if (topQueens[0] == queenofFame[0] || topQueens[1] == queenofFame[0])
     queenofFame[0].addToTrackRecord(" FAME GAMES <br> QUEEN ");
@@ -16038,7 +16038,7 @@ function finalLipSync() {
         finalLS[1].addToTrackRecord("SHARED WIN");
         finalLS[0].coinz += 100;
         finalLS[1].coinz += 100;
-        if (showgirlShowdownFive == true && (top4 || savequeen)) {
+        if (showgirlShowdownFive == true && (top4 || savequeen) || showgirlShowdownFour == true && (top4 || savequeen)) {
             finalLS[0].coinz += 50;
             finalLS[1].coinz += 50;
         }
@@ -16054,7 +16054,7 @@ function finalLipSync() {
         if (superstars == true) {
             finalLS[winner].coinz += 250;
         }
-        else if (showgirlShowdownFive == true && (top4 || savequeen || top3)) {
+        else if (showgirlShowdownFive == true && (top4 || savequeen || top3) || showgirlShowdownFour == true && (top4 || savequeen)) {
             finalLS[winner].coinz += 150;
         }
         else {
@@ -16066,7 +16066,7 @@ function finalLipSync() {
         if (superstars == true) {
             finalLS[winner].coinz += 250;
         }
-        else if (showgirlShowdownFive == true && (top4 || savequeen || top3)) {
+        else if (showgirlShowdownFive == true && (top4 || savequeen || top3) || showgirlShowdownFour == true && (top4 || savequeen)) {
             finalLS[winner].coinz += 150;
         }
         else {
