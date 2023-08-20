@@ -14235,14 +14235,14 @@ function elimLS() {
             lipSync_1.sort(function (a, b) { return (b.lipsyncScore - a.lipsyncScore); });
             screen.createImage(lipSync_1[0].image, "royalblue");
             screen.createBold(lipSync_1[0].getName() + ", you are the winner of this lipsync!");
-            screen.createBold(lipSync_1[1].getName() + " and " + lipSync_1[2].getName() + ", you are still both a superstar.");
+            screen.createBold(lipSync_1[1].getName() + " and " + lipSync_1[2].getName() + ", you are still both a superstar.")
+                if (eliminatedCast.length <= 7)
+                topQueens.push(lipSync_1[0]);
                 roundWinners.unshift(lipSync_1[0]);
                 lipSync_1[1].ssRank += ssRounds;
                 lipSync_1[1].addToTrackRecord("LOST");
                 lipSync_1[2].ssRank += ssRounds;
                 lipSync_1[2].addToTrackRecord("LOST");
-                if (eliminatedCast.length <= 7)
-                topQueens.push(lipSync_1[0]);
             i++;
         }
         else {
@@ -14260,11 +14260,11 @@ function elimLS() {
             screen.createImage(lipSync[0].image, "royalblue");
             screen.createBold(lipSync[0].getName() + ", you are the winner of this lipsync!");
             screen.createBold(lipSync[1].getName() + ", you are still a superstar.");
+                if (eliminatedCast.length <= 7)
+                topQueens.push(lipSync[0]);
                 roundWinners.unshift(lipSync[0]);
                 lipSync[1].ssRank += ssRounds;
                 lipSync[1].addToTrackRecord("LOST");
-                if (eliminatedCast.length <= 7)
-                topQueens.push(lipSync[0]);
             i++
         }
     }
