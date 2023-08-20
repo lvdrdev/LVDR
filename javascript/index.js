@@ -14241,9 +14241,9 @@ function elimLS() {
                 topQueens.push(lipSync_1[0]);
                 roundWinners.unshift(lipSync_1[0]);
                 lipSync_1[1].ssRank += ssRounds;
-                lipSync_1[1].addToTrackRecord("LOST");
+                lipSync_1[1].addToTrackRecord(" LOST");
                 lipSync_1[2].ssRank += ssRounds;
-                lipSync_1[2].addToTrackRecord("LOST");
+                lipSync_1[2].addToTrackRecord(" LOST");
             i++;
         }
         else {
@@ -14265,7 +14265,7 @@ function elimLS() {
                 topQueens.push(lipSync[0]);
                 roundWinners.unshift(lipSync[0]);
                 lipSync[1].ssRank += ssRounds;
-                lipSync[1].addToTrackRecord("LOST");
+                lipSync[1].addToTrackRecord(" LOST");
             i++
         }
     }
@@ -14429,6 +14429,7 @@ function finalelimLS() {
         topQueens[i].getLipsync();
     }
     topQueens.sort((a, b) => (b.lipsyncScore - a.lipsyncScore));
+    ssRounds++;
     let screen = new Scene();
     screen.clean();
     screen.createHeader("It's time...");
@@ -14438,6 +14439,7 @@ function finalelimLS() {
     screen.createImage(topQueens[0].image, "royalblue");
     topQueens[0].addToTrackRecord("  WINNER  ");
     topQueens[0].ssRank += ssRounds + 1;
+    topQueens[0].coinz += 50;
     screen.createBold(topQueens[0].getName() + ", condragulations! You are the Queen of She Already Done Had Herses!");
     for (let i = 1; i < topQueens.length; i++) {
         topQueens[i].addToTrackRecord("  LOST  ");
@@ -16158,6 +16160,21 @@ function contestantProgress() {
             else if (placement.innerHTML == "RTRN " || placement.innerHTML == "LOST") {
                 placement.setAttribute("style", "font-weight: bold; background-color: orange;");
             }
+            else if (placement.innerHTML == " LOST") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f2b6da;");
+            }
+            else if (placement.innerHTML == "LOST ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #fc97d4;");
+            }
+            else if (placement.innerHTML == " LOST ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f06cbb;");
+            }
+            else if (placement.innerHTML == "  LOST  ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f04aae;");
+            }
+            else if (placement.innerHTML == "  WINNER  ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #e80e91;");
+            }
             else if (placement.innerHTML == " WIN ") {
                 placement.setAttribute("style", "background-color: black; color: white;");
             }
@@ -16368,6 +16385,21 @@ function contestantProgress() {
                 else if (placement.innerHTML == "RTRN " || placement.innerHTML == "LOST") {
                     placement.setAttribute("style", "font-weight: bold; background-color: orange;");
                 }
+                else if (placement.innerHTML == " LOST") {
+                    placement.setAttribute("style", "font-weight: bold; background-color: #f2b6da;");
+                }
+                else if (placement.innerHTML == "LOST ") {
+                    placement.setAttribute("style", "font-weight: bold; background-color: #fc97d4;");
+                }
+                else if (placement.innerHTML == " LOST ") {
+                    placement.setAttribute("style", "font-weight: bold; background-color: #f06cbb;");
+                }
+                else if (placement.innerHTML == "  LOST  ") {
+                    placement.setAttribute("style", "font-weight: bold; background-color: #f04aae;");
+                }
+                else if (placement.innerHTML == "  WINNER  ") {
+                    placement.setAttribute("style", "font-weight: bold; background-color: #e80e91;");
+                }
                 else if (placement.innerHTML == " WIN ") {
                     placement.setAttribute("style", "background-color: black; color: white");
                 }
@@ -16576,6 +16608,21 @@ function contestantProgress() {
             else if (placement.innerHTML == "RTRN " || placement.innerHTML == "LOST") {
                 placement.setAttribute("style", "font-weight: bold; background-color: orange;");
             }
+            else if (placement.innerHTML == " LOST") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f2b6da;");
+            }
+            else if (placement.innerHTML == "LOST ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #fc97d4;");
+            }
+            else if (placement.innerHTML == " LOST ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f06cbb;");
+            }
+            else if (placement.innerHTML == "  LOST  ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f04aae;");
+            }
+            else if (placement.innerHTML == "  WINNER  ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #e80e91;");
+            }
             else if (placement.innerHTML == " WIN ") {
                 placement.setAttribute("style", "background-color: black; color: white;");
             }
@@ -16782,6 +16829,21 @@ function contestantProgress() {
             }
             else if (placement.innerHTML == "RTRN " || placement.innerHTML == "LOST") {
                 placement.setAttribute("style", "font-weight: bold; background-color: orange;");
+            }
+            else if (placement.innerHTML == " LOST") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f2b6da;");
+            }
+            else if (placement.innerHTML == "LOST ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #fc97d4;");
+            }
+            else if (placement.innerHTML == " LOST ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f06cbb;");
+            }
+            else if (placement.innerHTML == "  LOST  ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #f04aae;");
+            }
+            else if (placement.innerHTML == "  WINNER  ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #e80e91;");
             }
             else if (placement.innerHTML == " WIN ") {
                 placement.setAttribute("style", "background-color: black; color: white;");
