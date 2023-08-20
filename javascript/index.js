@@ -201,6 +201,7 @@ let improvChallengeCounter = 0;
 let rolloverTip = 0;
 let randomMini = 0;
 var isDesignChallenge = false;
+let famegamesEpisode = false;
 let photoshootCounter = false;
 let blindMakeupCounter = false;
 let photobombCounter = false;
@@ -269,6 +270,9 @@ let rucreateChosen = false;
 let decorChosen = false;
 let makeoverChosen = false;
 let highTeamImmune = false;
+let ballChallenge = false;
+let famegames = true;
+let famegamesCounter = 0;
 let lastChallenge = '';
 let untuckedQueens = [];
 let dragPresidentOne = [];
@@ -8473,6 +8477,7 @@ function ball() {
     let challenge = new Ball();
     challenge.generateDescription();
     challenge.rankPerformances();
+    ballChallenge = true;
     isDesignChallenge = true;
     ballCounter = true;
     queensPerformances();
@@ -8550,6 +8555,92 @@ function queensPerformances() {
     let bad = topQueens.filter(function (queen) { return queen.performanceScore >= 26 && queen.performanceScore < 31; });
     let flop = topQueens.filter(function (queen) { return queen.performanceScore >= 31; });
     createPerformanceDesc(slay, great, good, bad, flop);
+    }
+    if (famegames == true && ballChallenge == true) {
+        ballChallenge = false;
+        famegamesCounter++;
+        performanceScreen.createHorizontalLine();
+        performanceScreen.createBigText("The Fame Games!");
+        performanceScreen.createBold("The eliminated queens showcase their runway looks for this week.");
+        let pointsCeiling = 0;
+        let slayGame = [];
+        let greatGame = [];
+        let goodGame = [];
+        let badGame = [];
+        let floppedGame = [];
+        for (let i = 0; i < eliminatedCast.length; i++) {
+            pointsCeiling += eliminatedCast[i]._runwayStat;
+            pointsCeiling += eliminatedCast[i]._runwayStat;
+            eliminatedCast[i].runwayPoints += randomNumber(0, pointsCeiling);
+            pointsCeiling = 0;
+            eliminatedCast[i].famegamesEntry += 1;
+            if (eliminatedCast[i].runwayPoints >= 20) {
+            slayGame.push(eliminatedCast[i]);
+            eliminatedCast[i].famegamesScore += randomNumber(501, 750);
+            }
+            else if (eliminatedCast[i].runwayPoints <= 19 && eliminatedCast[i].runwayPoints >= 16) {
+            greatGame.push(eliminatedCast[i]);
+            eliminatedCast[i].famegamesScore += randomNumber(401, 500);
+            }
+            else if (eliminatedCast[i].runwayPoints <= 15 && eliminatedCast[i].runwayPoints >= 9) {
+            goodGame.push(eliminatedCast[i]);
+            eliminatedCast[i].famegamesScore += randomNumber(301, 400);
+            }
+            else if (eliminatedCast[i].runwayPoints <= 8 && eliminatedCast[i].runwayPoints >= 6) {
+            badGame.push(eliminatedCast[i]);
+            eliminatedCast[i].famegamesScore += randomNumber(101, 200);
+            }
+            else if (eliminatedCast[i].runwayPoints <= 5) {
+            floppedGame.push(eliminatedCast[i]);
+            eliminatedCast[i].famegamesScore += randomNumber(1, 100);
+            }
+            eliminatedCast[i].runwayPoints = 0;
+        }
+        if (slayGame.length > 0) {
+            for (let i = 0; i < slayGame.length; i++)
+            performanceScreen.createImage(slayGame[i].image, "darkblue");
+            performanceScreen.createBold("", "slayF");
+            let slayFame = document.getElementById("slayF");
+            for (let i = 0; i < slayGame.length; i++)
+                slayFame.innerHTML += `${slayGame[i].getName()}, `;
+            slayFame.innerHTML += "slayed the runway!";
+        }
+        if (greatGame.length > 0) {
+            for (let i = 0; i < greatGame.length; i++)
+            performanceScreen.createImage(greatGame[i].image, "royalblue");
+            performanceScreen.createBold("", "greatF");
+            let greatFame = document.getElementById("greatF");
+            for (let i = 0; i < greatGame.length; i++)
+                greatFame.innerHTML += `${greatGame[i].getName()}, `;
+            greatFame.innerHTML += "had a great runway!";
+        }
+        if (goodGame.length > 0) {
+            for (let i = 0; i < goodGame.length; i++)
+            performanceScreen.createImage(goodGame[i].image);
+            performanceScreen.createBold("", "goodF");
+            let goodFame = document.getElementById("goodF");
+            for (let i = 0; i < goodGame.length; i++)
+                goodFame.innerHTML += `${goodGame[i].getName()}, `;
+            goodFame.innerHTML += "had a good runway!";
+        }
+        if (badGame.length > 0) {
+            for (let i = 0; i < badGame.length; i++)
+            performanceScreen.createImage(badGame[i].image, "pink");
+            performanceScreen.createBold("", "badF");
+            let badFame = document.getElementById("badF");
+            for (let i = 0; i < badGame.length; i++)
+                badFame.innerHTML += `${badGame[i].getName()}, `;
+            badFame.innerHTML += "had a bad runway!";
+        }
+        if (floppedGame.length > 0) {
+            for (let i = 0; i < floppedGame.length; i++)
+            performanceScreen.createImage(floppedGame[i].image, "tomato");
+            performanceScreen.createBold("", "floppedF");
+            let floppedFame = document.getElementById("floppedF");
+            for (let i = 0; i < floppedGame.length; i++)
+                floppedFame.innerHTML += `${floppedGame[i].getName()}, `;
+            floppedFame.innerHTML += "flopped the runway!";
+        }
     }
     if (noneIndividual == true && isDesignChallenge == true && selectOutcome == false)
         performanceScreen.createButton("Proceed", "groupsJudging()");
@@ -8927,6 +9018,91 @@ function runway() {
     let good = currentCast.filter(function (queen) { return queen.runwayScore >= 16 && queen.runwayScore < 26; });
     let bad = currentCast.filter(function (queen) { return queen.runwayScore >= 26; });
     createRunwayDesc(slay, great, good, bad);
+    }
+    if (famegames == true && isDesignChallenge == false && splitpremiere == false && eliminatedCast.length > 0 || famegames == true && ballChallenge == true && splitpremiere == false && eliminatedCast.length > 0) {
+    runwayScreen.createHorizontalLine();
+    runwayScreen.createBigText("The Fame Games!");
+    runwayScreen.createBold("The eliminated queens showcase their runway looks for this week.");
+    famegamesCounter++;
+    let pointsCeiling = 0;
+    let slayGame = [];
+    let greatGame = [];
+    let goodGame = [];
+    let badGame = [];
+    let floppedGame = [];
+    for (let i = 0; i < eliminatedCast.length; i++) {
+        pointsCeiling += eliminatedCast[i]._runwayStat;
+        pointsCeiling += eliminatedCast[i]._runwayStat;
+        eliminatedCast[i].runwayPoints += randomNumber(0, pointsCeiling);
+        pointsCeiling = 0;
+        eliminatedCast[i].famegamesEntry += 1;
+        if (eliminatedCast[i].runwayPoints >= 20) {
+        slayGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(501, 750);
+        }
+        else if (eliminatedCast[i].runwayPoints <= 19 && eliminatedCast[i].runwayPoints >= 16) {
+        greatGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(401, 500);
+        }
+        else if (eliminatedCast[i].runwayPoints <= 15 && eliminatedCast[i].runwayPoints >= 9) {
+        goodGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(301, 400);
+        }
+        else if (eliminatedCast[i].runwayPoints <= 8 && eliminatedCast[i].runwayPoints >= 6) {
+        badGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(101, 200);
+        }
+        else if (eliminatedCast[i].runwayPoints <= 5) {
+        floppedGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(1, 100);
+        }
+        eliminatedCast[i].runwayPoints = 0;
+    }
+    if (slayGame.length > 0) {
+        for (let i = 0; i < slayGame.length; i++)
+        runwayScreen.createImage(slayGame[i].image, "darkblue");
+        runwayScreen.createBold("", "slayF");
+        let slayFame = document.getElementById("slayF");
+        for (let i = 0; i < slayGame.length; i++)
+            slayFame.innerHTML += `${slayGame[i].getName()}, `;
+        slayFame.innerHTML += "slayed the runway!";
+    }
+    if (greatGame.length > 0) {
+        for (let i = 0; i < greatGame.length; i++)
+        runwayScreen.createImage(greatGame[i].image, "royalblue");
+        runwayScreen.createBold("", "greatF");
+        let greatFame = document.getElementById("greatF");
+        for (let i = 0; i < greatGame.length; i++)
+            greatFame.innerHTML += `${greatGame[i].getName()}, `;
+        greatFame.innerHTML += "had a great runway!";
+    }
+    if (goodGame.length > 0) {
+        for (let i = 0; i < goodGame.length; i++)
+        runwayScreen.createImage(goodGame[i].image);
+        runwayScreen.createBold("", "goodF");
+        let goodFame = document.getElementById("goodF");
+        for (let i = 0; i < goodGame.length; i++)
+            goodFame.innerHTML += `${goodGame[i].getName()}, `;
+        goodFame.innerHTML += "had a good runway!";
+    }
+    if (badGame.length > 0) {
+        for (let i = 0; i < badGame.length; i++)
+        runwayScreen.createImage(badGame[i].image, "pink");
+        runwayScreen.createBold("", "badF");
+        let badFame = document.getElementById("badF");
+        for (let i = 0; i < badGame.length; i++)
+            badFame.innerHTML += `${badGame[i].getName()}, `;
+        badFame.innerHTML += "had a bad runway!";
+    }
+    if (floppedGame.length > 0) {
+        for (let i = 0; i < floppedGame.length; i++)
+        runwayScreen.createImage(floppedGame[i].image, "tomato");
+        runwayScreen.createBold("", "floppedF");
+        let floppedFame = document.getElementById("floppedF");
+        for (let i = 0; i < floppedGame.length; i++)
+            floppedFame.innerHTML += `${floppedGame[i].getName()}, `;
+        floppedFame.innerHTML += "flopped the runway!";
+    }
     }
     if (noneIndividual == true && selectOutcome == false|| pairings == true && selectOutcome == false)
         runwayScreen.createButton("Proceed", "groupsJudging()");
@@ -13845,7 +14021,7 @@ function secondBonanza() {
     let screen = new Scene();
     screen.clean();
     screen.createHeader("Bottom Bonanza");
-    screen.createParagraph("This queens' place in the competition is in jeopardy.");
+    screen.createParagraph("These queens' place in the competition is in jeopardy.");
     for (let i = 0; i < bottomQueens.length; i++) {
         screen.createImage(bottomQueens[i].image, "crimson");
     }
@@ -14188,6 +14364,410 @@ function newEpisode() {
     lowQueens = [];
     top2 = [];
     finalLS = [];
+}
+function theFameGames() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("It is time for the Fame Games!");
+    screen.createBold("The eliminated queens are back to battle it out and win this extra-special title.");
+    for (let i = 0; i < eliminatedCast.length; i++)
+    screen.createImage(eliminatedCast[i].image, "scarlet");
+    famegamesEpisode = true;
+    screen.createParagraph('');
+    screen.createButton("Proceed", "famegamesShow()", "button2");
+}
+function famegamesShow() {
+    let screen = new Scene();
+    screen.createHorizontalLine();
+    screen.createBigText("Let The Fame Games Extravaganza Begin!");
+    let button2 = document.querySelector("button#button2");
+    if (showgirlShowdownFive || showgirlShowdownFour)
+    final5Episode = true;
+    button2.remove();
+    let fameExtravaganza = 0;
+    let slayGame = [];
+    let greatGame = [];
+    let goodGame = [];
+    let badGame = [];
+    let floppedGame = [];
+    for (let i = 0; i < eliminatedCast.length; i++) {
+        eliminatedCast[i].trackRecord.pop();
+        let randomTalent = randomNumber(1, 8);
+        if (randomTalent == 1)
+        eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._actingStat + eliminatedCast[i]._lipsyncStat);
+        else if (randomTalent == 2)
+        eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._comedyStat + eliminatedCast[i]._lipsyncStat);
+        else if (randomTalent == 3)
+        eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._vocalStat + eliminatedCast[i]._lipsyncStat);
+        else if (randomTalent == 4)
+        eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._danceStat + eliminatedCast[i]._lipsyncStat);
+        else if (randomTalent == 5)
+        eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._lyricalStat + eliminatedCast[i]._lipsyncStat);
+        else if (randomTalent == 6)
+        eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._designStat + eliminatedCast[i]._lipsyncStat);
+        else if (randomTalent == 7)
+        eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._improvStat + eliminatedCast[i]._lipsyncStat);
+        else if (randomTalent == 8)
+        eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._runwayStat + eliminatedCast[i]._lipsyncStat);
+        if (eliminatedCast[i].showPoints >= 20) {
+        slayGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(1201, 1500);
+        }
+        else if (eliminatedCast[i].showPoints <= 19 && eliminatedCast[i].showPoints >= 16) {
+        greatGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(701, 1200);
+        }
+        else if (eliminatedCast[i].showPoints <= 15 && eliminatedCast[i].showPoints >= 8) {
+        goodGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(501, 700);
+        }
+        else if (eliminatedCast[i].showPoints <= 8 && eliminatedCast[i].showPoints >= 5) {
+        badGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(301, 500);
+        }
+        else if (eliminatedCast[i].showPoints <= 4) {
+        floppedGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(1, 300);
+        }
+    }
+    if (slayGame.length > 0) {
+        for (let i = 0; i < slayGame.length; i++)
+        screen.createImage(slayGame[i].image, "darkblue");
+        screen.createBold("", "slayS");
+        let slayShow = document.getElementById("slayS");
+        for (let i = 0; i < slayGame.length; i++)
+            slayShow.innerHTML += `${slayGame[i].getName()}, `;
+        slayShow.innerHTML += "slayed the performance!";
+    }
+    if (greatGame.length > 0) {
+        for (let i = 0; i < greatGame.length; i++)
+        screen.createImage(greatGame[i].image, "royalblue");
+        screen.createBold("", "greatS");
+        let greatShow = document.getElementById("greatS");
+        for (let i = 0; i < greatGame.length; i++)
+            greatShow.innerHTML += `${greatGame[i].getName()}, `;
+        greatShow.innerHTML += "had a great performance!";
+    }
+    if (goodGame.length > 0) {
+        for (let i = 0; i < goodGame.length; i++)
+        screen.createImage(goodGame[i].image);
+        screen.createBold("", "goodS");
+        let goodShow = document.getElementById("goodS");
+        for (let i = 0; i < goodGame.length; i++)
+            goodShow.innerHTML += `${goodGame[i].getName()}, `;
+        goodShow.innerHTML += "had a good performance!";
+    }
+    if (badGame.length > 0) {
+        for (let i = 0; i < badGame.length; i++)
+        screen.createImage(badGame[i].image, "pink");
+        screen.createBold("", "badS");
+        let badShow = document.getElementById("badS");
+        for (let i = 0; i < badGame.length; i++)
+            badShow.innerHTML += `${badGame[i].getName()}, `;
+        badShow.innerHTML += "had a bad performance!";
+    }
+    if (floppedGame.length > 0) {
+        for (let i = 0; i < floppedGame.length; i++)
+        screen.createImage(floppedGame[i].image, "tomato");
+        screen.createBold("", "floppedS");
+        let floppedShow = document.getElementById("floppedS");
+        for (let i = 0; i < floppedGame.length; i++)
+            floppedShow.innerHTML += `${floppedGame[i].getName()}, `;
+        floppedShow.innerHTML += "flopped the performance!";
+    }
+    episodeChallenges.push("Fame <br> Games");
+    screen.createButton("Proceed", "famegamesRunway()", "button3");
+}
+function famegamesRunway() {
+    let runwayScreen = new Scene();
+    runwayScreen.createHorizontalLine();
+    runwayScreen.createBigText("The Final Runway!");
+    runwayScreen.createBold("Fame Games Eleganza Extravaganza");
+    let button3 = document.querySelector("button#button3");
+    button3.remove();
+    famegamesCounter++;
+    let pointsCeiling = 0;
+    let slayGame = [];
+    let greatGame = [];
+    let goodGame = [];
+    let badGame = [];
+    let floppedGame = [];
+    for (let i = 0; i < eliminatedCast.length; i++) {
+        pointsCeiling += eliminatedCast[i]._runwayStat;
+        pointsCeiling += eliminatedCast[i]._runwayStat;
+        eliminatedCast[i].runwayPoints += randomNumber(0, pointsCeiling);
+        pointsCeiling = 0;
+        eliminatedCast[i].famegamesEntry += 1;
+        if (eliminatedCast[i].runwayPoints >= 20) {
+        slayGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(501, 750);
+        }
+        else if (eliminatedCast[i].runwayPoints <= 19 && eliminatedCast[i].runwayPoints >= 16) {
+        greatGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(401, 500);
+        }
+        else if (eliminatedCast[i].runwayPoints <= 15 && eliminatedCast[i].runwayPoints >= 10) {
+        goodGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(301, 400);
+        }
+        else if (eliminatedCast[i].runwayPoints <= 9 && eliminatedCast[i].runwayPoints >= 6) {
+        badGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(101, 200);
+        }
+        else if (eliminatedCast[i].runwayPoints <= 5) {
+        floppedGame.push(eliminatedCast[i]);
+        eliminatedCast[i].famegamesScore += randomNumber(1, 100);
+        }
+        eliminatedCast[i].runwayPoints = 0;
+    }
+    if (slayGame.length > 0) {
+        for (let i = 0; i < slayGame.length; i++)
+        runwayScreen.createImage(slayGame[i].image, "darkblue");
+        runwayScreen.createBold("", "slayF");
+        let slayFame = document.getElementById("slayF");
+        for (let i = 0; i < slayGame.length; i++)
+            slayFame.innerHTML += `${slayGame[i].getName()}, `;
+        slayFame.innerHTML += "slayed the runway!";
+    }
+    if (greatGame.length > 0) {
+        for (let i = 0; i < greatGame.length; i++)
+        runwayScreen.createImage(greatGame[i].image, "royalblue");
+        runwayScreen.createBold("", "greatF");
+        let greatFame = document.getElementById("greatF");
+        for (let i = 0; i < greatGame.length; i++)
+            greatFame.innerHTML += `${greatGame[i].getName()}, `;
+        greatFame.innerHTML += "had a great runway!";
+    }
+    if (goodGame.length > 0) {
+        for (let i = 0; i < goodGame.length; i++)
+        runwayScreen.createImage(goodGame[i].image);
+        runwayScreen.createBold("", "goodF");
+        let goodFame = document.getElementById("goodF");
+        for (let i = 0; i < goodGame.length; i++)
+            goodFame.innerHTML += `${goodGame[i].getName()}, `;
+        goodFame.innerHTML += "had a good runway!";
+    }
+    if (badGame.length > 0) {
+        for (let i = 0; i < badGame.length; i++)
+        runwayScreen.createImage(badGame[i].image, "pink");
+        runwayScreen.createBold("", "badF");
+        let badFame = document.getElementById("badF");
+        for (let i = 0; i < badGame.length; i++)
+            badFame.innerHTML += `${badGame[i].getName()}, `;
+        badFame.innerHTML += "had a bad runway!";
+    }
+    if (floppedGame.length > 0) {
+        for (let i = 0; i < floppedGame.length; i++)
+        runwayScreen.createImage(floppedGame[i].image, "tomato");
+        runwayScreen.createBold("", "floppedF");
+        let floppedFame = document.getElementById("floppedF");
+        for (let i = 0; i < floppedGame.length; i++)
+            floppedFame.innerHTML += `${floppedGame[i].getName()}, `;
+        floppedFame.innerHTML += "flopped the runway!";
+    }
+    let famegamesTotalScore = 0;
+    for (let i = 0; i < eliminatedCast.length; i++) {
+        famegamesTotalScore += eliminatedCast[i].famegamesScore / eliminatedCast[i].famegamesEntry;
+        eliminatedCast[i].famegamesScore = 0;
+        eliminatedCast[i].famegamesScore += famegamesTotalScore;
+        famegamesTotalScore = 0;
+    }
+    runwayScreen.createButton("Proceed", "famegamesTop2()", "button4");
+}
+function famegamesTop2() {
+    let screen = new Scene();
+    screen.createHorizontalLine();
+    screen.createBigText("Our Top 2 Showstoppers!");
+    let button4 = document.querySelector("button#button4");
+    button4.remove();
+    eliminatedCast.sort((a, b) => b.showPoints - a.showPoints);
+    topQueens = [];
+    topQueens.push(eliminatedCast[0]);
+    topQueens.push(eliminatedCast[1]);
+    for (let i = 0; i < eliminatedCast.length; i++) {
+        eliminatedCast[i].addToTrackRecord("CANDIDATE");
+    }
+    eliminatedCast.sort((a, b) => b.lastEpisode - a.lastEpisode);
+    screen.createImage(topQueens[0].image, "yellow");
+    screen.createImage(topQueens[1].image, "yellow");
+    screen.createBold(topQueens[0].getName() + ", " + topQueens[1].getName() + ", you are the top 2 of our Fame Games Extravaganza. <br> You will lipsync for a chance to multiply your scores!");
+    famegames = false;
+    screen.createButton("Proceed", "famegamesLipsync()");
+}
+let doubleSpin = false;
+function famegamesLipsync() {
+    for (let i = 0; i < topQueens.length; i++) {
+        topQueens[i].getASLipsync();
+    }
+    topQueens.sort((a, b) => (b.lipsyncScore - a.lipsyncScore));
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("It's time...");
+    screen.createBold("For you to lip-sync... for the win! Good luck, and don't fuck it up.");
+    lsSong();
+    screen.createHorizontalLine();
+    screen.createBold("Ladies, I've made my decision...");
+    if (topQueens[1].lipsyncScore >= topQueens[0].lipsyncScore - 3) {
+        screen.createImage(topQueens[0].image, "darkblue");
+        screen.createImage(topQueens[1].image, "darkblue");
+        screen.createBold("Condragulations, you are both winners, baby!");
+        doubleSpin = true;
+        topQueens[0].trackRecord.pop();
+        topQueens[0].addToTrackRecord("TOP QUEEN");
+        topQueens[1].trackRecord.pop();
+        topQueens[1].addToTrackRecord("TOP QUEEN");
+    }
+    else {
+        screen.createImage(topQueens[0].image, "royalblue");
+        screen.createBold(`${topQueens[0].getName()}, you're a winner baby!`);
+        screen.createImage(topQueens[1].image, "cyan");
+        screen.createBold(`${topQueens[1].getName()}, great job this week!`);
+        topQueens[0].trackRecord.pop();
+        topQueens[0].addToTrackRecord("TOP QUEEN");
+        topQueens[1].trackRecord.pop();
+        topQueens[1].addToTrackRecord(" TOP QUEEN");
+    }
+    screen.createButton("Proceed", "famegamesSpin()", "button");
+}
+function famegamesSpin() {
+    let screen = new Scene();
+    screen.createHorizontalLine();
+    screen.createBigText("The Wheel of Fame Games!");
+    let button = document.querySelector("button#button");
+    button.remove();
+    if (doubleSpin == true) {
+        let multiplier = randomNumber(0, 5);
+        if (multiplier <= 2) {
+        screen.createImage(topQueens[0].image, "darkgreen");
+        screen.createBold(topQueens[0].getName() + "'s score will be multiplied by 2!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[0].famegamesScore;
+        topQueens[0].famegamesScore = 0;
+        topQueens[0].famegamesScore += scoreContainer * 2;
+        }
+        else if (multiplier == 3) {
+        screen.createImage(topQueens[0].image, "limegreen");
+        screen.createBold(topQueens[0].getName() + "'s score will be multiplied by 3!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[0].famegamesScore;
+        topQueens[0].famegamesScore = 0;
+        topQueens[0].famegamesScore += scoreContainer * 3;
+        }
+        else if (multiplier == 4) {
+        screen.createImage(topQueens[0].image, "darkblue");
+        screen.createBold(topQueens[0].getName() + "'s score will be multiplied by 4!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[0].famegamesScore;
+        topQueens[0].famegamesScore = 0;
+        topQueens[0].famegamesScore += scoreContainer * 4;
+        }
+        else if (multiplier == 5) {
+        screen.createImage(topQueens[0].image, "hotpink");
+        screen.createBold(topQueens[0].getName() + "'s score will be multiplied by 5!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[0].famegamesScore;
+        topQueens[0].famegamesScore = 0;
+        topQueens[0].famegamesScore += scoreContainer * 5;
+        }
+        let additional = randomNumber(0, 5);
+        if (additional <= 2) {
+        screen.createImage(topQueens[1].image, "darkgreen");
+        screen.createBold(topQueens[1].getName() + "'s score will be multiplied by 2!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[1].famegamesScore;
+        topQueens[1].famegamesScore = 0;
+        topQueens[1].famegamesScore += scoreContainer * 2;
+        }
+        else if (additional == 3) {
+        screen.createImage(topQueens[1].image, "limegreen");
+        screen.createBold(topQueens[1].getName() + "'s score will be multiplied by 3!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[1].famegamesScore;
+        topQueens[1].famegamesScore = 0;
+        topQueens[1].famegamesScore += scoreContainer * 3;
+        }
+        else if (additional == 4) {
+        screen.createImage(topQueens[1].image, "darkblue");
+        screen.createBold(topQueens[1].getName() + "'s score will be multiplied by 4!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[1].famegamesScore;
+        topQueens[1].famegamesScore = 0;
+        topQueens[1].famegamesScore += scoreContainer * 4;
+        }
+        else if (additional == 5) {
+        screen.createImage(topQueens[1].image, "hotpink");
+        screen.createBold(topQueens[1].getName() + "'s score will be multiplied by 5!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[1].famegamesScore;
+        topQueens[1].famegamesScore = 0;
+        topQueens[1].famegamesScore += scoreContainer * 5;
+        }
+    }
+    else {
+        let multiplier = randomNumber(0, 5);
+        if (multiplier <= 2) {
+        screen.createImage(topQueens[0].image, "darkgreen");
+        screen.createBold(topQueens[0].getName() + "'s score will be multiplied by 2!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[0].famegamesScore;
+        topQueens[0].famegamesScore = 0;
+        topQueens[0].famegamesScore += scoreContainer * 2;
+        }
+        else if (multiplier == 3) {
+        screen.createImage(topQueens[0].image, "limegreen");
+        screen.createBold(topQueens[0].getName() + "'s score will be multiplied by 3!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[0].famegamesScore;
+        topQueens[0].famegamesScore = 0;
+        topQueens[0].famegamesScore += scoreContainer * 3;
+        }
+        else if (multiplier == 4) {
+        screen.createImage(topQueens[0].image, "darkblue");
+        screen.createBold(topQueens[0].getName() + "'s score will be multiplied by 4!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[0].famegamesScore;
+        topQueens[0].famegamesScore = 0;
+        topQueens[0].famegamesScore += scoreContainer * 4;
+        }
+        else if (multiplier == 5) {
+        screen.createImage(topQueens[0].image, "hotpink");
+        screen.createBold(topQueens[0].getName() + "'s score will be multiplied by 5!");
+        let scoreContainer = 0;
+        scoreContainer += topQueens[0].famegamesScore;
+        topQueens[0].famegamesScore = 0;
+        topQueens[0].famegamesScore += scoreContainer * 5;
+        }
+    }
+    screen.createButton("Proceed", "famegamesFinale()");
+}
+function famegamesFinale() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("Our Queen of the Fame Games...");
+    screen.createBigText("Time to crown the Queen!");
+    screen.createHorizontalLine();
+    screen.createBold("After a week of voting, the eliminated queens total scores has been casted! <br> And the fans have spoken...");
+    eliminatedCast.sort((a, b) => a.famegamesScore - b.famegamesScore);
+    for (let i = 0; i < eliminatedCast.length - 1; i++) {
+        screen.createImage(eliminatedCast[i].image, "darkred");
+        screen.createBold(eliminatedCast[i].getName());
+        screen.createBold("Votes: " + Math.round(eliminatedCast[i].famegamesScore));
+    }
+    let queenofFame = [];
+    queenofFame.push(eliminatedCast[eliminatedCast.length - 1]);
+    screen.createHorizontalLine();
+    screen.createImage(queenofFame[0].image, "darkblue");
+    screen.createBold("Votes: " + queenofFame[0].famegamesScore + "<br>" + "Condragulations, " + queenofFame[0].getName() + ", you are the Queen of the Fame Games!");
+    queenofFame[0].trackRecord.pop();
+    if (topQueens[0] == queenofFame[0] || topQueens[1] == queenofFame[0])
+    queenofFame[0].addToTrackRecord(" FAME GAMES <br> QUEEN ");
+    else
+    queenofFame[0].addToTrackRecord("FAME GAMES <br> QUEEN");
+    queenofFame[0].coinz += 50;
+    eliminatedCast.sort((a, b) => b.lastEpisode - a.lastEpisode);
+    for (let i = 0; i < currentCast.length; i++)
+    currentCast[i].addToTrackRecord("SAFE  ");
+    screen.createButton("Proceed", "newEpisode()");
 }
 let ssRounds = 0;
 function elimLS() {
@@ -16091,6 +16671,21 @@ function contestantProgress() {
             else if (placement.innerHTML == "ELIMINATED  ") {
                 placement.setAttribute("style", "font-weight: bold; text-decoration: underline;  background-color: sienna;");
             }
+            else if (placement.innerHTML == "CANDIDATE") {
+                placement.setAttribute("style", "background-color: #d386fc;");
+            }
+            else if (placement.innerHTML == "TOP QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #b126fc;");
+            }
+            else if (placement.innerHTML == " TOP QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #bc48fa;");
+            }
+            else if (placement.innerHTML == "FAME GAMES <br> QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #a703ff;");
+            }
+            else if (placement.innerHTML == " FAME GAMES <br> QUEEN ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #a703ff; color: cyan;");
+            }
             else if (placement.innerHTML == "LOST 1ST ROUND") {
                 placement.setAttribute("style", "font-weight: bold; background-color: #FF7C00;");
             }
@@ -16539,6 +17134,21 @@ function contestantProgress() {
             else if (placement.innerHTML == "ELIMINATED  ") {
                 placement.setAttribute("style", "font-weight: bold; text-decoration: underline;  background-color: sienna;");
             }
+            else if (placement.innerHTML == "CANDIDATE") {
+                placement.setAttribute("style", "background-color: #d386fc;");
+            }
+            else if (placement.innerHTML == "TOP QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #b126fc;");
+            }
+            else if (placement.innerHTML == " TOP QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #bc48fa;");
+            }
+            else if (placement.innerHTML == "FAME GAMES <br> QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #a703ff;");
+            }
+            else if (placement.innerHTML == " FAME GAMES <br> QUEEN ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #a703ff; color: cyan;");
+            }
             else if (placement.innerHTML == "LOST 1ST ROUND") {
                 placement.setAttribute("style", "font-weight: bold; background-color: #FF7C00;");
             }
@@ -16760,6 +17370,21 @@ function contestantProgress() {
             }
             else if (placement.innerHTML == "ELIMINATED  ") {
                 placement.setAttribute("style", "font-weight: bold; text-decoration: underline;  background-color: sienna;");
+            }
+            else if (placement.innerHTML == "CANDIDATE") {
+                placement.setAttribute("style", "background-color: #d386fc;");
+            }
+            else if (placement.innerHTML == "TOP QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #b126fc;");
+            }
+            else if (placement.innerHTML == " TOP QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #bc48fa;");
+            }
+            else if (placement.innerHTML == "FAME GAMES <br> QUEEN") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #a703ff;");
+            }
+            else if (placement.innerHTML == " FAME GAMES <br> QUEEN ") {
+                placement.setAttribute("style", "font-weight: bold; background-color: #a703ff; color: cyan;");
             }
             else if (placement.innerHTML == "LOST 1ST ROUND") {
                 placement.setAttribute("style", "font-weight: bold; background-color: #FF7C00;");
@@ -17144,6 +17769,8 @@ function contestantProgress() {
         screen.createButton("Proceed", "queenWithdraw()");
     else if (currentCast.length == 4 && superstars == true)
         screen.createButton("Proceed", "finaleLS()");
+    else if (currentCast.length == 3 && famegames == true && famegamesEpisode == false && top3 || currentCast.length == 4 && (top4 || savequeen) && showgirlShowdownFour == false && showgirlShowdownFive == false || currentCast.length == 5 && famegames == true && famegamesEpisode == false && (top4 || savequeen) && showgirlShowdownFive || currentCast.length == 4 && famegames == true && famegamesEpisode == false && (top4 || savequeen) && showgirlShowdownFour || currentCast.length == 4 && (all_stars || lipsync_assassin) && famegames == true && famegamesEpisode == false)
+            screen.createButton("Proceed", "theFameGames()");
     else if (currentCast.length == 5 && (top4 || savequeen) && showgirlShowdownFive && final5Episode == true && forFinaleLS == false || currentCast.length == 3 && top3 && showgirlShowdownFive || currentCast.length == 4 && (top4 || savequeen) && showgirlShowdownFour && final5Episode == true && forFinaleLS == false)
         screen.createButton("Proceed", "finaleShowdown()");
     else if (currentCast.length == 3 && (top4 || savequeen) && showgirlShowdownFive && forFinaleLS == true)
@@ -28411,6 +29038,10 @@ class Queen {
     constructor(name, acting, comedy, vocal, dance, lyrical, design, improv, runway, lipsync, image = "noimage", custom = false) {
         this.trackRecord = [];
         this.ssRank = 0;
+        this.famegamesScore = 0;
+        this.famegamesEntry = 0;
+        this.showPoints = 0;
+        this.runwayPoints = 0;
         this.runwayScore = 0;
         this.lipsyncScore = 0;
         this.performanceScore = 0;
