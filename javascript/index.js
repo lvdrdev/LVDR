@@ -14189,6 +14189,7 @@ function newEpisode() {
     top2 = [];
     finalLS = [];
 }
+let ssRounds = 0;
 function elimLS() {
     topQueens = [];
     let screen = new Scene();
@@ -14198,7 +14199,7 @@ function elimLS() {
     let lsOpponent = [];
     let roundLosers = [];
     let roundWinners = [];
-    let ssRounds = 1;
+    ssRounds++;
     lsOpponent = eliminatedCast.slice();
     screen.createHorizontalLine();
     screen.createBigText("First Set of Lipsyncs!");
