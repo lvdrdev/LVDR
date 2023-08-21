@@ -8578,21 +8578,21 @@ function queensPerformances() {
             slayGame.push(eliminatedCast[i]);
             eliminatedCast[i].famegamesScore += randomNumber(501, 1500);
             }
-            else if (eliminatedCast[i].runwayPoints <= 17 && eliminatedCast[i].runwayPoints >= 15) {
+            else if (eliminatedCast[i].runwayPoints <= 17 && eliminatedCast[i].runwayPoints >= 12) {
             greatGame.push(eliminatedCast[i]);
-            eliminatedCast[i].famegamesScore += randomNumber(401, 700);
+            eliminatedCast[i].famegamesScore += randomNumber(401, 1400);
             }
-            else if (eliminatedCast[i].runwayPoints <= 14 && eliminatedCast[i].runwayPoints >= 7) {
+            else if (eliminatedCast[i].runwayPoints <= 11 && eliminatedCast[i].runwayPoints >= 5) {
             goodGame.push(eliminatedCast[i]);
-            eliminatedCast[i].famegamesScore += randomNumber(301, 500);
+            eliminatedCast[i].famegamesScore += randomNumber(301, 1200);
             }
-            else if (eliminatedCast[i].runwayPoints <= 6 && eliminatedCast[i].runwayPoints >= 3) {
+            else if (eliminatedCast[i].runwayPoints <= 4 && eliminatedCast[i].runwayPoints >= 2) {
             badGame.push(eliminatedCast[i]);
-            eliminatedCast[i].famegamesScore += randomNumber(101, 350);
+            eliminatedCast[i].famegamesScore += randomNumber(101, 1000);
             }
-            else if (eliminatedCast[i].runwayPoints <= 2) {
+            else if (eliminatedCast[i].runwayPoints <= 1) {
             floppedGame.push(eliminatedCast[i]);
-            eliminatedCast[i].famegamesScore += randomNumber(1, 200);
+            eliminatedCast[i].famegamesScore += randomNumber(1, 800);
             }
             eliminatedCast[i].runwayPoints = 0;
         }
@@ -9036,25 +9036,25 @@ function runway() {
         eliminatedCast[i].runwayPoints += randomNumber(0, pointsCeiling);
         pointsCeiling = 0;
         eliminatedCast[i].famegamesEntry += 1;
-        if (eliminatedCast[i].runwayPoints >= 18) {
+        if (eliminatedCast[i].runwayPoints >= 16) {
         slayGame.push(eliminatedCast[i]);
         eliminatedCast[i].famegamesScore += randomNumber(501, 1500);
         }
-        else if (eliminatedCast[i].runwayPoints <= 17 && eliminatedCast[i].runwayPoints >= 15) {
+        else if (eliminatedCast[i].runwayPoints <= 15 && eliminatedCast[i].runwayPoints >= 10) {
         greatGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(401, 700);
+        eliminatedCast[i].famegamesScore += randomNumber(401, 1400);
         }
-        else if (eliminatedCast[i].runwayPoints <= 14 && eliminatedCast[i].runwayPoints >= 7) {
+        else if (eliminatedCast[i].runwayPoints <= 9 && eliminatedCast[i].runwayPoints >= 5) {
         goodGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(301, 500);
+        eliminatedCast[i].famegamesScore += randomNumber(301, 1200);
         }
-        else if (eliminatedCast[i].runwayPoints <= 6 && eliminatedCast[i].runwayPoints >= 3) {
+        else if (eliminatedCast[i].runwayPoints <= 5 && eliminatedCast[i].runwayPoints >= 2) {
         badGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(101, 350);
+        eliminatedCast[i].famegamesScore += randomNumber(201, 1000);
         }
-        else if (eliminatedCast[i].runwayPoints <= 2) {
+        else if (eliminatedCast[i].runwayPoints <= 1) {
         floppedGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(1, 200);
+        eliminatedCast[i].famegamesScore += randomNumber(100, 800);
         }
         eliminatedCast[i].runwayPoints = 0;
     }
@@ -14409,25 +14409,25 @@ function famegamesShow() {
         eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._improvStat + eliminatedCast[i]._lipsyncStat);
         else if (randomTalent == 8)
         eliminatedCast[i].showPoints += randomNumber(0, eliminatedCast[i]._runwayStat + eliminatedCast[i]._lipsyncStat);
-        if (eliminatedCast[i].showPoints >= 18) {
+        if (eliminatedCast[i].showPoints >= 16) {
         slayGame.push(eliminatedCast[i]);
         eliminatedCast[i].famegamesScore += randomNumber(1001, 1500);
         }
-        else if (eliminatedCast[i].showPoints <= 17 && eliminatedCast[i].showPoints >= 15) {
+        else if (eliminatedCast[i].showPoints <= 15 && eliminatedCast[i].showPoints >= 12) {
         greatGame.push(eliminatedCast[i]);
         eliminatedCast[i].famegamesScore += randomNumber(801, 1500);
         }
-        else if (eliminatedCast[i].showPoints <= 14 && eliminatedCast[i].showPoints >= 8) {
+        else if (eliminatedCast[i].showPoints <= 11 && eliminatedCast[i].showPoints >= 5) {
         goodGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(501, 1300);
+        eliminatedCast[i].famegamesScore += randomNumber(701, 1300);
         }
-        else if (eliminatedCast[i].showPoints <= 7 && eliminatedCast[i].showPoints >= 4) {
+        else if (eliminatedCast[i].showPoints <= 4 && eliminatedCast[i].showPoints >= 3) {
         badGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(301, 800);
+        eliminatedCast[i].famegamesScore += randomNumber(301, 1000);
         }
-        else if (eliminatedCast[i].showPoints <= 3) {
+        else if (eliminatedCast[i].showPoints <= 2) {
         floppedGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(150, 500);
+        eliminatedCast[i].famegamesScore += randomNumber(100, 1000);
         }
     }
     if (slayGame.length > 0) {
@@ -14504,19 +14504,19 @@ function famegamesRunway() {
         }
         else if (eliminatedCast[i].runwayPoints <= 15 && eliminatedCast[i].runwayPoints >= 12) {
         greatGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(401, 900);
+        eliminatedCast[i].famegamesScore += randomNumber(401, 1500);
         }
         else if (eliminatedCast[i].runwayPoints <= 11 && eliminatedCast[i].runwayPoints >= 5) {
         goodGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(301, 700);
+        eliminatedCast[i].famegamesScore += randomNumber(301, 1500);
         }
         else if (eliminatedCast[i].runwayPoints <= 4 && eliminatedCast[i].runwayPoints >= 2) {
         badGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(101, 500);
+        eliminatedCast[i].famegamesScore += randomNumber(301, 1200);
         }
         else if (eliminatedCast[i].runwayPoints <= 1) {
         floppedGame.push(eliminatedCast[i]);
-        eliminatedCast[i].famegamesScore += randomNumber(1, 300);
+        eliminatedCast[i].famegamesScore += randomNumber(100, 1200);
         }
         eliminatedCast[i].runwayPoints = 0;
     }
