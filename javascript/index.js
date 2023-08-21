@@ -14757,6 +14757,8 @@ function famegamesFinale() {
     screen.createBigText("Time to crown the Queen!");
     screen.createHorizontalLine();
     screen.createBold("After a week of voting, the eliminated queens total scores has been casted! <br> And the fans have spoken...");
+    for (let i = 0; i < eliminatedCast.length - 1; i++)
+    eliminatedCast[i].famegamesScore += randomNumber(250, 1000);
     eliminatedCast.sort((a, b) => a.famegamesScore - b.famegamesScore);
     for (let i = 0; i < eliminatedCast.length - 1; i++) {
         screen.createImage(eliminatedCast[i].image, "darkred");
@@ -15034,7 +15036,7 @@ function finalelimLS() {
     topQueens[0].addToTrackRecord("  WINNER  ");
     topQueens[0].ssRank += ssRounds + 1;
     topQueens[0].coinz += 50;
-    screen.createBold(topQueens[0].getName() + ", condragulations! You are the Queen of She Already Done Had Herses!");
+    screen.createBold(topQueens[0].getName() + ", condragulations! You are the Queen of She Done Already Done Had Herses!");
     for (let i = 1; i < topQueens.length; i++) {
         topQueens[i].addToTrackRecord("  LOST  ");
         topQueens[i].ssRank += ssRounds;
@@ -16255,6 +16257,14 @@ function finaleFinale() {
         screen.createBold("Now prance, my queens!");
         currentCast[0].addToTrackRecord("SHARED WIN");
         currentCast[1].addToTrackRecord("SHARED WIN");
+        if (fameGamesPrize == true) {
+            currentCast[0].coinz += 250;
+            currentCast[1].coinz += 250;
+        }
+        else {
+            currentCast[0].coinz += 100;
+            currentCast[1].coinz += 100;
+        }
         if ((all_stars || lipsync_assassin || throwqueen) && juryTwist == false) {
             currentCast[2].addToTrackRecord("RUNNER UP");
             eliminatedCast.unshift(currentCast[2]);
@@ -16265,6 +16275,9 @@ function finaleFinale() {
     screen.createImage(currentCast[0].image, "yellow");
     screen.createBigText(currentCast[0].getName() + "!!");
     screen.createBold("Now prance, my queen!");
+    if (fameGamesPrize == true)
+    currentCast[0].coinz += 250;
+    else
     currentCast[0].coinz += 100;
     if (goldticket == false || goldticket == true && ticketSave == true) {
     currentCast[0].addToTrackRecord("WINNER");
