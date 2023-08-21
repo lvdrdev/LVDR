@@ -14604,6 +14604,7 @@ function famegamesTop2() {
     screen.createButton("Proceed", "famegamesLipsync()");
 }
 let doubleSpin = false;
+let fameEpWin = [];
 function famegamesLipsync() {
     for (let i = 0; i < topQueens.length; i++) {
         topQueens[i].getASLipsync();
@@ -14623,8 +14624,10 @@ function famegamesLipsync() {
         doubleSpin = true;
         topQueens[0].trackRecord.pop();
         topQueens[0].addToTrackRecord("TOP QUEEN");
+        fameEpWin.push(topQueens[0]);
         topQueens[1].trackRecord.pop();
         topQueens[1].addToTrackRecord("TOP QUEEN");
+        fameEpWin.push(topQueens[1]);
     }
     else {
         screen.createImage(topQueens[0].image, "royalblue");
@@ -14633,6 +14636,7 @@ function famegamesLipsync() {
         screen.createBold(`${topQueens[1].getName()}, great job this week!`);
         topQueens[0].trackRecord.pop();
         topQueens[0].addToTrackRecord("TOP QUEEN");
+        fameEpWin.push(topQueens[0]);
         topQueens[1].trackRecord.pop();
         topQueens[1].addToTrackRecord(" TOP QUEEN");
     }
@@ -14757,8 +14761,12 @@ function famegamesFinale() {
     screen.createBigText("Time to crown the Queen!");
     screen.createHorizontalLine();
     screen.createBold("After a week of voting, the eliminated queens total scores has been casted! <br> And the fans have spoken...");
-    for (let i = 0; i < eliminatedCast.length - 1; i++)
+    for (let i = 0; i < fameEpWin.length; i++)
+    eliminatedCast.splice(eliminatedCast.indexOf(fameEpWin[i]), 1);
+    for (let i = 0; i < eliminatedCast.length; i++)
     eliminatedCast[i].famegamesScore += randomNumber(250, 1000);
+    for (let i = 0; i < fameEpWin.length; i++)
+    eliminatedCast.push(fameEpWin[i]);
     eliminatedCast.sort((a, b) => a.famegamesScore - b.famegamesScore);
     for (let i = 0; i < eliminatedCast.length - 1; i++) {
         screen.createImage(eliminatedCast[i].image, "darkred");
