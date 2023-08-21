@@ -14365,11 +14365,19 @@ function newEpisode() {
     top2 = [];
     finalLS = [];
 }
+let famegamesOut = [];
 function theFameGames() {
     let screen = new Scene();
     screen.clean();
     screen.createHeader("It is time for the Fame Games!");
     screen.createBold("The eliminated queens are back to battle it out and win this extra-special title.");
+    for (let i = 0; i < eliminatedCast.length; i++) {
+        if (eliminatedCast[i].withdraw > 0) {
+            famegamesOut.push(eliminatedCast[i]);
+        }
+    }
+    if (famegamesOut.length > 0)
+    eliminatedCast.splice(eliminatedCast.indexOf(famegamesOut[0]), 1);
     for (let i = 0; i < eliminatedCast.length; i++)
     screen.createImage(eliminatedCast[i].image, "scarlet");
     famegamesEpisode = true;
@@ -14476,6 +14484,7 @@ function famegamesShow() {
         floppedShow.innerHTML += "flopped the performance!";
     }
     episodeChallenges.push("Fame <br> Games");
+    lsaQueen.push(" ");
     screen.createButton("Proceed", "famegamesRunway()", "button3");
 }
 function famegamesRunway() {
@@ -14740,6 +14749,7 @@ function famegamesSpin() {
     }
     screen.createButton("Proceed", "famegamesFinale()");
 }
+let fameGamesPrize = false;
 function famegamesFinale() {
     let screen = new Scene();
     screen.clean();
@@ -14765,9 +14775,12 @@ function famegamesFinale() {
     else
     queenofFame[0].addToTrackRecord("FAME GAMES <br> QUEEN");
     queenofFame[0].coinz += 50;
+    if (famegamesOut.length > 0)
+    eliminatedCast.push(famegamesOut[0]);
     eliminatedCast.sort((a, b) => b.lastEpisode - a.lastEpisode);
     for (let i = 0; i < currentCast.length; i++)
     currentCast[i].addToTrackRecord("SAFE  ");
+    fameGamesPrize = true;
     screen.createButton("Proceed", "newEpisode()");
 }
 let ssRounds = 0;
@@ -16039,9 +16052,13 @@ function finalLipSync() {
         finalLS[1].addToTrackRecord("SHARED WIN");
         finalLS[0].coinz += 100;
         finalLS[1].coinz += 100;
-        if (showgirlShowdownFive == true && (top4 || savequeen) || showgirlShowdownFour == true && (top4 || savequeen)) {
+        if (showgirlShowdownFive == true && (top4 || savequeen)) {
             finalLS[0].coinz += 50;
             finalLS[1].coinz += 50;
+        }
+        else if (fameGamesPrize == true || showgirlShowdownFour == true || showgirlShowdownFive && top3) {
+            finalLS[0].coinz += 150;
+            finalLS[1].coinz += 150;
         }
         eliminatedCast.unshift(finalLS[1]);
         finalLS.splice(1, 1);
@@ -16052,10 +16069,10 @@ function finalLipSync() {
         screen.createBold("Now prance, my queen!");
         if (goldticket == false || goldticket == true && goldenTicket[0] != finalLS[winner]) {
         finalLS[winner].addToTrackRecord("WINNER");
-        if (superstars == true) {
+        if (superstars == true || fameGamesPrize == true || showgirlShowdownFour == true || showgirlShowdownFive && top3) {
             finalLS[winner].coinz += 250;
         }
-        else if (showgirlShowdownFive == true && (top4 || savequeen || top3) || showgirlShowdownFour == true && (top4 || savequeen)) {
+        else if (showgirlShowdownFive == true && (top4 || savequeen)) {
             finalLS[winner].coinz += 150;
         }
         else {
@@ -26144,7 +26161,7 @@ function topAndBtm() {
         }
         bottoms.innerHTML += "I'm sorry my dears but you're the bottoms of the week.";
         for (let i = 0; i < bottomQueens.length; i++)
-        if (bottomQueens[i].performanceScore >= 6 && bottomQueens[i].performanceScore < 14 && bottomQueens.length >= 3 && splitpremiere == false) {
+        if (randomNumber(0, 100) >= 80 && bottomQueens.length >= 3 && splitpremiere == false) {
             bottomQueens[i].performanceScore -= (bottomQueens[i].runwayScore + bottomQueens[i].favoritism);
         bottomQueens.sort((a, b) => (a.performanceScore - b.performanceScore));
         bottomQueens[0].addToTrackRecord("LOW");
@@ -26167,7 +26184,7 @@ function topAndBtm() {
 
     if (ruvengeEpisode == false) {
     screen.createBigText("After deliberation...");
-    if (randomNumber(0, 100) <= 55 && currentCast.length <= totalCastSize - 2)
+    if (randomNumber(0, 100) <= 20 && currentCast.length <= totalCastSize - 2)
         top2[0].lipstick = bottomQueens.sort((a, b) => (a.favoritism - a.unfavoritism) - (b.favoritism - b.unfavoritism))[0];
     else
         top2[0].lipstick = bottomQueens[randomNumber(0, bottomQueens.length - 1)];
@@ -26178,8 +26195,8 @@ function topAndBtm() {
     screen.createBigText("The queens vote...");
     for (let i = 0; i < currentCast.length; i++) {
         if (top2.indexOf(currentCast[i]) == -1) {
-            if (randomNumber(0, 100) <= 20 && currentCast.length > 6 && bottomQueens.sort((a, b) => b.unfavoritism - a.unfavoritism)[0] != currentCast[i] && currentCast.length <= totalCastSize - 2)
-                currentCast[i].lipstick = bottomQueens.sort((a, b) => b.unfavoritism - a.unfavoritism)[0];
+            if (randomNumber(0, 100) <= 25 && currentCast.length > 5 && bottomQueens.sort((a, b) => b.unfavoritism - a.unfavoritism)[0] != currentCast[i] && currentCast.length <= totalCastSize - 2)
+                currentCast[i].lipstick = bottomQueens.sort((a, b) => (b.favoritism - b.unfavoritism) + (a.favoritism - a.unfavoritism))[0];
             else
                 currentCast[i].lipstick = bottomQueens[randomNumber(0, bottomQueens.length - 1)];
             screen.createBold(currentCast[i].getName() + " voted for " + currentCast[i].lipstick.getName() + "!");
