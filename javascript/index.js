@@ -8571,10 +8571,13 @@ function queensPerformances() {
         let floppedGame = [];
         let withdrawContainer = [];
         for (let i = 0; i < eliminatedCast.length; i++) {
-            if (eliminatedCast[i].withdraw > 0)
+        if (eliminatedCast[i].withdraw > 0) {
             withdrawContainer.push(eliminatedCast[i]);
         }
+        }
+        if (withdrawContainer.length > 0) {
         eliminatedCast.splice(eliminatedCast.indexOf(withdrawContainer[0]), 1);
+        }
         for (let i = 0; i < eliminatedCast.length; i++) {
             pointsCeiling += eliminatedCast[i]._runwayStat;
             pointsCeiling += eliminatedCast[i]._runwayStat;
@@ -8648,8 +8651,9 @@ function queensPerformances() {
                 floppedFame.innerHTML += `${floppedGame[i].getName()}, `;
             floppedFame.innerHTML += "flopped the runway!";
         }
-        if (withdrawContainer.length > 0)
+        if (withdrawContainer.length > 0) {
         eliminatedCast.push(withdrawContainer[0]);
+        }
         eliminatedCast.sort((a, b) => b.lastEpisode - a.lastEpisode);
     }
     if (noneIndividual == true && isDesignChallenge == true && selectOutcome == false)
@@ -9042,9 +9046,11 @@ function runway() {
     let floppedGame = [];
     let withdrawContainer = [];
     for (let i = 0; i < eliminatedCast.length; i++) {
-        if (eliminatedCast[i].withdraw > 0)
-        withdrawContainer.push(eliminatedCast[i]);
+        if (eliminatedCast[i].withdraw == 1) {
+            withdrawContainer.push(eliminatedCast[i]);
+        }
     }
+    if (withdrawContainer.length > 0)
     eliminatedCast.splice(eliminatedCast.indexOf(withdrawContainer[0]), 1);
     for (let i = 0; i < eliminatedCast.length; i++) {
         pointsCeiling += eliminatedCast[i]._runwayStat;
@@ -9119,8 +9125,9 @@ function runway() {
             floppedFame.innerHTML += `${floppedGame[i].getName()}, `;
         floppedFame.innerHTML += "flopped the runway!";
     }
-    if (withdrawContainer.length > 0)
+    if (withdrawContainer.length > 0) {
     eliminatedCast.push(withdrawContainer[0]);
+    }
     eliminatedCast.sort((a, b) => b.lastEpisode - a.lastEpisode);
     }
     if (noneIndividual == true && selectOutcome == false|| pairings == true && selectOutcome == false)
@@ -26318,6 +26325,9 @@ function topAndBtm() {
         }
     for (let i = 0; i < allQueens.length; i++)
     lsaPool.push(allQueens[i]);
+    }
+    else if (lsaChoose == true && lsaPool.length > 0) {
+    screen.createButton("Proceed", "lsaPicker()");
     }
     else {
     screen.createButton("Proceed", "lsaLipSync()");
