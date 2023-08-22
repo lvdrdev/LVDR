@@ -8569,6 +8569,12 @@ function queensPerformances() {
         let goodGame = [];
         let badGame = [];
         let floppedGame = [];
+        let withdrawContainer = [];
+        for (let i = 0; i < eliminatedCast.length; i++) {
+            if (eliminatedCast[i].withdraw > 0)
+            withdrawContainer.push(eliminatedCast[i]);
+        }
+        eliminatedCast.splice(eliminatedCast.indexOf(withdrawContainer[0]), 1);
         for (let i = 0; i < eliminatedCast.length; i++) {
             pointsCeiling += eliminatedCast[i]._runwayStat;
             pointsCeiling += eliminatedCast[i]._runwayStat;
@@ -8642,6 +8648,9 @@ function queensPerformances() {
                 floppedFame.innerHTML += `${floppedGame[i].getName()}, `;
             floppedFame.innerHTML += "flopped the runway!";
         }
+        if (withdrawContainer.length > 0)
+        eliminatedCast.push(withdrawContainer[0]);
+        eliminatedCast.sort((a, b) => b.lastEpisode - a.lastEpisode);
     }
     if (noneIndividual == true && isDesignChallenge == true && selectOutcome == false)
         performanceScreen.createButton("Proceed", "groupsJudging()");
@@ -9031,6 +9040,12 @@ function runway() {
     let goodGame = [];
     let badGame = [];
     let floppedGame = [];
+    let withdrawContainer = [];
+    for (let i = 0; i < eliminatedCast.length; i++) {
+        if (eliminatedCast[i].withdraw > 0)
+        withdrawContainer.push(eliminatedCast[i]);
+    }
+    eliminatedCast.splice(eliminatedCast.indexOf(withdrawContainer[0]), 1);
     for (let i = 0; i < eliminatedCast.length; i++) {
         pointsCeiling += eliminatedCast[i]._runwayStat;
         pointsCeiling += eliminatedCast[i]._runwayStat;
@@ -9104,6 +9119,9 @@ function runway() {
             floppedFame.innerHTML += `${floppedGame[i].getName()}, `;
         floppedFame.innerHTML += "flopped the runway!";
     }
+    if (withdrawContainer.length > 0)
+    eliminatedCast.push(withdrawContainer[0]);
+    eliminatedCast.sort((a, b) => b.lastEpisode - a.lastEpisode);
     }
     if (noneIndividual == true && selectOutcome == false|| pairings == true && selectOutcome == false)
         runwayScreen.createButton("Proceed", "groupsJudging()");
@@ -26290,7 +26308,7 @@ function topAndBtm() {
     }
     }
     bottomQueens.sort((a, b) => b.votes - a.votes);
-    if (lsaChoose == true) {
+    if (lsaChoose == true && lsaPool.length == 0) {
     screen.createButton("Proceed", "lsaPicker()");
     for (let i = 0; i < currentCast.length; i++)
     allQueens.splice(allQueens.indexOf(currentCast[i]), 1);
@@ -26353,7 +26371,6 @@ function assassinQueen() {
     select.remove();
     screen.createBold(queen.getName() + " was the chosen lipsync assassin!");
     chosenQueen.push(queen);
-    lsaPool = [];
     screen.createButton("Proceed", "lsaLipSync()");
 }
 let bringbackImmune = false;
