@@ -272,6 +272,7 @@ let makeoverChosen = false;
 let highTeamImmune = false;
 let ballChallenge = false;
 let famegames = false;
+let lsaChoose = false;
 let famegamesCounter = 0;
 let lastChallenge = '';
 let untuckedQueens = [];
@@ -18159,8 +18160,10 @@ function predefCast(cast, format, premiere, returning) {
         selectOutcome = true;
     if (document.getElementById("disableDouble").checked == true)
         noDouble = true;
-    if (document.getElementById("disableDouble").checked == true)
+    if (document.getElementById("famegames").checked == true)
         famegames = true;
+    if (document.getElementById("lsaChoose").checked == true)
+        lsaChoose = true;
     if (document.getElementById("showgirlShowdownFive").checked == true)
         showgirlShowdownFive = true;
     if (document.getElementById("showgirlShowdownFour").checked == true)
@@ -22308,20 +22311,30 @@ function lockedIn() {
     doubleselect.setAttribute("class", "boxcheck");
     let doubleText = document.createElement("i");
     doubleText.innerHTML += "Disable double shantays and sashays";
-    let brF = document.createElement("br");
-    seasonFormats.appendChild(outcomeselect);
-    seasonFormats.appendChild(outcomeText);
-    seasonFormats.appendChild(brF);
-    let famegamesselect = document.createElement("input");
-    famegamesselect.setAttribute("type", "checkbox");
-    famegamesselect.setAttribute("id", "famegames");
-    famegamesselect.setAttribute("class", "boxcheck");
-    let famegamesText = document.createElement("i");
-    famegamesText.innerHTML += "Enable Fame Games Twist";
     let br3 = document.createElement("br");
     seasonFormats.appendChild(doubleselect);
     seasonFormats.appendChild(doubleText);
     seasonFormats.appendChild(br3);
+    let famegamesSelect = document.createElement("input");
+    famegamesSelect.setAttribute("type", "checkbox");
+    famegamesSelect.setAttribute("id", "famegames");
+    famegamesSelect.setAttribute("class", "boxcheck");
+    let fameText = document.createElement("i");
+    fameText.innerHTML += "Enable Fame Games Twist";
+    let brF = document.createElement("br");
+    seasonFormats.appendChild(famegamesSelect);
+    seasonFormats.appendChild(fameText);
+    seasonFormats.appendChild(brF);
+    let pickerSelect = document.createElement("input");
+    pickerSelect.setAttribute("type", "checkbox");
+    pickerSelect.setAttribute("id", "lsaChoose");
+    pickerSelect.setAttribute("class", "boxcheck");
+    let pickerText = document.createElement("i");
+    pickerText.innerHTML += "Choose Your Lipsync Assassin";
+    let brP = document.createElement("br");
+    seasonFormats.appendChild(pickerSelect);
+    seasonFormats.appendChild(pickerText);
+    seasonFormats.appendChild(brP);
     let showdownselect = document.createElement("input");
     showdownselect.setAttribute("type", "checkbox");
     showdownselect.setAttribute("id", "showgirlShowdownFive");
@@ -22874,6 +22887,8 @@ function startSimulation(challenge = "") {
             noDouble = true;
         if (document.getElementById("famegames").checked == true)
             famegames = true;
+        if (document.getElementById("lsaChoose").checked == true)
+            lsaChoose = true;
         if (document.getElementById("showgirlShowdownFive").checked == true)
             showgirlShowdownFive = true;
         if (document.getElementById("showgirlShowdownFour").checked == true)
@@ -22908,16 +22923,28 @@ function startSimulation(challenge = "") {
             superstars = false;
             currentCast = [];
         }
+        else if (lsaChoose == true && lipsync_assassin == false) {
+            window.alert("Lipsync Assassin Picker is only available for Lipsync Assassin Format!");
+            lsaChoose = false;
+            savequeen = false;
+            top4 = false;
+            all_stars = false;
+            lipsync_assassin = false;
+            throwqueen = false;
+            vstheworld = false;
+            superstars = false;
+            forFinaleLS = false;
+        }
         else if (famegames == true && superstars || famegames == true && vstheworld || famegames == true && splitCastPremiere || famegames == true && forFinaleLS == true) {
             window.alert("Fame Games Twist doesn't support Superstars and Versus The World Format. Reunion Lipsyncs is also not supported!");
             savequeen = false;
             top4 = false;
             all_stars = false;
+            lipsync_assassin = false;
             throwqueen = false;
             vstheworld = false;
             superstars = false;
             forFinaleLS = false;
-            currentCast = [];
         }
         else if (elimLipsync == true && !s6Premiere) {
             window.alert("The eliminated queens lipsync is only available for Double Premiere with Elimination!");
@@ -26263,6 +26290,69 @@ function topAndBtm() {
     }
     }
     bottomQueens.sort((a, b) => b.votes - a.votes);
+    if (lsaChoose == true) {
+    screen.createButton("Proceed", "lsaPicker()");
+    for (let i = 0; i < currentCast.length; i++)
+    allQueens.splice(allQueens.indexOf(currentCast[i]), 1);
+        if (eliminatedCast.length > 0) {
+        for (let i = 0; i < eliminatedCast.length; i++)
+        allQueens.splice(allQueens.indexOf(eliminatedCast[i]), 1);
+        }
+    for (let i = 0; i < allQueens.length; i++)
+    lsaPool.push(allQueens[i]);
+    }
+    else {
+    screen.createButton("Proceed", "lsaLipSync()");
+    }
+}
+let lsaPool = [];
+function lsaPicker() {
+    let screen = new Scene();
+    screen.clean();
+    screen.createHeader("The LipSync Assassin!");
+    screen.createBold("Choose your lipsync assasin for this episode.");
+    let main = document.querySelector("div#MainBlock");
+    let castSelection = document.createElement("p");
+    castSelection.setAttribute("id", "castSelection");
+    castSelection.innerHTML = '';
+    let select = document.createElement("select");
+    select.setAttribute("id", "queenList");
+    select.setAttribute("onchange", "returnImg()");
+    let img = document.createElement("img");
+    img.setAttribute("id", "images");
+    img.setAttribute("style", "width: 105px; height: 105px;");
+    let p = document.createElement("p");
+    p.appendChild(img);
+    for (let k = 0; k < lsaPool.length; k++) {
+        let option = document.createElement("option");
+        option.innerHTML = lsaPool[k].getName();
+        option.value = lsaPool[k].image;
+        select.add(option);
+    }
+    select.selectedIndex = randomNumber(0, lsaPool.length - 1);
+    let br = document.createElement("br");
+    castSelection.appendChild(p);
+    castSelection.appendChild(select);
+    castSelection.appendChild(br);
+    main.appendChild(castSelection);
+    returnImg();
+    screen.createButton("Choose Queen", "assassinQueen()", "lsAssassin");
+}
+function assassinQueen() {
+    let screen = new Scene();
+    let select = document.getElementById("queenList");
+    let value = select.options[select.selectedIndex].text;
+    let button = document.getElementById("lsAssassin");
+    let queen;
+    for (let k = 0; k < lsaPool.length; k++) {
+        if (value == lsaPool[k].getName()) {
+            queen = lsaPool[k];
+        }
+    }
+    button.remove();
+    select.remove();
+    screen.createBold(queen.getName() + " was the chosen lipsync assassin!");
+    chosenQueen.push(queen);
     screen.createButton("Proceed", "lsaLipSync()");
 }
 let bringbackImmune = false;
@@ -28636,18 +28726,22 @@ function asLipSync() {
         ruvengeEpisode = false;
     }
 }
+let chosenQueen = [];
 let assasintable = [];
 let assasinlipstick = [];
 function lsaLipSync() {
     let screen = new Scene();
     screen.clean();
     screen.createHeader("It's time to ruveal...");
+    if (lsaChoose == false) {
     for (let i = 0; i < currentCast.length; i++) {
         allQueens.splice(allQueens.indexOf(currentCast[i]), 1);
     }
+    chosenQueen.push(allQueens[randomNumber(0, allQueens.length - 1)]);
+    }
+    let assassin = chosenQueen[0];
     let queenWin = [];
     queenWin.push(top2[0]);
-    let assassin = allQueens[randomNumber(0, allQueens.length - 1)];
     bottomQueens.sort((a, b) => b.votes - a.votes);
         if (bottomQueens[0].votes == bottomQueens[1].votes) {
         assassin.lipstick = top2[0].lipstick;
@@ -29094,6 +29188,7 @@ function lsaLipSync() {
     }
     lsaQueen.push(assassin);
     allQueens.splice(allQueens.indexOf(assassin), 1);
+    chosenQueen = [];
 }
 class Queen {
     constructor(name, acting, comedy, vocal, dance, lyrical, design, improv, runway, lipsync, image = "noimage", custom = false) {
