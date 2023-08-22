@@ -8557,7 +8557,7 @@ function queensPerformances() {
     let flop = topQueens.filter(function (queen) { return queen.performanceScore >= 31; });
     createPerformanceDesc(slay, great, good, bad, flop);
     }
-    if (famegames == true && ballChallenge == true) {
+    if (famegames == true && ballChallenge == true && splitpremiere == false && eliminatedCast.length > 0) {
         ballChallenge = false;
         famegamesCounter++;
         performanceScreen.createHorizontalLine();
@@ -26353,6 +26353,7 @@ function assassinQueen() {
     select.remove();
     screen.createBold(queen.getName() + " was the chosen lipsync assassin!");
     chosenQueen.push(queen);
+    lsaPool = [];
     screen.createButton("Proceed", "lsaLipSync()");
 }
 let bringbackImmune = false;
